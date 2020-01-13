@@ -77,13 +77,13 @@ class Market {
       if (this.weekend.includes(dayOfWeek) || this.holidays[0].includes(yearDayMonth)) {
         this.setBackgroundColor(`${this.id}-wrapper`, this.colors.red)
         this.setColor(`${this.id}-wrapper`, this.colors.black)
-        this.setTextContent(`${this.id}-open`, `Trades next weekday at ${this.open} - ${this.close}`)
+        this.setTextContent(`${this.id}-open`, `Trades next weekday: ${this.open} - ${this.close}`)
 
         // Closed hours  
       } else if (hoursMinutes < this.open || hoursMinutes >= this.close) {
         this.setBackgroundColor(`${this.id}-wrapper`, this.colors.red)
         this.setColor(`${this.id}-wrapper`, this.colors.black)
-        this.setTextContent(`${this.id}-open`, `Trades next weekday at ${this.open} - ${this.close}`)
+        this.setTextContent(`${this.id}-open`, `Trades next weekday: ${this.open} - ${this.close}`)
 
         // Halfday
       } else if (this.halfDays.includes(yearDayMonth)) {
