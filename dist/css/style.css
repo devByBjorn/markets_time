@@ -93,3 +93,31 @@ body {
   border-color: #FDFFFC;
 }
 
+/* Media queries*/
+@media(max-width : 500px) {
+  #markets {
+    flex-direction: column;
+  }
+
+  #markets .wrapper {
+    padding: 4rem;
+  }
+
+  #markets .container {
+    margin-right: 1rem;
+  }
+
+  #markets .h1 {
+  font-size: 3rem;
+  }
+
+  #markets .open {
+  font-size: 1.5rem;
+  padding: 1rem 0;
+  }
+
+  #markets .time {
+  padding: 1rem;
+  font-size: 6rem;
+  }
+}
