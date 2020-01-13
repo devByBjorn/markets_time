@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+#color-sec { 
+  width: 30rem;
+  margin: 0 auto;
+}
+
+#color-sec .container {
+  display: flex;
+  justify-content: center;
+}
+
+#color-sec p {
+  padding: 1rem;
+  width: 10rem;
+  text-align: center;
+  font-size: 2rem;
+}
+
+#color-sec .closed {
+  background-color: #BF211E;
+}
+
+#color-sec .halfday {
+  background-color: #FFA630;
+}
+
+#color-sec .open {
+  background-color: #44AF69;
+}
+
+#color-sec #seconds {
+  padding: 1rem 0;
+  font-size: 4rem;
+}
+
+#markets {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+#markets .wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 5rem;
+  margin: 1rem 0rem 1rem 1rem;
+  border: 1px solid black;
+}
+
+#markets .h1 {
+  font-size: 5rem;
+}
+
+#markets .open {
+  font-size: 1.8rem;
+  padding: 1rem 0;
+}
+
+#markets .time {
+  padding: 1rem;
+  font-size: 10rem;
+  border-top: 1px solid black;
+}
+
+#markets .info {
+  display: none;
+}
+
+#markets .info-btn {
+  padding: 1rem 0;
+  border: 1px solid black;
+  font-weight: 400;
+  background-color: transparent;
+}
+
+#markets .info-btn:hover {
+  cursor: pointer;
+  border-color: #FDFFFC;
+}
+
