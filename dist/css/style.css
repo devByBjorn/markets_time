@@ -51,10 +51,15 @@ body {
  display: flex;
  justify-content: center;
  align-items: center;
+ padding: 1rem;
+ max-width: 102rem;
+ margin: 0 auto;
 }
+
 
 #markets .wrapper {
   display: flex;
+  height: 40rem;
   flex-direction: column;
   text-align: center;
   padding: 5rem;
@@ -94,13 +99,14 @@ body {
 }
 
 /* Media queries*/
-@media(max-width : 500px) {
+@media(max-width : 500px){
   #markets {
     flex-direction: column;
   }
 
   #markets .wrapper {
     padding: 4rem;
+    height: auto;
   }
 
   #markets .container {
@@ -121,3 +127,5 @@ body {
   font-size: 6rem;
   }
 }
+
+
