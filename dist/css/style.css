@@ -13,33 +13,20 @@ body {
   font-family: sans-serif;
 }
 
-#color-sec { 
-  width: 30rem;
-  margin: 0 auto;
+/* Controlling seconds*/
+
+.hide {
+  margin-right: -200px;
 }
 
-#color-sec .container {
-  display: flex;
-  justify-content: center;
+.show {
+  margin-right: 0;
 }
 
-#color-sec p {
-  padding: 1rem;
-  width: 10rem;
-  text-align: center;
-  font-size: 2rem;
-}
-
-#color-sec .closed {
-  background-color: #BF211E;
-}
-
-#color-sec .halfday {
-  background-color: #FFA630;
-}
-
-#color-sec .open {
-  background-color: #44AF69;
+.seconds-control {
+  position: fixed;
+  right: 1rem;
+  top: 5rem;
 }
 
 #seconds {
@@ -50,6 +37,43 @@ body {
   font-size: 4rem;
 }
 
+.hide-show {
+  font-size: 1.5rem;
+  margin-left: .5rem;
+}
+  
+/* Color explination at top of Window*/
+#color { 
+  width: 30rem;
+  margin: 0 auto;
+}
+
+#color .container {
+  display: flex;
+  justify-content: center;
+}
+
+#color p {
+  padding: 1rem;
+  width: 10rem;
+  text-align: center;
+  font-size: 2rem;
+}
+
+#color .closed {
+  background-color: #BF211E;
+}
+
+#color .halfday {
+  background-color: #FFA630;
+}
+
+#color .open {
+  background-color: #44AF69;
+}
+
+
+/* Main content - Markets*/
 #markets {
   display: grid;
   gap: 1rem;
@@ -98,8 +122,10 @@ body {
   border-color: #FDFFFC;
 }
 
-/* Media queries*/
 
+
+
+/* Media queries*/
 /* Ipad*/
 @media(max-width: 1024px) {
   #markets {
@@ -110,8 +136,6 @@ body {
     padding: 3rem;
     height: auto;
   }
-
-
 }
 
 
@@ -148,6 +172,20 @@ body {
   #seconds {
     top: 3rem;;
     font-size: 3rem;
+  }
+
+  .seconds-control {
+    display: flex;
+    flex-direction: column;
+    right: 1.2rem;
+    top: 8rem;
+  }
+
+  .seconds-control .hide-show {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    margin-top: .5rem;
+    margin-left: 0;
   }
 }
 
