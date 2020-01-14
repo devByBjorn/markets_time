@@ -105,7 +105,7 @@ class Market {
         this.setColor(`${this.id}-wrapper`, this.colors.white)
       }
 
-    }, 10)
+    }, 1000)
   }
 
   // Summury of halfdays and holidays
