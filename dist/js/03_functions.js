@@ -7,18 +7,18 @@
 }())
 
 
-// Function for hide, show and change textContent
-const addhideShow = (element, hideOrShow) => {
-  document.querySelector(element).classList.add(hideOrShow)
-}
+// Function for hide, show and change textContent - used for seconds hide/show checbox
+// const addhideShow = (element, hideOrShow) => {
+//   document.querySelector(element).classList.add(hideOrShow)
+// }
 
-const removeAddSHow = (element, hideOrShow) => {
-  document.querySelector(element).classList.remove(hideOrShow)
-}
+// const removeAddSHow = (element, hideOrShow) => {
+//   document.querySelector(element).classList.remove(hideOrShow)
+// }
 
-const changeContent = (element, content) => {
-  document.querySelector(element).textContent = content
-}
+// const changeContent = (element, content) => {
+//   document.querySelector(element).textContent = content
+// }
 
 // Hide or show seconds when checking checkbox
 // document.querySelector('#control-seconds').addEventListener('change', (e) => {

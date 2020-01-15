@@ -96,8 +96,10 @@ body {
 }
 
 #markets .open {
-  font-size: 1.8rem;
+  font-size: 2rem;
   padding: 1rem 0;
+  max-width: 19.5rem;
+  margin: auto;
 }
 
 #markets .time {

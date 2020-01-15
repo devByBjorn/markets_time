@@ -78,13 +78,13 @@ class Market {
       if (this.weekend.includes(dayOfWeek) || this.holidays[0].includes(yearDayMonth)) {
         this.setBackgroundColor(`${this.id}-wrapper`, this.colors.red)
         this.setColor(`${this.id}-wrapper`, this.colors.black)
-        this.setTextContent(`${this.id}-open`, `Trades next weekday: ${this.open} - ${this.close}`)
+        this.setTextContent(`${this.id}-open`, `${this.open} - ${this.close}`)
 
         // Closed hours  
       } else if (hoursMinutes < this.open || hoursMinutes >= this.close) {
         this.setBackgroundColor(`${this.id}-wrapper`, this.colors.red)
         this.setColor(`${this.id}-wrapper`, this.colors.black)
-        this.setTextContent(`${this.id}-open`, `Trades next weekday: ${this.open} - ${this.close}`)
+        this.setTextContent(`${this.id}-open`, `${this.open} - ${this.close}`)
 
         // Halfday
       } else if (this.halfDays[0].includes(yearDayMonth)) {
@@ -98,7 +98,7 @@ class Market {
             halfDayClose = '13:00'
         }
 
-        this.setTextContent(`${this.id}-open`, `Half day trading: ${this.open} - ${halfDayClose}`)
+        this.setTextContent(`${this.id}-open`, `Half day trading:${this.open} - ${halfDayClose}`)
         this.setBackgroundColor(`${this.id}-wrapper`, 'orange')
 
         if (hoursMinutes < halfDayClose) {
@@ -107,12 +107,12 @@ class Market {
         } else if (hoursMinutes > halfDayClose) {
           this.setBackgroundColor(`${this.id}-wrapper`, this.colors.red)
           this.setColor(`${this.id}-wrapper`, this.colors.black)
-          this.setTextContent(`${this.id}-open`, `Trades next weekday: ${this.open} - ${this.close}`)
+          this.setTextContent(`${this.id}-open`, `${this.open} - ${this.close}`)
         }
 
         // Opening Hours
       } else {
-        this.setTextContent(`${this.id}-open`, `Regular trading: ${this.open} - ${this.close}`)
+        this.setTextContent(`${this.id}-open`, `${this.open} - ${this.close}`)
         this.setBackgroundColor(`${this.id}-wrapper`, this.colors.green)
         this.setColor(`${this.id}-wrapper`, this.colors.white)
       }
@@ -164,7 +164,7 @@ class MarketWithLunch extends Market {
       if (hoursMinutes > this.lunchStart && hoursMinutes < this.lunchEnd) {
         this.setBackgroundColor(`${this.id}-wrapper`, this.colors.red)
         this.setColor(`${this.id}-wrapper`, this.colors.black)
-        this.setTextContent(`${this.id}-open`, `Closed for lunch: ${this.lunchStart} - ${this.lunchEnd}`)
+        this.setTextContent(`${this.id}-open`, `Lunch: ${this.lunchStart} - ${this.lunchEnd}`)
       }
     }, 1000)
   }

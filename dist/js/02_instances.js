@@ -71,6 +71,27 @@ frankfurt.contentAndColor()
 frankfurt.getSummary()
 frankfurt.getSummaryModal()
 
+// Hong Kong
+const hongkong = new MarketWithLunch('Asia', 'Hong_Kong', '09:00', '16:00', '12:00', '13:00')
+hongkong.setHolidays([
+  'Jan 1',
+  'Jan 24',
+  'Apr 10',
+  'Apr 13',
+  'Apr 30',
+  'May 1',
+  'Jun 25',
+  'Jul 1',
+  'Oct 1',
+  'Oct 2',
+  'Oct 26',
+  'Dec 31'
+])
+
+hongkong.contentAndColor()
+hongkong.getSummary()
+hongkong.getSummaryModal()
+
 
 // Tokyo
 const tokyo = new MarketWithLunch('Asia', 'Tokyo', '09:00', '15:00', '11:30', '12:30')
@@ -99,28 +120,3 @@ tokyo.setHolidays([
 tokyo.contentAndColor()
 tokyo.getSummary()
 tokyo.getSummaryModal()
-
-
-// Hong Kong
-const hongkong = new MarketWithLunch('Asia', 'Hong_Kong', '09:00', '16:00', '12:00', '13:00')
-hongkong.setHolidays([
-  'Jan 1',
-  'Jan 24',
-  'Apr 10',
-  'Apr 13',
-  'Apr 30',
-  'May 1',
-  'Jun 25',
-  'Jul 1',
-  'Oct 1',
-  'Oct 2',
-  'Oct 26',
-  'Dec 31'
-])
-
-hongkong.contentAndColor()
-hongkong.getSummary()
-hongkong.getSummaryModal()
-
-
-
