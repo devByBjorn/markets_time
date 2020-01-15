@@ -36,10 +36,11 @@ body {
 /* Ticking seconds in top right corner */
 #seconds {
   position: fixed;
-  right: 1rem;
+  right: 0;
   top: 0;
-  padding-top: 1rem;
+  padding: 1rem;
   font-size: 4rem;
+  background-color: rgba(244,244,244, .4);
 }
   
 /* Color explination at top of Window*/
@@ -200,6 +201,7 @@ body {
   }
 }
 
+
 /* Mobile */
 @media(max-width : 500px){
   #markets {
@@ -233,6 +235,8 @@ body {
   #seconds {
     top: 3rem;;
     font-size: 3rem;
+    background-color: rgba(244,244,244);
+    border-radius: 50%;
   }
 
   .seconds-control {
@@ -251,3 +255,8 @@ body {
 }
 
 
+@media(max-height: 500px) {
+  #seconds {
+    border-radius: 50%;
+  }
+}

@@ -6,7 +6,6 @@
   setTimeout(tickingSeconds, 1000)
 }())
 
-
 // Function for hide, show and change textContent - used for seconds hide/show checbox
 // const addhideShow = (element, hideOrShow) => {
 //   document.querySelector(element).classList.add(hideOrShow)
