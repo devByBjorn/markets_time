@@ -14,8 +14,7 @@ body {
 }
 
 /* Controlling seconds*/
-
-.hide {
+/* .hide {
   margin-right: -200px;
 }
 
@@ -27,19 +26,20 @@ body {
   position: fixed;
   right: 1rem;
   top: 5rem;
-}
+} 
 
+ .hide-show {
+  font-size: 1.5rem;
+  margin-left: .5rem;
+} */
+
+/* Ticking seconds in top right corner */
 #seconds {
   position: fixed;
   right: 1rem;
   top: 0;
   padding-top: 1rem;
   font-size: 4rem;
-}
-
-.hide-show {
-  font-size: 1.5rem;
-  margin-left: .5rem;
 }
   
 /* Color explination at top of Window*/
@@ -106,10 +106,6 @@ body {
   border-top: 1px solid black;
 }
 
-#markets .info {
-  display: none;
-}
-
 #markets .info-btn {
   padding: 1rem 0;
   border: 1px solid black;
@@ -122,7 +118,71 @@ body {
   border-color: #FDFFFC;
 }
 
+/* Modal window pop up on info btn click*/
+#markets .modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: rgba(0,0,0);
+  background-color: rgba(0,0,0,.4);
+}
 
+/* Info square when modal is open*/
+/* relative for close button to be absolute inside info box*/
+.modal .info {
+  position: relative;
+  background-color: #fefefe;
+  color: #333;
+  margin: 15% auto;
+  padding: 5rem;
+  width: 80%;
+}
+
+.modal .info span {
+  display: block;
+}
+
+/* No trading - Half day*/
+.modal .info span:nth-child(odd) {
+  font-weight: bold;
+  padding: 2rem 0 .5rem 0;
+  background-color: #f4f4f4;
+
+}
+
+/* Date specifics*/
+.modal .info span:nth-child(even) {
+  padding: .5rem 2rem .5rem 2rem;
+  line-height: 1.5;
+  background-color: #f4f4f4;
+}
+
+.modal .info p {
+  padding: 1rem;
+  font-size: 2rem;
+}
+
+.modal .info p span:nth-child(even) {
+  padding-bottom: 2rem;
+}
+
+.modal .close {
+  position: absolute;
+  top: 0;
+  right: 1rem;
+  color: #333;
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+.modal .close:hover,
+.modal .close:focus {
+  cursor: pointer;
+}
 
 
 /* Media queries*/
@@ -137,7 +197,6 @@ body {
     height: auto;
   }
 }
-
 
 /* Mobile */
 @media(max-width : 500px){

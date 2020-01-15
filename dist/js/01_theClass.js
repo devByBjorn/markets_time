@@ -38,35 +38,36 @@ class Market {
     return moment.tz(`${this.region}/${this.city.replace(' ', '_')}`).format(format)
   }
 
-  // Sett holidays
-  setHolidays(holidays) {
-    this.holidays.splice(0, 1, holidays)
+  // Set holidays
+  setHolidays(holiday) {
+    return this.holidays.splice(0, 1, holiday.join(' | '))
   }
 
   // Set halfdays
-  setHalfDays(halfDays) {
-    this.halfDays.splice(0, 1, halfDays)
+  setHalfDays(halfDay) {
+    return this.halfDays.splice(0, 1, halfDay.join(' | '))
   }
 
   // Methods for manipulating DOM structure by id
   setColor = (id, color) => {
-    document.querySelector(`#${id}`).style.color = color
+    document.getElementById(`${id}`).style.color = color
   }
 
   // Set background-color by id
   setBackgroundColor = (id, color) => {
-    document.querySelector(`#${id}`).style.backgroundColor = color
+    document.getElementById(`${id}`).style.backgroundColor = color
   }
 
   // Set text content by id
   setTextContent = (id, content) => {
-    document.querySelector(`#${id}`).textContent = content
+    document.getElementById(`${id}`).textContent = content
   }
 
   // Manipulating HTML DOM, content and color, depending on market status(closed,open,halfday,holiday)
   contentAndColor() {
     const dayOfWeek = this.getTime('ddd');
-    const yearDayMonth = this.getTime('YYYY-MM-DD');
+    const yearDayMonth = this.getTime('MMM D');
+
 
     // For some reason it seems like moment.tz() needs to be triggered for time to update in DOM. If you have a look at moments own page regarding timezones, the clock on the first page does not update automaticly if no event is triggered(display other timezone i their case)
     setInterval(() => {
@@ -86,19 +87,30 @@ class Market {
         this.setTextContent(`${this.id}-open`, `Trades next weekday: ${this.open} - ${this.close}`)
 
         // Halfday
-      } else if (this.halfDays.includes(yearDayMonth)) {
-        this.close = '13:00'
-        this.setTextContent(`${this.id}-open`, `Half day trading: ${this.open} - ${this.close}`)
+      } else if (this.halfDays[0].includes(yearDayMonth)) {
 
-        if (hoursMinutes < this.close) {
-          this.setBackgroundColor(`${this.id}-wrapper`, 'orange')
-          this.setColor(`${this.id}-wrapper`, this.colors.white)
-        } else if (hoursMinutes > this.close) {
-          this.setBackgroundColor(`${this.id}-wrapper`, this.colors.red)
-          this.setColor(`${this.id}-wrapper`, this.colors.black)
+        let halfDayClose = this.close
+
+        switch (this.id) {
+          case 'London':
+            halfDayClose = '12:30'
+          default:
+            halfDayClose = '13:00'
         }
 
-        // Open Hours
+        this.setTextContent(`${this.id}-open`, `Half day trading: ${this.open} - ${halfDayClose}`)
+        this.setBackgroundColor(`${this.id}-wrapper`, 'orange')
+
+        if (hoursMinutes < halfDayClose) {
+          this.setBackgroundColor(`${this.id}-wrapper`, 'orange')
+          this.setColor(`${this.id}-wrapper`, this.colors.white)
+        } else if (hoursMinutes > halfDayClose) {
+          this.setBackgroundColor(`${this.id}-wrapper`, this.colors.red)
+          this.setColor(`${this.id}-wrapper`, this.colors.black)
+          this.setTextContent(`${this.id}-open`, `Trades next weekday: ${this.open} - ${this.close}`)
+        }
+
+        // Opening Hours
       } else {
         this.setTextContent(`${this.id}-open`, `Regular trading: ${this.open} - ${this.close}`)
         this.setBackgroundColor(`${this.id}-wrapper`, this.colors.green)
@@ -108,15 +120,37 @@ class Market {
     }, 1000)
   }
 
-  // Summury of halfdays and holidays
+  // Summury of half days and holidays
   getSummary() {
+    const container = document.getElementById(`${this.id}-info`)
+    const halfDays = document.createElement('p')
+    const holidays = document.createElement('p')
 
-    return `<p>Half day trading: ${this.halfDays}</p>
-    <p>No trading: ${this.holidays}</p>`
+    halfDays.innerHTML = `<span>Half day trading</span><span>${this.halfDays}</span>`
+    holidays.innerHTML = `<span>No trading</span><span>${this.holidays}</span>`
+
+    container.appendChild(holidays)
+    container.appendChild(halfDays)
+
+    return container
+  }
+
+  // displaying modal with half days and holidays info
+  getSummaryModal() {
+    const infoBtn = document.getElementById(`${this.id}-btn`)
+    const closeBtn = document.getElementById(`${this.id}-close`)
+
+    infoBtn.onclick = () => {
+      document.getElementById(`${this.id}-modal`).style.display = 'block'
+    }
+
+    closeBtn.onclick = () => {
+      document.getElementById(`${this.id}-modal`).style.display = 'none'
+    }
   }
 }
 
-// subclass for markets closed  during lunch hours
+// Subclass for markets closed  during lunch hours
 class MarketWithLunch extends Market {
   constructor(region, city, open, close, lunchStart, lunchEnd) {
     super(region, city, open, close)
@@ -132,7 +166,7 @@ class MarketWithLunch extends Market {
         this.setColor(`${this.id}-wrapper`, this.colors.black)
         this.setTextContent(`${this.id}-open`, `Closed for lunch: ${this.lunchStart} - ${this.lunchEnd}`)
       }
-    }, 10)
+    }, 1000)
   }
 }
 
