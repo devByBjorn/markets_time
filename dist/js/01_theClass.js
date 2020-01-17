@@ -49,17 +49,17 @@ class Market {
   }
 
   // Methods for manipulating DOM structure by id
-  setColor = (id, color) => {
+  setColor(id, color) {
     document.getElementById(`${id}`).style.color = color
   }
 
   // Set background-color by id
-  setBackgroundColor = (id, color) => {
+  setBackgroundColor(id, color) {
     document.getElementById(`${id}`).style.backgroundColor = color
   }
 
   // Set text content by id
-  setTextContent = (id, content) => {
+  setTextContent(id, content) {
     document.getElementById(`${id}`).textContent = content
   }
 
