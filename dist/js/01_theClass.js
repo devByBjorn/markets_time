@@ -78,13 +78,13 @@ class Market {
       if (this.weekend.includes(dayOfWeek) || this.holidays[0].includes(yearDayMonth)) {
         this.setBackgroundColor(`${this.id}-wrapper`, this.colors.red)
         this.setColor(`${this.id}-wrapper`, this.colors.black)
-        this.setTextContent(`${this.id}-open`, `${this.open} - ${this.close}`)
+        this.setTextContent(`${this.id}-open`, `Weekend`)
 
         // Closed hours  
       } else if (hoursMinutes < this.open || hoursMinutes >= this.close) {
         this.setBackgroundColor(`${this.id}-wrapper`, this.colors.red)
         this.setColor(`${this.id}-wrapper`, this.colors.black)
-        this.setTextContent(`${this.id}-open`, `${this.open} - ${this.close}`)
+        this.setTextContent(`${this.id}-open`, `Closed`)
 
         // Halfday
       } else if (this.halfDays[0].includes(yearDayMonth)) {
@@ -99,10 +99,10 @@ class Market {
         }
 
         this.setTextContent(`${this.id}-open`, `Half day trading:${this.open} - ${halfDayClose}`)
-        this.setBackgroundColor(`${this.id}-wrapper`, 'orange')
+        this.setBackgroundColor(`${this.id}-wrapper`, this.colors.orange)
 
         if (hoursMinutes < halfDayClose) {
-          this.setBackgroundColor(`${this.id}-wrapper`, 'orange')
+          this.setBackgroundColor(`${this.id}-wrapper`, this.colors.orange)
           this.setColor(`${this.id}-wrapper`, this.colors.white)
         } else if (hoursMinutes > halfDayClose) {
           this.setBackgroundColor(`${this.id}-wrapper`, this.colors.red)
@@ -120,15 +120,30 @@ class Market {
     }, 1000)
   }
 
-  // Summury of half days and holidays
-  getSummary() {
+  // Summury inside of modal
+  setSummary() {
     const container = document.getElementById(`${this.id}-info`)
+    const header = document.createElement('h3')
+    const openingHours = document.createElement('p')
+    const weekend = document.createElement('p')
     const halfDays = document.createElement('p')
     const holidays = document.createElement('p')
 
+    // Make sure lunchhour trading is taken into account
+    if (this.lunchStart && this.lunchEnd) {
+      openingHours.innerHTML = `<span>Trading hours</span><span>${this.open} - ${this.lunchEnd} | ${this.lunchEnd} - ${this.close}</<span>`
+    } else {
+      openingHours.innerHTML = `<span>Trading hours</span><span>${this.open} - ${this.close}</<span>`
+    }
+
+    header.textContent = `${this.city.replace('-', ' ')}`
+    weekend.innerHTML = `<span>Weekend</span><span>${this.weekend.join(' | ')}</<span>`
     halfDays.innerHTML = `<span>Half day trading</span><span>${this.halfDays}</span>`
     holidays.innerHTML = `<span>No trading</span><span>${this.holidays}</span>`
 
+    container.appendChild(header)
+    container.appendChild(openingHours)
+    container.appendChild(weekend)
     container.appendChild(holidays)
     container.appendChild(halfDays)
 
@@ -139,13 +154,14 @@ class Market {
   getSummaryModal() {
     const infoBtn = document.getElementById(`${this.id}-btn`)
     const closeBtn = document.getElementById(`${this.id}-close`)
+    const modal = document.getElementById(`${this.id}-modal`)
 
     infoBtn.onclick = () => {
-      document.getElementById(`${this.id}-modal`).style.display = 'block'
+      modal.style.display = 'block'
     }
 
     closeBtn.onclick = () => {
-      document.getElementById(`${this.id}-modal`).style.display = 'none'
+      modal.style.display = 'none'
     }
   }
 }

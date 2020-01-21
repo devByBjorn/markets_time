@@ -1,7 +1,7 @@
 'use strict'
 // New York
 const newYork = new Market('America', 'New_York', '09:30', '16:00')
-console.log(newYork.setHolidays([
+newYork.setHolidays([
   'Jan 1',
   'Jan 20',
   'Feb 17',
@@ -9,10 +9,10 @@ console.log(newYork.setHolidays([
   'May 25',
   'Jul 3',
   'Sep 7',
-]))
-console.log(newYork.setHalfDays(['Nov 26', 'Dec 24']))
+])
+newYork.setHalfDays(['Nov 26', 'Dec 24'])
 newYork.contentAndColor()
-newYork.getSummary()
+newYork.setSummary()
 newYork.getSummaryModal()
 
 
@@ -28,9 +28,9 @@ london.setHolidays([
   'Dec 25',
   'Dec 28'
 ])
-london.setHalfDays(['Dec 31', 'Dec 24'])
+london.setHalfDays(['Dec 24', 'Dec 31'])
 london.contentAndColor()
-london.getSummary()
+london.setSummary()
 london.getSummaryModal()
 
 
@@ -50,7 +50,7 @@ stockholm.setHolidays([
 stockholm.setHalfDays(['Apr 9', 'Apr 30', 'May 20', 'Oct 30'])
 
 stockholm.contentAndColor()
-stockholm.getSummary()
+stockholm.setSummary()
 stockholm.getSummaryModal()
 
 
@@ -68,7 +68,7 @@ frankfurt.setHolidays([
 ])
 
 frankfurt.contentAndColor()
-frankfurt.getSummary()
+frankfurt.setSummary()
 frankfurt.getSummaryModal()
 
 // Hong Kong
@@ -89,7 +89,7 @@ hongkong.setHolidays([
 ])
 
 hongkong.contentAndColor()
-hongkong.getSummary()
+hongkong.setSummary()
 hongkong.getSummaryModal()
 
 
@@ -118,5 +118,5 @@ tokyo.setHolidays([
 ])
 
 tokyo.contentAndColor()
-tokyo.getSummary()
+tokyo.setSummary()
 tokyo.getSummaryModal()

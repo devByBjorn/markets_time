@@ -78,8 +78,9 @@ body {
 #markets {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(3, 1fr);
-  max-width: 1300px;
+  /* /* grid-template-columns: repeat(3, 1fr); */
+  max-width: 1200px;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 2fr));
   margin: 5rem auto;
   padding: 1rem;
 }
@@ -87,6 +88,7 @@ body {
 #markets .wrapper {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   text-align: center;
   padding: 5rem;
   border: 1px solid black;
@@ -94,12 +96,12 @@ body {
 
 #markets .h1 {
   font-size: 5rem;
+  white-space: nowrap;
 }
 
 #markets .open {
   font-size: 2rem;
   padding: 1rem 0;
-  max-width: 19.5rem;
   margin: auto;
 }
 
@@ -142,7 +144,12 @@ body {
   color: #333;
   margin: 15% auto;
   padding: 5rem;
-  width: 80%;
+  max-width: 90rem;
+}
+
+.modal h3 {
+  font-size: 3rem;
+  font-weight: 900;
 }
 
 .modal .info span {
@@ -188,13 +195,9 @@ body {
 }
 
 
-/* Media queries*/
+/* Media queries and desktop*/
 /* Ipad*/
-@media(max-width: 1024px) {
-  #markets {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
+@media(max-width: 1280px) {
   #markets .wrapper {
     padding: 3rem;
     height: auto;
@@ -204,11 +207,6 @@ body {
 
 /* Mobile */
 @media(max-width : 500px){
-  #markets {
-    grid-template-columns: repeat(1, 1fr);
-    margin: 2rem;
-  }
-
   #markets .wrapper {
     padding: 4rem;
     height: auto;
@@ -255,6 +253,7 @@ body {
 }
 
 
+/* Mobile landscape*/
 @media(max-height: 500px) {
   #seconds {
     border-radius: 50%;
