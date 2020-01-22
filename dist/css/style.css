@@ -35,7 +35,7 @@ body {
   background-color: rgba(0,0,0,.95);
   min-height: 100vh;
   width: 100vw;
-  background: url(/dist/img/nyseBlackBg.PNG) var(--bg-img-position);
+  background: url(../img/nyseBlackBg.PNG) var(--bg-img-position);
 }
 
 /* Ticking seconds in top right corner */
@@ -133,22 +133,22 @@ body {
 }
 
 #new-york-info {
-  background: url(/dist/img/nyseModal2.PNG) var(--bg-img-position);
+  background: url(../img/nyseModal2.PNG) var(--bg-img-position);
 }
 #london-info {
-  background: url(/dist/img/london.PNG) var(--bg-img-position);
+  background: url(../img/london.PNG) var(--bg-img-position);
 }
 #stockholm-info{
-  background: url(/dist/img/stockholm.PNG) var(--bg-img-position);
+  background: url(../img/stockholm.PNG) var(--bg-img-position);
 }
 #frankfurt-info {
-  background: url(/dist/img/frankfurt.PNG) var(--bg-img-position);
+  background: url(../img/frankfurt.PNG) var(--bg-img-position);
 }
 #hong-kong-info {
-  background: url(/dist/img/hongKong.PNG)var(--bg-img-position);
+  background: url(../img/hongKong.PNG)var(--bg-img-position);
 }
 #tokyo-info {
-  background: url(/dist/img/tokyo.PNG)var(--bg-img-position);
+  background: url(../img/tokyo.PNG)var(--bg-img-position);
 }
 
 .modal h3 {
@@ -220,7 +220,7 @@ body {
 @media(max-width : 500px){
 
   .container {
-    background: url(/dist/img/nyseBlackBg.PNG) repeat;
+    background: url(../img/nyseBlackBg.PNG) repeat;
   }
 
   #markets .wrapper {
