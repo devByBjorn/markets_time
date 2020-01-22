@@ -2,7 +2,7 @@
 (function tickingSeconds() {
   let seconds = moment().format('ss')
 
-  document.querySelector('#seconds').textContent = seconds
+  document.querySelector('#seconds').innerHTML = `<span>${seconds}</<span>`
   setTimeout(tickingSeconds, 1000)
 }())
 
@@ -12,4 +12,9 @@ window.onclick = (e) => {
     e.target.style.display = 'none'
   }
 }
+const currentYear = (id) => {
+  const copyYear = new Date().getFullYear();
+  document.getElementById(id).innerHTML = `<span>${copyYear}</<span>`;
+}
 
+currentYear('year')

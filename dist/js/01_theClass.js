@@ -10,7 +10,7 @@ class Market {
     this.holidays = ['No trading holidays']
     this.halfDays = ['No half day trading days']
     this.colors = {
-      red: '#BF211E',
+      red: 'rgba(191, 33, 30, .9)',
       green: '#44AF69',
       orange: '#FFA630',
       white: '#FDFFFC',
@@ -68,7 +68,7 @@ class Market {
     const dayOfWeek = this.getTime('ddd');
     const yearDayMonth = this.getTime('MMM D');
 
-
+    const infoBtn = document.getElementById(`${this.id}-btn`)
     // For some reason it seems like moment.tz() needs to be triggered for time to update in DOM. If you have a look at moments own page regarding timezones, the clock on the first page does not update automaticly if no event is triggered(display other timezone i their case)
     setInterval(() => {
       const hoursMinutes = this.getTime('HH:mm')
@@ -104,6 +104,8 @@ class Market {
         if (hoursMinutes < halfDayClose) {
           this.setBackgroundColor(`${this.id}-wrapper`, this.colors.orange)
           this.setColor(`${this.id}-wrapper`, this.colors.white)
+          infoBtn.style.borderColor = this.colors.white
+          infoBtn.style.color = this.colors.white
         } else if (hoursMinutes > halfDayClose) {
           this.setBackgroundColor(`${this.id}-wrapper`, this.colors.red)
           this.setColor(`${this.id}-wrapper`, this.colors.black)
@@ -115,6 +117,10 @@ class Market {
         this.setTextContent(`${this.id}-open`, `${this.open} - ${this.close}`)
         this.setBackgroundColor(`${this.id}-wrapper`, this.colors.green)
         this.setColor(`${this.id}-wrapper`, this.colors.white)
+        infoBtn.style.borderColor = this.colors.white
+        document.getElementById(`${this.id}-wrapper`).style.borderColor = this.colors.white
+        infoBtn.style.color = this.colors.white
+        infoBtn.style.boxShadow = '2px 2px 5px rgba(255, 255, 255, 0.4)'
       }
 
     }, 1000)

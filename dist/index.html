@@ -11,114 +11,116 @@
 
 <body>
 
-  <!-- Color explination -->
-  <!-- <div id="color">
-    <div class="container">
-      <p class="closed">Closed</p>
-      <p class="halfday">Half day</p>
-      <p class="open">Open</p>
-    </div>
-  </div> -->
+  <div class="container">
 
-  <!-- Seconds -->
-  <div class="seconds-container">
-    <div id="seconds"></div>
-    <!-- <div class="seconds-control">
-      <input id="control-seconds" class="show" type="checkbox"></input><span class="hide-show"></span>
-    </div> -->
+    <!-- Seconds -->
+    <div class="seconds-container">
+      <div id="seconds"></div>
+      <!-- <div class="seconds-control">
+    <input id="control-seconds" class="show" type="checkbox"></input><span class="hide-show"></span>
+  </div> -->
+    </div>
+
+    <!-- MAIN BEGINNING-->
+    <main id="markets">
+      <!-- NEW YORK-->
+      <div id="new-york-wrapper" class="wrapper">
+        <h1 id="new-york-heading" class="h1">New York</h1>
+        <p id="new-york-open" class="open"></p>
+        <h2 id="new-york" class="time"></h2>
+
+        <button id="new-york-btn" class="info-btn" href="#">Info</button>
+        <div id="new-york-modal" class="modal">
+          <div id="new-york-info" class="info">
+            <div id="new-york-close" class="close">&times;</div>
+          </div>
+        </div>
+
+
+      </div>
+
+      <!-- LONDON -->
+      <div id="london-wrapper" class="wrapper">
+        <h1 id="london-heading" class="h1">London</h1>
+        <p id="london-open" class="open"></p>
+        <h2 id="london" class="time"></h2>
+
+        <button id="london-btn" class="info-btn" href="#">Info</button>
+        <div id="london-modal" class="modal">
+          <div id="london-info" class="info">
+            <div id="london-close" class="close">&times;</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STOCKHOLM -->
+      <div id="stockholm-wrapper" class="wrapper">
+        <h1 id="stockholm-heading" class="h1">Stockholm</h1>
+        <p id="stockholm-open" class="open"></p>
+        <h2 id="stockholm" class="time"></h2>
+
+        <button id="stockholm-btn" class="info-btn" href="#">Info</button>
+        <div id="stockholm-modal" class="modal">
+          <div id="stockholm-info" class="info">
+            <div id="stockholm-close" class="close">&times;</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- FRANKFURT(Berlin in moment) -->
+      <div id="frankfurt-wrapper" class="wrapper">
+        <h1 id="frankfurt-heading" class="h1">Frankfurt</h1>
+        <p id="frankfurt-open" class="open"></p>
+        <h2 id="frankfurt" class="time"></h2>
+
+        <button id="frankfurt-btn" class="info-btn" href="#">Info</button>
+        <div id="frankfurt-modal" class="modal">
+          <div id="frankfurt-info" class="info">
+            <div id="frankfurt-close" class="close">&times;</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hong Kong -->
+      <div id="hong-kong-wrapper" class="wrapper">
+        <h1 id="hong-kong-heading" class="h1">Hong Kong</h1>
+        <p id="hong-kong-open" class="open"></p>
+        <h2 id="hong-kong" class="time"></h2>
+
+        <button id="hong-kong-btn" class="info-btn" href="#">Info</button>
+        <div id="hong-kong-modal" class="modal">
+          <div id="hong-kong-info" class="info">
+            <div id="hong-kong-close" class="close">&times;</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TOKYO -->
+      <div id="tokyo-wrapper" class="wrapper">
+        <h1 id="tokyo-heading" class="h1">Tokyo</h1>
+        <p id="tokyo-open" class="open"></p>
+        <h2 id="tokyo" class="time"></h2>
+
+        <button id="tokyo-btn" class="info-btn" href="#">Info</button>
+        <div id="tokyo-modal" class="modal">
+          <div id="tokyo-info" class="info">
+            <div id="tokyo-close" class="close">&times;</div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="year">
+      <p>2020</p>
+    </div>
+    <!-- MAIN END-->
+
+    <div id="year">
+
+    </div>
   </div>
 
-  <!-- MAIN BEGINNING-->
-  <main id="markets">
-    <!-- NEW YORK-->
-    <div id="new-york-wrapper" class="wrapper">
-      <h1 id="new-york-heading" class="h1">New York</h1>
-      <p id="new-york-open" class="open"></p>
-      <h2 id="new-york" class="time"></h2>
 
-      <button id="new-york-btn" class="info-btn" href="#">Info</button>
-      <div id="new-york-modal" class="modal">
-        <div id="new-york-info" class="info">
-          <div id="new-york-close" class="close">&times;</div>
-        </div>
-      </div>
-
-
-    </div>
-
-    <!-- LONDON -->
-    <div id="london-wrapper" class="wrapper">
-      <h1 id="london-heading" class="h1">London</h1>
-      <p id="london-open" class="open"></p>
-      <h2 id="london" class="time"></h2>
-
-      <button id="london-btn" class="info-btn" href="#">Info</button>
-      <div id="london-modal" class="modal">
-        <div id="london-info" class="info">
-          <div id="london-close" class="close">&times;</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- STOCKHOLM -->
-    <div id="stockholm-wrapper" class="wrapper">
-      <h1 id="stockholm-heading" class="h1">Stockholm</h1>
-      <p id="stockholm-open" class="open"></p>
-      <h2 id="stockholm" class="time"></h2>
-
-      <button id="stockholm-btn" class="info-btn" href="#">Info</button>
-      <div id="stockholm-modal" class="modal">
-        <div id="stockholm-info" class="info">
-          <div id="stockholm-close" class="close">&times;</div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- FRANKFURT(Berlin in moment) -->
-    <div id="frankfurt-wrapper" class="wrapper">
-      <h1 id="frankfurt-heading" class="h1">Frankfurt</h1>
-      <p id="frankfurt-open" class="open"></p>
-      <h2 id="frankfurt" class="time"></h2>
-
-      <button id="frankfurt-btn" class="info-btn" href="#">Info</button>
-      <div id="frankfurt-modal" class="modal">
-        <div id="frankfurt-info" class="info">
-          <div id="frankfurt-close" class="close">&times;</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Hong Kong -->
-    <div id="hong-kong-wrapper" class="wrapper">
-      <h1 id="hong-kong-heading" class="h1">Hong Kong</h1>
-      <p id="hong-kong-open" class="open"></p>
-      <h2 id="hong-kong" class="time"></h2>
-
-      <button id="hong-kong-btn" class="info-btn" href="#">Info</button>
-      <div id="hong-kong-modal" class="modal">
-        <div id="hong-kong-info" class="info">
-          <div id="hong-kong-close" class="close">&times;</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- TOKYO -->
-    <div id="tokyo-wrapper" class="wrapper">
-      <h1 id="tokyo-heading" class="h1">Tokyo</h1>
-      <p id="tokyo-open" class="open"></p>
-      <h2 id="tokyo" class="time"></h2>
-
-      <button id="tokyo-btn" class="info-btn" href="#">Info</button>
-      <div id="tokyo-modal" class="modal">
-        <div id="tokyo-info" class="info">
-          <div id="tokyo-close" class="close">&times;</div>
-        </div>
-      </div>
-
-    </div>
-  </main>
-  <!-- MAIN END-->
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
   <script
