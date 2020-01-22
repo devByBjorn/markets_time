@@ -154,6 +154,7 @@ body {
 .modal h3 {
   font-size: 3rem;
   font-weight: 900;
+  color: var(--color-black)
 }
 
 .modal .info span {
