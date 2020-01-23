@@ -12,27 +12,7 @@ newYork.setHolidays([
 ])
 newYork.setHalfDays(['Nov 26', 'Dec 24'])
 newYork.contentAndColor()
-newYork.setSummary()
-newYork.getSummaryModal()
-
-
-// London
-const london = new Market('Europe', 'London', '08:00', '16:30')
-london.setHolidays([
-  'Jan 1',
-  'Apr 10',
-  'Apr 13',
-  'May 8',
-  'May 25',
-  'Aug 31',
-  'Dec 25',
-  'Dec 28'
-])
-london.setHalfDays(['Dec 24', 'Dec 31'])
-london.contentAndColor()
-london.setSummary()
-london.getSummaryModal()
-
+newYork.openCLoseModal()
 
 // Stockholm
 const stockholm = new Market('Europe', 'Stockholm', '09:00', '17:30')
@@ -48,10 +28,25 @@ stockholm.setHolidays([
   'Dec 25',
   'Dec 31'])
 stockholm.setHalfDays(['Apr 9', 'Apr 30', 'May 20', 'Oct 30'])
-
 stockholm.contentAndColor()
-stockholm.setSummary()
-stockholm.getSummaryModal()
+stockholm.openCLoseModal()
+
+
+// London
+const london = new Market('Europe', 'London', '08:00', '16:30')
+london.setHolidays([
+  'Jan 1',
+  'Apr 10',
+  'Apr 13',
+  'May 8',
+  'May 25',
+  'Aug 31',
+  'Dec 25',
+  'Dec 28'
+])
+london.setHalfDays(['Jan 23', 'Dec 24', 'Dec 31'])
+london.contentAndColor()
+london.openCLoseModal()
 
 
 // Frankfurt
@@ -68,8 +63,7 @@ frankfurt.setHolidays([
 ])
 
 frankfurt.contentAndColor()
-frankfurt.setSummary()
-frankfurt.getSummaryModal()
+frankfurt.openCLoseModal()
 
 // Hong Kong
 const hongkong = new MarketWithLunch('Asia', 'Hong_Kong', '09:00', '16:00', '12:00', '13:00')
@@ -89,8 +83,7 @@ hongkong.setHolidays([
 ])
 
 hongkong.contentAndColor()
-hongkong.setSummary()
-hongkong.getSummaryModal()
+hongkong.openCLoseModal()
 
 
 // Tokyo
@@ -118,5 +111,5 @@ tokyo.setHolidays([
 ])
 
 tokyo.contentAndColor()
-tokyo.setSummary()
-tokyo.getSummaryModal()
+tokyo.openCLoseModal()
+

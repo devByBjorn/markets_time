@@ -63,10 +63,25 @@ class Market {
     document.getElementById(`${id}`).textContent = content
   }
 
+  //get halfday close
+  getHalfdayClose() {
+    let halfDayClose
+
+    if (this.city === 'London') {
+      halfDayClose = '12:30'
+    } else {
+      halfDayClose = '13:00'
+    }
+
+    return halfDayClose
+  }
+
   // Manipulating HTML DOM, content and color, depending on market status(closed,open,halfday,holiday)
   contentAndColor() {
     const dayOfWeek = this.getTime('ddd');
     const yearDayMonth = this.getTime('MMM D');
+
+    const halfDayClose = this.getHalfdayClose()
 
     const infoBtn = document.getElementById(`${this.id}-btn`)
     // For some reason it seems like moment.tz() needs to be triggered for time to update in DOM. If you have a look at moments own page regarding timezones, the clock on the first page does not update automaticly if no event is triggered(display other timezone i their case)
@@ -89,16 +104,7 @@ class Market {
         // Halfday
       } else if (this.halfDays[0].includes(yearDayMonth)) {
 
-        let halfDayClose = this.close
-
-        switch (this.id) {
-          case 'London':
-            halfDayClose = '12:30'
-          default:
-            halfDayClose = '13:00'
-        }
-
-        this.setTextContent(`${this.id}-open`, `Half day trading:${this.open} - ${halfDayClose}`)
+        this.setTextContent(`${this.id}-open`, `Half day trading: ${this.open} - ${halfDayClose}`)
         this.setBackgroundColor(`${this.id}-wrapper`, this.colors.orange)
 
         if (hoursMinutes < halfDayClose) {
@@ -126,16 +132,30 @@ class Market {
     }, 1000)
   }
 
-  // Summury inside of modal
+  // Summury DOM inside of modal
   setSummary() {
+    const modal = document.getElementById(`${this.id}-modal`)
     const container = document.getElementById(`${this.id}-info`)
+
     const header = document.createElement('h3')
     const openingHours = document.createElement('p')
+    const halfDayHours = document.createElement('p')
     const weekend = document.createElement('p')
     const halfDays = document.createElement('p')
     const holidays = document.createElement('p')
 
-    // Make sure lunchhour trading is taken into account
+    const closeBtn = document.createElement('div')
+    closeBtn.innerHTML = '&times;'
+    closeBtn.setAttribute('id', `${this.id}-close`)
+    closeBtn.setAttribute('class', 'close')
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none'
+    })
+
+    // Make sure modal info does not duplicate html structure on every open
+    container.innerHTML = ''
+
+    // Make sure lunch hour trading is taken into account
     if (this.lunchStart && this.lunchEnd) {
       openingHours.innerHTML = `<span>Trading hours</span><span>${this.open} - ${this.lunchStart} | ${this.lunchEnd} - ${this.close}</<span>`
     } else {
@@ -143,32 +163,27 @@ class Market {
     }
 
     header.textContent = `${this.city.replace('-', ' ')}`
+    halfDayHours.innerHTML = `<span>Half day trading hours</span><span>${this.halfDays}</span>`
     weekend.innerHTML = `<span>Weekend</span><span>${this.weekend.join(' | ')}</<span>`
     halfDays.innerHTML = `<span>Half day trading</span><span>${this.halfDays}</span>`
     holidays.innerHTML = `<span>No trading</span><span>${this.holidays}</span>`
+
 
     container.appendChild(header)
     container.appendChild(openingHours)
     container.appendChild(weekend)
     container.appendChild(holidays)
     container.appendChild(halfDays)
+    container.appendChild(closeBtn)
 
     return container
   }
 
-  // displaying modal with half days and holidays info
-  getSummaryModal() {
-    const infoBtn = document.getElementById(`${this.id}-btn`)
-    const closeBtn = document.getElementById(`${this.id}-close`)
-    const modal = document.getElementById(`${this.id}-modal`)
-
-    infoBtn.onclick = () => {
-      modal.style.display = 'block'
-    }
-
-    closeBtn.onclick = () => {
-      modal.style.display = 'none'
-    }
+  openCLoseModal() {
+    document.getElementById(`${this.id}-btn`).addEventListener('click', () => {
+      this.setSummary()
+      document.getElementById(`${this.id}-modal`).style.display = 'block'
+    })
   }
 }
 
