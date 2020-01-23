@@ -128,10 +128,10 @@ body {
   margin: 5% auto;
   padding: 5rem;
   max-width: 90rem;
-  box-shadow: 0px 3px 10px 0px rgba(255,255,255,1);
+  /* box-shadow: 0px 3px 10px 0px rgba(255,255,255,1); */
 }
 
-#new-york-info {
+/* #new-york-info {
   background: url(../img/nyseModal2.PNG) var(--bg-img-position);
 }
 #london-info {
@@ -148,7 +148,7 @@ body {
 }
 #tokyo-info {
   background: url(../img/tokyo.PNG)var(--bg-img-position);
-}
+} */
 
 .modal h3 {
   font-size: 3rem;
