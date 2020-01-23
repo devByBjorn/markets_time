@@ -14,7 +14,14 @@ window.onclick = (e) => {
 }
 const currentYear = (id) => {
   const copyYear = new Date().getFullYear();
-  document.getElementById(id).innerHTML = `<span>${copyYear}</<span>`;
+  document.getElementById(id).innerHTML = `<span>@${copyYear}</<span>`;
 }
-
 currentYear('year')
+
+/* Interval for loader*/
+setInterval(() => {
+  document.querySelector('.loader-container').style.display = 'none'
+}, 1500)
+
+
+
