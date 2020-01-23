@@ -44,7 +44,7 @@ london.setHolidays([
   'Dec 25',
   'Dec 28'
 ])
-london.setHalfDays(['Jan 23', 'Dec 24', 'Dec 31'])
+london.setHalfDays(['Dec 24', 'Dec 31'])
 london.contentAndColor()
 london.openCLoseModal()
 

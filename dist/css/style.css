@@ -12,6 +12,7 @@ body {
   box-sizing: border-box;
   font-family: sans-serif;
   background: black;
+  overflow-x: hidden;
 }
 
 :root {
@@ -58,7 +59,9 @@ body {
 #markets {
   display: grid;
   gap: 5px;
-  max-width: 150rem;
+  /* max-width: 150rem; */
+  max-width: 90vw;
+  min-height: 80vh;
   grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
   margin: 0 auto;
   padding: 1rem;
@@ -277,4 +280,29 @@ body {
 #tokyo-wrapper {
   grid-area: tokyo;
 }
+
+}
+
+@media(min-height: 1080px) {
+  
+#markets .h1 {
+  font-size: 8rem;
+  }
+  
+  #markets .open {
+    font-size: 4rem;
+  }
+  
+  #markets .time {
+  font-size: 20rem;
+  }
+  
+  #markets .info-btn {
+    font-size: 2rem;
+  }
+  
+  #seconds span,
+  #year span {
+    font-size: 10rem;
+  }
 }
