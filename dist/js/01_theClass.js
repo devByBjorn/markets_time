@@ -137,7 +137,7 @@ class Market {
 
     // Make sure lunchhour trading is taken into account
     if (this.lunchStart && this.lunchEnd) {
-      openingHours.innerHTML = `<span>Trading hours</span><span>${this.open} - ${this.lunchEnd} | ${this.lunchEnd} - ${this.close}</<span>`
+      openingHours.innerHTML = `<span>Trading hours</span><span>${this.open} - ${this.lunchStart} | ${this.lunchEnd} - ${this.close}</<span>`
     } else {
       openingHours.innerHTML = `<span>Trading hours</span><span>${this.open} - ${this.close}</<span>`
     }
