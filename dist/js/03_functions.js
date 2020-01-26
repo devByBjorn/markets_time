@@ -1,9 +1,9 @@
 // Ticking seconds and 'hide seconds' as textContent when opening page
-(function tickingSeconds() {
-  let seconds = moment().format('ss')
+(function currenTime() {
+  let seconds = moment().format('HH:mm:ss')
 
-  document.querySelector('#seconds').innerHTML = `<span>${seconds}</<span>`
-  setTimeout(tickingSeconds, 1000)
+  document.querySelector('.current-time').innerHTML = `<span>${seconds}</<span>`
+  setTimeout(currenTime, 1000)
 }())
 
 // Close modal on darken background

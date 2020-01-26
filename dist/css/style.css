@@ -25,6 +25,30 @@ body {
   --bg-img-position: no-repeat center center/cover;
 
   --heading-font-size: 5rem;
+  --sub-heading-size: 3rem;
+
+  --border-thin: 1px solid;
+}
+
+/* Header */
+#nav {
+  display: flex;
+  position: sticky;
+  width: 100vw;
+  justify-content: space-between;
+  padding: 1.5rem 3rem;
+  font-size: 3rem;
+  color: #958f8f;
+  border-bottom: var(--border-thin) #958f8f;
+}
+
+#nav .hamburger {
+  visibility: hidden;
+}
+
+#nav .hamburger:hover {
+  cursor: pointer;
+  color: var(--color-white);
 }
 
 /* loader*/
@@ -62,41 +86,21 @@ body {
 
 /* Main container */
 .container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
   background-color: rgba(0,0,0,.95);
   min-height: 100vh;
   width: 100vw;
-  background: url(../img/nyseBlackBg.PNG) var(--bg-img-position);
-}
-
-/* Ticking seconds in top right corner */
-#seconds {
-  text-align: center;
-  padding-top: 5rem;
-  background: transparent;
   margin: 0 auto;
-}
-
-#seconds span {
-  font-size: var(--heading-font-size);
-  color: var(--color-white);
-  font-weight: 900;
+  background: url(../img/nyseBlackBg.PNG) var(--bg-img-position);
 }
 
 /* Main content - Markets*/
 #markets {
   display: grid;
   gap: 5px;
-  /* max-width: 150rem; */
   max-width: 90vw;
-  /* min-height: 80vh; */
   grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
   margin: 0 auto;
   padding: 1rem;
-  padding-top: 2rem;
 }
 
 #markets .wrapper {
@@ -108,9 +112,30 @@ body {
   border: 1px solid;
 }
 
+/* Color themes based on trading hours*/
+.openForTrading {
+  background: var(--color-green);
+  color: var(--color-white);
+  border: var(--color-white) var(--border-thin)
+}
+
+.closedForTrading {
+  background: var(--color-red);
+  color: var(--color-black);
+  border: var(--color-black) var(--border-thin);
+}
+
+.halfDayTrading {
+  background: var(--color-orange);
+  color: var(--color-white);
+  border: var(--color-white) var(--border-thin);
+}
+
+/* General style inside market wrappers*/
 #markets .h1 {
   font-size: var(--heading-font-size);
   white-space: nowrap;
+  font-weight: 900;
 }
 
 #markets .open {
@@ -122,24 +147,36 @@ body {
 #markets .time {
   padding: 1rem;
   font-size: 10rem;
-  border-top: 1px solid var(--color-black);
+  border-top: 1px solid;
 }
 
 #markets .info-btn {
   padding: 1rem 0;
-  border: 1px solid var(--color-black);
   font-weight: 400;
-  font-size: 1.5rem;
+  font-size: 2rem;
   background-color: transparent;
   transition: all .5s;
 }
 
-#markets .info-btn:hover {
+.info-btn:hover {
   cursor: pointer;
   padding-bottom: 1rem;
-  border-color: #FDFFFC;
-  box-shadow: 1px 5px 5px rgba(218, 214, 214, 0.4)
+  box-shadow: 1px 5px 5px;
 }
+
+.openMarketBtn {
+  background: transparent;
+  border: var(--color-white) var(--border-thin);
+  color: var(--color-white);
+  box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.4);
+}
+
+.closedMarketBtn {
+  border: var(--color-black) var(--border-thin);
+  color: var(--color-black);
+  box-shadow: 2px 2px 5px rgba(0,0,0,.4);
+}
+
 
 /* Modal window pop up on info btn click*/
 #markets .modal {
@@ -164,25 +201,6 @@ body {
   max-width: 90rem;
   /* box-shadow: 0px 3px 10px 0px rgba(255,255,255,1); */
 }
-
-/* #new-york-info {
-  background: url(../img/nyseModal2.PNG) var(--bg-img-position);
-}
-#london-info {
-  background: url(../img/london.PNG) var(--bg-img-position);
-}
-#stockholm-info{
-  background: url(../img/stockholm.PNG) var(--bg-img-position);
-}
-#frankfurt-info {
-  background: url(../img/frankfurt.PNG) var(--bg-img-position);
-}
-#hong-kong-info {
-  background: url(../img/hongKong.PNG)var(--bg-img-position);
-}
-#tokyo-info {
-  background: url(../img/tokyo.PNG)var(--bg-img-position);
-} */
 
 .modal h3 {
   font-size: 3rem;
@@ -275,8 +293,9 @@ body {
     padding: 1rem;
   }
 
-  #seconds {
-    font-size: 3rem;
+  #markets .info-btn {
+    font-size: 1.5rem;
+    padding: .75rem;
   }
 }
 
@@ -326,8 +345,7 @@ body {
   #markets .info-btn {
     font-size: 2rem;
   }
-  
-  #seconds span,
+
   #year span {
     font-size: 10rem;
   }
@@ -335,6 +353,10 @@ body {
 }
 
 @media(min-width: 1950px){
+
+  .container {
+    margin-top: 5rem;
+  }
   
 #markets .h1 {
   font-size: 8rem;
@@ -352,7 +374,6 @@ body {
     font-size: 2rem;
   }
   
-  #seconds span,
   #year span {
     font-size: 10rem;
   }
