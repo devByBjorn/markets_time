@@ -86,20 +86,22 @@ body {
 
 /* Main container */
 .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 95vh;
   background-color: rgba(0,0,0,.95);
-  min-height: 100vh;
-  width: 100vw;
+  /* background: url(../img/nyseBlackBg.PNG) var(--bg-img-position); */
   margin: 0 auto;
-  background: url(../img/nyseBlackBg.PNG) var(--bg-img-position);
+  padding-bottom: 5rem; 
 }
 
 /* Main content - Markets*/
 #markets {
   display: grid;
   gap: 5px;
-  max-width: 90vw;
+  /* width: 100vw; */
   grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
-  margin: 0 auto;
   padding: 1rem;
 }
 
@@ -267,38 +269,41 @@ body {
 
 /* Media queries and desktop*/
 
-
-/* Mobile */
-@media(max-width : 500px){
-
-  .container {
-    background: url(../img/nyseBlackBg.PNG) repeat;
+/* tablets*/
+@media(min-width : 600px) {
+  #markets {
+    grid-template-areas:
+    "new-york stockholm"
+    "frankfurt london"
+    "hong-kong tokyo";
+   }
+  
+  #new-york-wrapper {
+    grid-area: new-york;
   }
-
-  #markets .wrapper {
-    padding: 4rem;
-    height: auto;
+  
+  #london-wrapper {
+    grid-area: london;
   }
-
-  #markets .h1 {
-  font-size: 3rem;
+  
+  #frankfurt-wrapper {
+    grid-area: frankfurt;
   }
-
-  #markets .time {
-  padding: 1rem;
-  font-size: 6rem;
+  
+  #stockholm-wrapper {
+    grid-area: stockholm;
   }
-
-  .modal .info {
-    padding: 1rem;
+  
+  #hong-kong-wrapper {
+    grid-area: hong-kong;
   }
-
-  #markets .info-btn {
-    font-size: 1.5rem;
-    padding: .75rem;
+  
+  #tokyo-wrapper {
+    grid-area: tokyo;
   }
 }
 
+/* Desktop*/
 @media(min-width: 1200px) {
  #markets {
   grid-template-areas:
@@ -352,6 +357,7 @@ body {
 
 }
 
+/* Big screens*/
 @media(min-width: 1950px){
 
   .container {
@@ -376,6 +382,37 @@ body {
   
   #year span {
     font-size: 10rem;
+  }
+}
+
+/* Mobile*/
+@media(max-width : 500px){
+
+  .container {
+    background: url(../img/nyseBlackBg.PNG) repeat;
+  }
+
+  #markets .wrapper {
+    padding: 4rem;
+    height: auto;
+  }
+
+  #markets .h1 {
+  font-size: 3rem;
+  }
+
+  #markets .time {
+  padding: 1rem;
+  font-size: 6rem;
+  }
+
+  .modal .info {
+    padding: 1rem;
+  }
+
+  #markets .info-btn {
+    font-size: 1.5rem;
+    padding: .75rem;
   }
 }
 
