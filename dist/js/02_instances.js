@@ -104,6 +104,13 @@ tokyo.setHolidays([
 ])
 tokyo.openCLoseModal()
 
+newYork.getCountdown(newYork.open)
+stockholm.getCountdown(stockholm.open)
+london.getCountdown(london.open)
+frankfurt.getCountdown(frankfurt.open)
+hongKong.getCountdown(hongKong.open)
+tokyo.getCountdown(tokyo.open)
+
 setInterval(() => {
   newYork.statusColor()
   stockholm.statusColor()
@@ -113,13 +120,6 @@ setInterval(() => {
   tokyo.statusColor()
 }, 1000);
 
-
-newYork.getCountdown(newYork.open)
-stockholm.getCountdown(stockholm.open)
-london.getCountdown(london.open)
-frankfurt.getCountdown(frankfurt.open)
-hongKong.getCountdown(hongKong.open)
-tokyo.getCountdown(tokyo.open)
 
 
 

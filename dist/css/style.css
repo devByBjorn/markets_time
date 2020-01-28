@@ -50,6 +50,7 @@ body {
 
 .current-time {
   text-align: right;
+  padding: 0 1rem
 }
 
 #nav .hamburger {
@@ -442,12 +443,11 @@ body {
   }
 
   #nav .current-time {
-    font-size: 1.5rem;
     padding-bottom: 1rem;
+    text-align: center;
   }
   
   .color-themes .color {
-    font-size: 1.5rem;
     padding: 1rem;
     border: none;
   }
