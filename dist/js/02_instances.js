@@ -26,7 +26,7 @@ stockholm.setHolidays([
   'Dec 24',
   'Dec 25',
   'Dec 31'])
-stockholm.setHalfDays(['jan 26', 'Apr 9', 'Apr 30', 'May 20', 'Oct 30'])
+stockholm.setHalfDays(['Apr 9', 'Apr 30', 'May 20', 'Oct 30'])
 stockholm.openCLoseModal()
 
 
@@ -36,7 +36,7 @@ london.setHolidays([
   'Jan 1',
   'Apr 10',
   'Apr 13',
-  'May 8',
+  'May 4',
   'May 25',
   'Aug 31',
   'Dec 25',
@@ -47,7 +47,7 @@ london.openCLoseModal()
 
 
 // // FRANKFURT
-const frankfurt = new Market('Europe', 'Berlin', '09:00', '17:35')
+const frankfurt = new Market('Europe', 'Berlin', '09:00', '17:30')
 frankfurt.setHolidays([
   'Jan 1',
   'Apr 10',
@@ -61,10 +61,12 @@ frankfurt.setHolidays([
 frankfurt.openCLoseModal()
 
 // // HONG KONG
-const hongKong = new MarketWithLunch('Asia', 'Hong_Kong', '09:00', '16:00', '12:00', '13:00')
+const hongKong = new MarketWithLunch('Asia', 'Hong_Kong', '09:30', '16:00', '12:00', '13:00')
 hongKong.setHolidays([
   'Jan 1',
   'Jan 24',
+  'Jan 27',
+  'Jan 28',
   'Apr 10',
   'Apr 13',
   'Apr 30',
@@ -74,8 +76,9 @@ hongKong.setHolidays([
   'Oct 1',
   'Oct 2',
   'Oct 26',
-  'Dec 31'
+  'Dec 25'
 ])
+hongKong.setHalfDays(['Dec 24', 'Dec 31'])
 hongKong.openCLoseModal()
 
 

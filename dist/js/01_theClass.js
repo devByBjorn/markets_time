@@ -63,6 +63,8 @@ class Market {
 
     if (this.city === 'London') {
       halfdayClose = '12:30'
+    } else if (this.city === 'Hong_Kong') {
+      halfdayClose = '12:00'
     } else {
       halfdayClose = '13:00'
     }
