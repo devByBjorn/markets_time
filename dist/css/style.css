@@ -16,12 +16,15 @@ body {
 }
 
 :root {
-  --color-green: #44AF69;
-  --color-red: #BF211E;
-  --color-orange: #FFA630;
-  --color-white: #FDFFFC;
-  --color-black: #000000;
-
+  --main-color-light: #FDFFFC;
+  --main-color-dark: #000000;
+  --color-light-dark : #958f8f;
+  
+  --color-open: #44AF69;
+  --color-closed: #BF211E;
+  --color-closed-opacity: rgba(191, 33, 30, .9);
+  --color-half-day: #FFA630;
+ 
   --bg-img-position: no-repeat center center/cover;
 
   --heading-font-size: 5rem;
@@ -33,42 +36,80 @@ body {
 /* Header */
 #nav {
   display: flex;
-  position: sticky;
   width: 100vw;
-  justify-content: space-between;
-  padding: 1.5rem 3rem;
-  font-size: 3rem;
-  color: #958f8f;
-  border-bottom: var(--border-thin) #958f8f;
+  align-items: center;
+  padding: 0 3rem;
+  font-size: var(--sub-heading-size);
+  color: var(--color-light-dark);
+  border-bottom: var(--border-thin) rgba(255, 255, 255, 0.2);
+}
+
+#nav div {
+  flex: 1;
+}
+
+.current-time {
+  text-align: right;
 }
 
 #nav .hamburger {
+  /* Hide for now*/
   visibility: hidden;
+  transition: all .3s ease-in;
 }
 
 #nav .hamburger:hover {
   cursor: pointer;
-  color: var(--color-white);
+  color: var(--main-color-light);
+}
+
+#nav .color-themes {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.color-themes .color {
+  font-size: 2rem;
+  padding: 3rem;
+}
+
+.open-market {
+  color: var(--color-open);
+  border-left: rgba(255, 255, 255, 0.2) var(--border-thin)
+}
+
+.half-day-market {
+  color: var(--color-half-day);
+  border-left: rgba(255, 255, 255, 0.2) var(--border-thin);
+  border-right: rgba(255, 255, 255, 0.2) var(--border-thin)
+}
+
+.closed-market {
+  color: var(--color-closed);
+  border-right: none;
+  border-right: rgba(255, 255, 255, 0.2) var(--border-thin)
 }
 
 /* loader*/
-
 .loader-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: absolute;
-  background-color: black;
+  background-color: var(--main-color-dark);
   width: 100vw;
   height: 100vh;
   z-index: 999;
 }
 
 .loader {
-  color: var(--color-white);
-  border: 2rem solid var(--color-red);
-  border-top: 2rem solid var(--color-green);
+  color: var(--main-color-light);
+  border: 2rem solid var(--color-closed);
+  border-top: 2rem solid var(--color-open);
   border-radius: 50%;
   width: 12rem;
   height: 12rem;
@@ -111,26 +152,25 @@ body {
   justify-content: center;
   text-align: center;
   padding:  3rem 5rem;
-  border: 1px solid;
 }
 
 /* Color themes based on trading hours*/
 .openForTrading {
-  background: var(--color-green);
-  color: var(--color-white);
-  border: var(--color-white) var(--border-thin)
+  background: var(--color-open);
+  color: var(--main-color-light);
+  border: var(--main-color-light) var(--border-thin)
 }
 
 .closedForTrading {
-  background: var(--color-red);
-  color: var(--color-black);
-  border: var(--color-black) var(--border-thin);
+  background: var(--color-closed-opacity);
+  color: var(--main-color-dark);
+  border: var(--color-light-dark) var(--border-thin)
 }
 
 .halfDayTrading {
-  background: var(--color-orange);
-  color: var(--color-white);
-  border: var(--color-white) var(--border-thin);
+  background: var(--color-half-day);
+  color: var(--main-color-light);
+  border: var(--main-color-light) var(--border-thin);
 }
 
 /* General style inside market wrappers*/
@@ -144,6 +184,11 @@ body {
   font-size: 2.5rem;
   padding: 1rem 0;
   margin: auto;
+}
+
+#markets .counter {
+  font-size: 2rem;
+  padding-bottom: 1rem;
 }
 
 #markets .time {
@@ -168,14 +213,14 @@ body {
 
 .openMarketBtn {
   background: transparent;
-  border: var(--color-white) var(--border-thin);
-  color: var(--color-white);
+  border: var(--main-color-light) var(--border-thin);
+  color: var(--main-color-light);
   box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.4);
 }
 
 .closedMarketBtn {
-  border: var(--color-black) var(--border-thin);
-  color: var(--color-black);
+  border: var(--main-color-dark) var(--border-thin);
+  color: var(--main-color-dark);
   box-shadow: 2px 2px 5px rgba(0,0,0,.4);
 }
 
@@ -189,7 +234,7 @@ body {
   width: 100%;
   height: 100%;
   z-index: 1;
-  background-color: var(--color-black);
+  background-color: var(--main-color-dark);
   background-color: rgba(0,0,0,.4);
 }
 
@@ -197,7 +242,7 @@ body {
 /* relative for close button to be absolute inside info box*/
 .modal .info {
   position: relative;
-  background-color: var(--color-white);
+  background-color: var(--main-color-light);
   margin: 5% auto;
   padding: 5rem;
   max-width: 90rem;
@@ -205,16 +250,16 @@ body {
 }
 
 .modal h3 {
-  font-size: 3rem;
+  font-size: var(--sub-heading-size);
   font-weight: 900;
-  color: var(--color-black)
+  color: var(--main-color-dark)
 }
 
 .modal .info span {
   display: block;
-  color: var(--color-white);
+  color: var(--main-color-light);
   /* why does the variabel not work?*/
-  background: rgba(var(--color-black), .9);
+  background: rgba(var(--main-color-dark), .9);
   background: rgba(0,0,0,.95);
 }
 
@@ -253,11 +298,11 @@ body {
 .modal .close:hover,
 .modal .close:focus {
   cursor: pointer;
-  color: var(--color-red);
+  color: var(--color-closed);
 }
 
 #year {
-  color: var(--color-white);
+  color: var(--main-color-light);
   text-align: center;
 }
 
@@ -388,9 +433,9 @@ body {
 /* Mobile*/
 @media(max-width : 500px){
 
-  .container {
+  /* .container {
     background: url(../img/nyseBlackBg.PNG) repeat;
-  }
+  } */
 
   #markets .wrapper {
     padding: 4rem;
@@ -398,7 +443,7 @@ body {
   }
 
   #markets .h1 {
-  font-size: 3rem;
+  font-size: var(--sub-heading-size);
   }
 
   #markets .time {

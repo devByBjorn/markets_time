@@ -61,8 +61,8 @@ frankfurt.setHolidays([
 frankfurt.openCLoseModal()
 
 // // HONG KONG
-const hongkong = new MarketWithLunch('Asia', 'Hong_Kong', '09:00', '16:00', '12:00', '13:00')
-hongkong.setHolidays([
+const hongKong = new MarketWithLunch('Asia', 'Hong_Kong', '09:00', '16:00', '12:00', '13:00')
+hongKong.setHolidays([
   'Jan 1',
   'Jan 24',
   'Apr 10',
@@ -76,7 +76,7 @@ hongkong.setHolidays([
   'Oct 26',
   'Dec 31'
 ])
-hongkong.openCLoseModal()
+hongKong.openCLoseModal()
 
 
 // // TOKYO
@@ -109,9 +109,18 @@ setInterval(() => {
   stockholm.statusColor()
   london.statusColor()
   frankfurt.statusColor()
-  hongkong.statusColor()
+  hongKong.statusColor()
   tokyo.statusColor()
 }, 1000);
+
+
+newYork.getCountdown(newYork.open)
+stockholm.getCountdown(stockholm.open)
+london.getCountdown(london.open)
+frankfurt.getCountdown(frankfurt.open)
+hongKong.getCountdown(hongKong.open)
+tokyo.getCountdown(tokyo.open)
+
 
 
 
