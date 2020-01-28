@@ -437,6 +437,21 @@ body {
     background: url(../img/nyseBlackBg.PNG) repeat;
   } */
 
+  #nav {
+    flex-direction: column;
+  }
+
+  #nav .current-time {
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
+  }
+  
+  .color-themes .color {
+    font-size: 1.5rem;
+    padding: 1rem;
+    border: none;
+  }
+
   #markets .wrapper {
     padding: 4rem;
     height: auto;
