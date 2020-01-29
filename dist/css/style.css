@@ -66,15 +66,25 @@ a {
 /* Hamburger and slider menu */
 #nav .hamburger {
   display: inline-block;
-  transition: all .3s ease-in;
 }
-#nav .hamburger span:first-child {
-  padding-right: 1rem;
+#nav .hamburger .open-slide {
+  padding-right: 3rem;
+}
+
+#nav .hamburger .open-slide:hover {
+  color: var(--main-color-light);
+}
+
+#nav .hamburger .to-landing a{
+  color: var(--color-light-dark)
+}
+
+#nav .hamburger .to-landing a:hover {
+  color: var(--main-color-light);
 }
 
 #nav .hamburger:hover {
   cursor: pointer;
-  color: var(--main-color-light);
 }
 
 .sliding-nav {
@@ -112,6 +122,12 @@ a {
 
 .close-slide:hover {
   cursor: pointer;
+}
+
+#nav .fas {
+  position: absolute;
+  top: 3.2rem;
+  left: 3rem;
 }
 
 #main-nav ul {
