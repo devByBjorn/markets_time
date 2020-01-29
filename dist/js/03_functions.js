@@ -23,5 +23,28 @@ setInterval(() => {
   document.querySelector('.loader-container').style.display = 'none'
 }, 1500)
 
+// DOM acces to navbar
+const queryDOM = {
+  nav: document.querySelector('#main-nav'),
+  closeNav: document.querySelector('.close-slide'),
+  openNav: document.querySelectorAll('.open-slide'),
+  container: document.querySelector('.container')
+}
+
+// Nav when opened
+const openNav = () => {
+  // queryDOM.closeNav.style.transform = 'rotate(90deg)'
+  queryDOM.nav.style.width = '35rem'
+  queryDOM.container.style.paddingLeft = '35rem'
+}
+
+// Nav when closed
+const closeNav = () => {
+  queryDOM.nav.style.width = '0'
+  queryDOM.container.style.paddingLeft = '0rem'
+  // queryDOM.closeNav.style.transform = 'rotate(-90deg)'
+}
+
+
 
 

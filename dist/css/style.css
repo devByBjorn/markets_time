@@ -35,6 +35,14 @@ body {
   --border-thin: 1px solid;
 }
 
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
 /* Header */
 #nav {
   display: flex;
@@ -55,10 +63,13 @@ body {
   padding: 0 1rem
 }
 
+/* Hamburger and slider menu */
 #nav .hamburger {
-  /* Hide for now*/
-  visibility: hidden;
+  display: inline-block;
   transition: all .3s ease-in;
+}
+#nav .hamburger span:first-child {
+  padding-right: 1rem;
 }
 
 #nav .hamburger:hover {
@@ -66,6 +77,80 @@ body {
   color: var(--main-color-light);
 }
 
+.sliding-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  overflow: hidden;
+  transition: width ease-in .2s;
+  transform: .5s;
+  background-color: var(--main-color-dark);
+  border-right: var(--border-thin) var(--color-light-transparent);
+}
+
+.sliding-content {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.close-slide {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-size: 5rem;
+  transform: 3s;
+  color: var(--main-color-light);
+}
+
+.close-slide:hover {
+  cursor: pointer;
+}
+
+#main-nav ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#main-nav ul li {
+  font-size: var(--sub-heading-size);
+  padding: 2rem .5rem;
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #0b1e2c;
+  transition: background .3s;
+  /* box-shadow: inset 1px 1px 5px #0b1e2c; */
+}
+
+#main-nav ul li:first-child{
+border-top: 1px solid #0b1e2c;
+}
+
+#main-nav ul li:hover {
+  background-color:#0b1e2c;
+}
+
+#main-nav a {
+  color: var(--main-color-light);
+  transition: .3s;
+}
+
+#main-nav a:hover {
+  color: var(--color-half-day);
+}
+/*Slider end*/
+
+/* Color theme explination on top of page*/
 #nav .color-themes {
   display: flex;
   align-items: center;
@@ -94,6 +179,13 @@ body {
   color: var(--color-closed);
   border-right: none;
   border-right: var(--color-light-transparent) var(--border-thin)
+}
+
+.site-header {
+  font-size: var(--sub-heading-size);
+  text-align: center;
+  padding-top: 2rem;
+  color: var(--main-color-light);
 }
 
 /* loader*/
@@ -137,7 +229,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 95vh;
- 
+  transition: padding ease-in .2s;
   background-color: rgba(0,0,0,.95);
   /* background: url(../img/nyseBlackBg.PNG) var(--bg-img-position); */
   margin: 0 auto;
@@ -152,32 +244,32 @@ body {
   gap: 5px;
   grid-template-columns: repeat(autofit, minmax(35rem, 1fr));
   grid-template-areas:
-"new-york london frankfurt"
-"stockholm hong-kong tokyo"
+"grid-one grid-two grid-three"
+"grid-four grid-five grid-six"
 }
 
-#new-york-wrapper {
-grid-area: new-york;
+.grid-1 {
+grid-area: grid-one;
 }
 
-#london-wrapper {
-grid-area: london;
+.grid-2 {
+grid-area: grid-two;
 }
 
-#frankfurt-wrapper {
-grid-area: frankfurt;
+.grid-3 {
+grid-area: grid-three;
 }
 
-#stockholm-wrapper {
-grid-area: stockholm;
+.grid-4 {
+grid-area: grid-four;
 }
 
-#hong-kong-wrapper {
-grid-area: hong-kong;
+.grid-5 {
+grid-area: grid-five;
 }
 
-#tokyo-wrapper {
-grid-area: tokyo;
+.grid-6 {
+grid-area: grid-six;
 }
 
 #markets .wrapper {
@@ -212,6 +304,7 @@ grid-area: tokyo;
   font-size: var(--heading-font-size);
   white-space: nowrap;
   font-weight: 900;
+  text-transform: capitalize;
 }
 
 #hong-kong-heading,
@@ -246,7 +339,6 @@ grid-area: tokyo;
   padding: 2rem 1rem;
   font-size: 10rem;
 }
-
 
 #markets .info-btn {
   padding: 1rem 0;
@@ -367,9 +459,9 @@ grid-area: tokyo;
 @media(max-width: 1024px) {
   #markets {
     grid-template-areas:
-  "new-york london"
-  "frankfurt stockholm"
-  "hong-kong tokyo"
+  "grid-one grid-two"
+  "grid-three grid-four"
+  "grid-five grid-six"
   }
 }
 
@@ -429,14 +521,13 @@ grid-area: tokyo;
 
   #markets {
     grid-template-areas:
-  "new-york"
-  "london"
-  "frankfurt"
-  "stockholm"
-  "hong-kong" 
-  "tokyo"
+  "grid-one"
+  "grid-two"
+  "grid-three"
+  "grid-four"
+  "grid-five" 
+  "grid-six"
   }
-
 
   #markets .time {
   padding: 2rem;

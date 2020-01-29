@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="css/style.css">
+  <title>Time the Markets - Euronext</title>
+</head>
+
+<body>
+  <!-- -->
+  <nav id="nav" class="inner-nav">
+    <div>
+      <div class="hamburger">
+        <span class="open-slide" onclick="openNav()">&#9776;</span><span class="open-slide"
+          onclick="openNav()">Markets</span>
+      </div>
+    </div>
+
+    <div id="main-nav" class="sliding-nav">
+      <div class="sliding-content">
+        <a class="close-slide" onclick="closeNav()">&times;</a>
+        <ul>
+          <li><a href="index.html">Favorites</a></li>
+          <li><a href="euronext.html">Euronext</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="color-themes">
+      <div class="open-market color">Open</div>
+      <div class="half-day-market color">Half day</div>
+      <div class="closed-market color">Closed</div>
+    </div>
+    <div class="current-time"></div>
+  </nav>
+
+  <h1 class="site-header">Nasdaq Nordic</h1>
+
+  <!--Loader-->
+  <div class="loader-container">
+    <div class="loader"></div>
+    <div id="year">
+
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="market-container">
+      <!-- MAIN BEGINNING-->
+      <main id="markets">
+
+        <!-- Paris-->
+        <div id="stockholm-wrapper" class="wrapper grid-1">
+          <h3 id="stockholm-heading" class="h1">stockholm</h3>
+          <div class="trading-count"></div>
+          <p id="stockholm-open" class="open"></p>
+          <div id="stockholm-counter" class="counter"></div>
+
+          <h2 id="stockholm-clock" class="time"></h2>
+
+          <button id="stockholm-btn" class="info-btn stockholm" href="#">Info</button>
+          <div id="stockholm-modal" class="modal stockholm">
+            <div id="stockholm-info" class="info"></div>
+          </div>
+        </div>
+
+        <!-- Amsterdam -->
+        <div id="copenhagen-wrapper" class="wrapper grid-2">
+          <h3 id="copenhagen-heading" class="h1">copenhagen</h3>
+
+          <p id="copenhagen-open" class="open"></p>
+          <div id="copenhagen-counter" class="counter"></div>
+
+          <h2 id="copenhagen-clock" class="time"></h2>
+
+          <button id="copenhagen-btn" class="info-btn copenhagen" href="#">Info</button>
+          <div id="copenhagen-modal" class="modal">
+            <div id="copenhagen-info" class="info"></div>
+          </div>
+        </div>
+
+        <!-- Helsinki -->
+        <div id="helsinki-wrapper" class="wrapper grid-3">
+          <h3 id="helsinki-heading" class="h1">helsinki</h3>
+          <p id="helsinki-open" class="open"></p>
+          <div id="helsinki-counter" class="counter"></div>
+
+          <h2 id="helsinki-clock" class="time"></h2>
+
+          <button id="helsinki-btn" class="info-btn helsinki" href="#">Info</button>
+          <div id="helsinki-modal" class="modal">
+            <div id="helsinki-info" class="info"></div>
+          </div>
+
+        </div>
+
+        <div id="tallinn-wrapper" class="wrapper grid-4">
+          <h3 id="tallinn-heading" class="h1">tallinn</h3>
+          <p id="tallinn-open" class="open"></p>
+          <div id="tallinn-counter" class="counter"></div>
+
+          <h2 id="tallinn-clock" class="time"></h2>
+
+          <button id="tallinn-btn" class="info-btn tallinn" href="#">Info</button>
+          <div id="tallinn-modal" class="modal">
+            <div id="tallinn-info" class="info"></div>
+          </div>
+
+        </div>
+
+        <!-- reykjavik -->
+        <div id="reykjavik-wrapper" class="wrapper grid-5">
+          <h3 id="reykjavik-heading" class="h1">reykjavik</h3>
+          <p id="reykjavik-open" class="open"></p>
+          <div id="reykjavik-counter" class="counter"></div>
+
+          <h2 id="reykjavik-clock" class="time"></h2>
+
+          <button id="reykjavik-btn" class="info-btn reykjavik" href="#">Info</button>
+          <div id="reykjavik-modal" class="modal">
+            <div id="reykjavik-info" class="info"></div>
+          </div>
+        </div>
+
+        <!-- riga -->
+        <div id="riga-wrapper" class="wrapper grid-6">
+          <h3 id="riga-heading" class="h1">riga</h3>
+          <p id="riga-open" class="open"></p>
+          <div id="riga-counter" class="counter"></div>
+
+          <h2 id="riga-clock" class="time"></h2>
+
+          <button id="riga-btn" class="info-btn riga" href="#">Info</button>
+          <div id="riga-modal" class="modal">
+            <div id="riga-info" class="info"></div>
+          </div>
+        </div>
+
+        <div id="vilnius-wrapper" class="wrapper grid-7">
+          <h3 id="vilnius-heading" class="h1">vilnius</h3>
+          <p id="vilnius-open" class="open"></p>
+          <div id="vilnius-counter" class="counter"></div>
+
+          <h2 id="vilnius-clock" class="time"></h2>
+
+          <button id="vilnius-btn" class="info-btn vilnius" href="#">Info</button>
+          <div id="vilnius-modal" class="modal">
+            <div id="vilnius-info" class="info"></div>
+          </div>
+        </div>
+      </main>
+      <!-- MAIN END-->
+    </div>
+  </div>
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.25/moment-timezone-with-data-10-year-range.min.js"></script>
+  <script src="js/01_theClass.js"></script>
+  <script src="js/05_nasdaqNordic.js"></script>
+  <script src="js/03_functions.js"></script>
+</body>
+
+</html>

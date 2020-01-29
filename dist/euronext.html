@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="css/style.css">
+  <title>Time the Markets - Euronext</title>
+</head>
+
+<body>
+  <!-- -->
+  <nav id="nav" class="inner-nav">
+    <div>
+      <div class="hamburger">
+        <span class="open-slide" onclick="openNav()">&#9776;</span><span class="open-slide"
+          onclick="openNav()">Markets</span>
+      </div>
+    </div>
+
+    <div id="main-nav" class="sliding-nav">
+      <div class="sliding-content">
+        <a class="close-slide" onclick="closeNav()">&times;</a>
+        <ul>
+          <li><a href="index.html">Favorites</a></li>
+          <li><a href="nasdaq-nordic.html">Nasdaq Nordic</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="color-themes">
+      <div class="open-market color">Open</div>
+      <div class="half-day-market color">Half day</div>
+      <div class="closed-market color">Closed</div>
+    </div>
+    <div class="current-time"></div>
+  </nav>
+
+  <h1 class="site-header">Euronext</h1>
+
+  <!--Loader-->
+  <div class="loader-container">
+    <div class="loader"></div>
+    <div id="year">
+
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="market-container">
+      <!-- MAIN BEGINNING-->
+      <main id="markets">
+
+        <!-- Paris-->
+        <div id="paris-wrapper" class="wrapper grid-1">
+          <h3 id="paris-heading" class="h1">paris</h3>
+          <div class="trading-count"></div>
+          <p id="paris-open" class="open"></p>
+          <div id="paris-counter" class="counter"></div>
+
+          <h2 id="paris-clock" class="time"></h2>
+
+          <button id="paris-btn" class="info-btn paris" href="#">Info</button>
+          <div id="paris-modal" class="modal paris">
+            <div id="paris-info" class="info"></div>
+          </div>
+        </div>
+
+        <!-- Amsterdam -->
+        <div id="amsterdam-wrapper" class="wrapper grid-2">
+          <h3 id="amsterdam-heading" class="h1">amsterdam</h3>
+
+          <p id="amsterdam-open" class="open"></p>
+          <div id="amsterdam-counter" class="counter"></div>
+
+          <h2 id="amsterdam-clock" class="time"></h2>
+
+          <button id="amsterdam-btn" class="info-btn amsterdam" href="#">Info</button>
+          <div id="amsterdam-modal" class="modal">
+            <div id="amsterdam-info" class="info"></div>
+          </div>
+        </div>
+
+        <!-- Brussels -->
+        <div id="brussels-wrapper" class="wrapper grid-3">
+          <h3 id="brussels-heading" class="h1">brussels</h3>
+          <p id="brussels-open" class="open"></p>
+          <div id="brussels-counter" class="counter"></div>
+
+          <h2 id="brussels-clock" class="time"></h2>
+
+          <button id="brussels-btn" class="info-btn brussels" href="#">Info</button>
+          <div id="brussels-modal" class="modal">
+            <div id="brussels-info" class="info"></div>
+          </div>
+
+        </div>
+
+        <!-- Lisbon -->
+        <div id="lisbon-wrapper" class="wrapper grid-4">
+          <h3 id="lisbon-heading" class="h1">lisbon</h3>
+          <p id="lisbon-open" class="open"></p>
+          <div id="lisbon-counter" class="counter"></div>
+
+          <h2 id="lisbon-clock" class="time"></h2>
+
+          <button id="lisbon-btn" class="info-btn lisbon" href="#">Info</button>
+          <div id="lisbon-modal" class="modal">
+            <div id="lisbon-info" class="info"></div>
+          </div>
+        </div>
+
+        <!-- Dublin -->
+        <div id="dublin-wrapper" class="wrapper grid-5">
+          <h3 id="dublin-heading" class="h1">dublin</h3>
+          <p id="dublin-open" class="open"></p>
+          <div id="dublin-counter" class="counter"></div>
+
+          <h2 id="dublin-clock" class="time"></h2>
+
+          <button id="dublin-btn" class="info-btn dublin" href="#">Info</button>
+          <div id="dublin-modal" class="modal">
+            <div id="dublin-info" class="info"></div>
+          </div>
+        </div>
+
+        <div id="oslo-wrapper" class="wrapper grid-6">
+          <h3 id="oslo-heading" class="h1">oslo</h3>
+          <p id="oslo-open" class="open"></p>
+          <div id="oslo-counter" class="counter"></div>
+
+          <h2 id="oslo-clock" class="time"></h2>
+
+          <button id="oslo-btn" class="info-btn oslo" href="#">Info</button>
+          <div id="oslo-modal" class="modal">
+            <div id="oslo-info" class="info"></div>
+          </div>
+        </div>
+      </main>
+      <!-- MAIN END-->
+    </div>
+  </div>
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.25/moment-timezone-with-data-10-year-range.min.js"></script>
+  <script src="js/01_theClass.js"></script>
+  <script src="js/04_eurnextMarkets.js"></script>
+  <script src="js/03_functions.js"></script>
+</body>
+
+</html>

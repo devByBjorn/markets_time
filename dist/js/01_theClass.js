@@ -185,7 +185,7 @@ class Market {
   //depending on market status(closed,open,halfday,holiday)
   statusColor() {
     // The main clock for each market
-    this.setinnerHTML(`${this.id}`, this.getTime().hoursMinutes)
+    this.setinnerHTML(`${this.id}-clock`, this.getTime().hoursMinutes)
     this.setinnerHTML(`${this.id}-open`,
       `<span>Trading</span><span>${this.open}-${this.close}</span>`)
 
@@ -273,17 +273,15 @@ class Market {
     container.appendChild(holidays)
     container.appendChild(halfDays)
     container.appendChild(closeBtn)
-
-    return container
   }
 
   // Create iteration in functions script instead
-  openCLoseModal() {
-    document.getElementById(`${this.id}-btn`).addEventListener('click', () => {
-      this.setSummary()
-      document.getElementById(`${this.id}-modal`).style.display = 'block'
-    })
-  }
+  // openCLoseModal() {
+  //   document.getElementById(`${this.id}-btn`).addEventListener('click', () => {
+  //     this.setSummary()
+  //     document.getElementById(`${this.id}-modal`).style.display = 'block'
+  //   })
+  // }
 }
 
 // Subclass for markets closed  during lunch hours ( TOKYO and HONG KONG)

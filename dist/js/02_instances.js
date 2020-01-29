@@ -11,10 +11,8 @@ newYork.setHolidays([
   'Sep 7',
 ])
 newYork.setHalfDays(['Nov 26', 'Dec 24'])
-newYork.openCLoseModal()
 newYork.getCountDown(newYork.open)
 newYork.getCountDown(newYork.close)
-
 
 // STOCKHOLM
 const stockholm = new Market('Europe', 'Stockholm', '09:00', '17:30')
@@ -30,10 +28,8 @@ stockholm.setHolidays([
   'Dec 25',
   'Dec 31'])
 stockholm.setHalfDays(['Apr 9', 'Apr 30', 'May 20', 'Oct 30'])
-stockholm.openCLoseModal()
 stockholm.getCountDown(stockholm.close)
 stockholm.getCountDown(stockholm.open)
-
 
 // // LONDON
 const london = new Market('Europe', 'London', '08:00', '16:30')
@@ -48,11 +44,8 @@ london.setHolidays([
   'Dec 28'
 ])
 london.setHalfDays(['Dec 24', 'Dec 31'])
-london.openCLoseModal()
 london.getCountDown(london.open)
 london.getCountDown(london.close)
-
-
 
 // // FRANKFURT
 const frankfurt = new Market('Europe', 'Berlin', '09:00', '17:30')
@@ -66,10 +59,9 @@ frankfurt.setHolidays([
   'Dec 25',
   'Dec 31'
 ])
-frankfurt.openCLoseModal()
+
 frankfurt.getCountDown(frankfurt.open)
 frankfurt.getCountDown(frankfurt.close)
-
 
 // // HONG KONG
 const hongKong = new MarketWithLunch('Asia', 'Hong_Kong', '09:30', '16:00', '12:00', '13:00')
@@ -90,11 +82,8 @@ hongKong.setHolidays([
   'Dec 25'
 ])
 hongKong.setHalfDays(['Dec 24', 'Dec 31'])
-hongKong.openCLoseModal()
 hongKong.getCountDown(hongKong.close)
 hongKong.getCountDown(hongKong.open)
-
-
 
 // // TOKYO
 const tokyo = new MarketWithLunch('Asia', 'Tokyo', '09:00', '15:00', '11:30', '12:30')
@@ -119,7 +108,7 @@ tokyo.setHolidays([
   'Nov 23',
   'Dec 31'
 ])
-tokyo.openCLoseModal()
+
 tokyo.getCountDown(tokyo.close)
 tokyo.getCountDown(tokyo.open)
 
@@ -134,6 +123,38 @@ setInterval(() => {
 }, 1000);
 
 
+// This solution creates more line of code, but the solution
+// of calling city.openCloseModal when script loads seems even 
+// worse. Since teh functions are getting invoked before the user 
+// clicks an info-button takes up memory 
+const infoBtns = document.querySelectorAll('.info-btn')
+infoBtns.forEach((btn) => {
+  const marketInfo = [...btn.classList]
+  const modal = btn.nextElementSibling
 
+  btn.addEventListener('click', () => {
+    modal.style.display = 'block'
+    switch (marketInfo[1]) {
+      case 'new-york':
+        newYork.setSummary()
+        break
+      case 'london':
+        london.setSummary()
+        break
+      case 'frankfurt':
+        frankfurt.setSummary()
+        break
+      case 'stockholm':
+        stockholm.setSummary()
+        break
+      case 'hong-kong':
+        hongKong.setSummary()
+        break
+      case 'tokyo':
+        tokyo.setSummary()
+        break
+    }
+  })
+})
 
 
