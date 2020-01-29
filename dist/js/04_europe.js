@@ -2,7 +2,7 @@
 // EURONEXT
 
 // PARIS
-const paris = new Market('Europe', 'Paris', '09:30', '17:30')
+const paris = new Market('Europe', 'Paris', '09:00', '17:30')
 paris.setHolidays([
   'Jan 1',
   'Apr 10',
@@ -14,8 +14,8 @@ paris.setHalfDays(['Dec 24', 'Dec 31'])
 paris.getCountDown(paris.open)
 paris.getCountDown(paris.close)
 
-// amsterdam
-const amsterdam = new Market('Europe', 'Amsterdam', '09:30', '17:30')
+// AMSTERDAM
+const amsterdam = new Market('Europe', 'Amsterdam', '09:00', '17:40')
 amsterdam.setHolidays([
   'Jan 1',
   'Apr 10',
@@ -27,8 +27,8 @@ amsterdam.setHalfDays(['Dec 24', 'Dec 31'])
 amsterdam.getCountDown(amsterdam.open)
 amsterdam.getCountDown(amsterdam.close)
 
-// brussels
-const brussels = new Market('Europe', 'Brussels', '09:30', '17:30')
+// BRUSSELS
+const brussels = new Market('Europe', 'Brussels', '09:00', '17:30')
 brussels.setHolidays([
   'Jan 1',
   'Apr 10',
@@ -40,8 +40,8 @@ brussels.setHalfDays(['Dec 24', 'Dec 31'])
 brussels.getCountDown(brussels.open)
 brussels.getCountDown(brussels.close)
 
-// lisbon
-const lisbon = new Market('Europe', 'Lisbon', '09:30', '17:30')
+// LISBON
+const lisbon = new Market('Europe', 'Lisbon', '09:00', '17:30')
 lisbon.setHolidays([
   'Jan 1',
   'Apr 10',
@@ -53,37 +53,39 @@ lisbon.setHalfDays(['Dec 24', 'Dec 31'])
 lisbon.getCountDown(lisbon.open)
 lisbon.getCountDown(lisbon.close)
 
-// PARIS
-const dublin = new Market('Europe', 'Dublin', '09:30', '17:30')
-dublin.setHolidays([
+// MOSCOW
+const moscow = new Market('Europe', 'Moscow', '09:30', '19:00')
+moscow.setHolidays([
   'Jan 1',
-  'Apr 10',
-  'Apr 13',
+  'Jan 2',
+  'Jan 7',
+  'Feb 24',
+  'Mar 9',
   'May 1',
-  'Dec 25',
+  'May 11',
+  'Jun 12',
+  'Nov 4',
+  'Dec 31',
 ])
-dublin.setHalfDays(['Dec 24', 'Dec 31'])
-dublin.getCountDown(dublin.open)
-dublin.getCountDown(dublin.close)
+moscow.getCountDown(moscow.open)
+moscow.getCountDown(moscow.close)
 
-const oslo = new Market('Europe', 'Oslo', '09:00', '16:20')
-oslo.setHolidays([
+// ZURICH
+const zurich = new Market('Europe', 'Zurich', '09:30', '17:00')
+zurich.setHolidays([
   'Jan 1',
-  'Apr 9',
+  'Jan 2',
   'Apr 10',
   'Apr 13',
   'May 1',
-  'May 17',
   'May 21',
   'Jun 1',
   'Dec 24',
   'Dec 25',
-  'Dec 26',
-  'Dec 31'
+  'Dec 31',
 ])
-oslo.setHalfDays(['Apr 8'])
-oslo.getCountDown(oslo.open)
-oslo.getCountDown(oslo.close)
+zurich.getCountDown(zurich.open)
+zurich.getCountDown(zurich.close)
 
 
 setInterval(() => {
@@ -91,8 +93,8 @@ setInterval(() => {
   amsterdam.statusColor()
   brussels.statusColor()
   lisbon.statusColor()
-  dublin.statusColor()
-  oslo.statusColor()
+  moscow.statusColor()
+  zurich.statusColor()
 }, 1000);
 
 
@@ -116,11 +118,11 @@ infoBtns.forEach((btn) => {
       case 'amsterdam':
         amsterdam.setSummary()
         break
-      case 'dublin':
-        dublin.setSummary()
+      case 'moscow':
+        moscow.setSummary()
         break
-      case 'oslo':
-        oslo.setSummary()
+      case 'zurish':
+        zurich.setSummary()
         break
     }
   })

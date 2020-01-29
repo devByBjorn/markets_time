@@ -17,17 +17,21 @@
     <div>
       <div class="hamburger">
         <span class="open-slide" onclick="openNav()">&#9776;</span><span class="to-landing" title="Menu of markets"><a
-            href="index.html" title="Link to landingpage">Main markets</a></span>
+            href="index-main-markets.html" title="Link to landingpage">Time the Markets</a></span>
       </div>
     </div>
 
     <div id="main-nav" class="sliding-nav">
       <div class="sliding-content">
-        <a href="index.html"><i class="fas fa-home"></i></a>
+        <a href="index-main-markets.html"><i class="fas fa-home"></i></a>
         <a class="close-slide" onclick="closeNav()">&times;</a>
         <ul>
-          <li><a href="euronext.html">Euronext</a></li>
-          <li><a href="nasdaq-nordic.html">Nasdaq Nordic</a></li>
+          <li><a href="index-main-markets.html">Main World Markets</a></li>
+          <li><a href="americas.html">Americas</a></li>
+          <li><a href="asia-oceania.html">Asia/Pacifics</a></li>
+          <li><a href="africa.html">Africa</a></li>
+          <li><a href="europe.html">Europe</a></li>
+          <li><a href="the-nordics.html">The Nordics</a></li>
         </ul>
       </div>
     </div>
@@ -40,8 +44,6 @@
     <div class="current-time"></div>
   </nav>
 
-  <h1 class="site-header">Favorites</h1>
-
   <!--Loader-->
   <div class="loader-container">
     <div class="loader"></div>
@@ -51,8 +53,9 @@
   </div>
 
   <div class="container">
-    <div class="market-container">
 
+    <div class="market-container">
+      <h1 class="site-header">World Main Markets</h1>
       <!-- MAIN BEGINNING-->
       <main id="markets">
         <!-- NEW YORK-->
@@ -70,8 +73,22 @@
           </div>
         </div>
 
+        <!-- TORONTO -->
+        <div id="toronto-wrapper" class="wrapper grid-2">
+          <h1 id="toronto-heading" class="h1">toronto</h1>
+          <p id="toronto-open" class="open"></p>
+          <div id="toronto-counter" class="counter"></div>
+
+          <h2 id="toronto-clock" class="time"></h2>
+
+          <button id="toronto-btn" class="info-btn toronto" href="#">Info</button>
+          <div id="toronto-modal" class="modal">
+            <div id="toronto-info" class="info"></div>
+          </div>
+        </div>
+
         <!-- LONDON -->
-        <div id="london-wrapper" class="wrapper grid-2">
+        <div id="london-wrapper" class="wrapper grid-3">
           <h1 id="london-heading" class="h1">london</h1>
 
           <p id="london-open" class="open"></p>
@@ -83,21 +100,6 @@
           <div id="london-modal" class="modal">
             <div id="london-info" class="info"></div>
           </div>
-        </div>
-
-        <!-- STOCKHOLM -->
-        <div id="stockholm-wrapper" class="wrapper grid-3">
-          <h1 id="stockholm-heading" class="h1">stockholm</h1>
-          <p id="stockholm-open" class="open"></p>
-          <div id="stockholm-counter" class="counter"></div>
-
-          <h2 id="stockholm-clock" class="time"></h2>
-
-          <button id="stockholm-btn" class="info-btn stockholm" href="#">Info</button>
-          <div id="stockholm-modal" class="modal">
-            <div id="stockholm-info" class="info"></div>
-          </div>
-
         </div>
 
         <!-- FRANKFURT(Berlin in moment) -->
@@ -147,14 +149,11 @@
     </div>
   </div>
 
-
-
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
   <script
     src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.25/moment-timezone-with-data-10-year-range.min.js"></script>
   <script src="js/01_theClass.js"></script>
-  <script src="js/02_instances.js"></script>
+  <script src="js/02_indexMainMarkets.js"></script>
   <script src="js/03_functions.js"></script>
 </body>
 

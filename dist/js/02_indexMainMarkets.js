@@ -15,21 +15,21 @@ newYork.getCountDown(newYork.open)
 newYork.getCountDown(newYork.close)
 
 // STOCKHOLM
-const stockholm = new Market('Europe', 'Stockholm', '09:00', '17:30')
-stockholm.setHolidays([
+const toronto = new Market('America', 'Toronto', '09:30', '16:00')
+toronto.setHolidays([
   'Jan 1',
-  'Jan 6',
+  'Feb 17',
   'Apr 10',
-  'Apr 13',
-  'May 1',
-  'May 21',
-  'Jun 19',
-  'Dec 24',
+  'May 18',
+  'Jul 1',
+  'Aug 3',
+  'Sep 7',
+  'Oct 12',
   'Dec 25',
-  'Dec 31'])
-stockholm.setHalfDays(['Apr 9', 'Apr 30', 'May 20', 'Oct 30'])
-stockholm.getCountDown(stockholm.close)
-stockholm.getCountDown(stockholm.open)
+  'Dec 28'])
+toronto.setHalfDays(['Dec 24'])
+toronto.getCountDown(toronto.close)
+toronto.getCountDown(toronto.open)
 
 // // LONDON
 const london = new Market('Europe', 'London', '08:00', '16:30')
@@ -115,7 +115,7 @@ tokyo.getCountDown(tokyo.open)
 
 setInterval(() => {
   newYork.statusColor()
-  stockholm.statusColor()
+  toronto.statusColor()
   london.statusColor()
   frankfurt.statusColor()
   hongKong.statusColor()
@@ -144,8 +144,8 @@ infoBtns.forEach((btn) => {
       case 'frankfurt':
         frankfurt.setSummary()
         break
-      case 'stockholm':
-        stockholm.setSummary()
+      case 'toronto':
+        toronto.setSummary()
         break
       case 'hong-kong':
         hongKong.setSummary()
