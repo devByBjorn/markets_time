@@ -13,12 +13,14 @@ body {
   font-family: sans-serif;
   background: black;
   overflow-x: hidden;
+  letter-spacing: -1px;
 }
 
 :root {
   --main-color-light: #FDFFFC;
   --main-color-dark: #000000;
   --color-light-dark : #958f8f;
+  --color-light-transparent: rgba(255, 255, 255, 0.2);
   
   --color-open: #44AF69;
   --color-closed: #BF211E;
@@ -79,23 +81,26 @@ body {
 
 .open-market {
   color: var(--color-open);
-  border-left: rgba(255, 255, 255, 0.2) var(--border-thin)
+  border-left: var(--color-light-transparent) var(--border-thin)
 }
 
 .half-day-market {
   color: var(--color-half-day);
-  border-left: rgba(255, 255, 255, 0.2) var(--border-thin);
-  border-right: rgba(255, 255, 255, 0.2) var(--border-thin)
+  border-left: var(--color-light-transparent) var(--border-thin);
+  border-right: var(--color-light-transparent) var(--border-thin)
 }
 
 .closed-market {
   color: var(--color-closed);
   border-right: none;
-  border-right: rgba(255, 255, 255, 0.2) var(--border-thin)
+  border-right: var(--color-light-transparent) var(--border-thin)
 }
 
 /* loader*/
 .loader-container {
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -107,7 +112,7 @@ body {
   z-index: 999;
 }
 
-.loader {
+/* .loader {
   color: var(--main-color-light);
   border: 2rem solid var(--color-closed);
   border-top: 2rem solid var(--color-open);
@@ -115,16 +120,16 @@ body {
   width: 12rem;
   height: 12rem;
   animation: spin 1.5s linear infinite;
-}
+} */
 
-.loader span {
+/* .loader span {
   display: block;
 }
 
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
-}
+} */
 
 /* Main container */
 .container {
@@ -142,7 +147,7 @@ body {
 #markets {
   display: grid;
   gap: 5px;
-  /* width: 100vw; */
+  width: 90vw;
   grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
   padding: 1rem;
 }
@@ -181,22 +186,39 @@ body {
   font-weight: 900;
 }
 
+#hong-kong-heading,
+#tokyo-heading {
+  padding-bottom: .5rem;
+}
+
 #markets .open {
   font-size: 2.5rem;
   padding: 1rem 0;
-  margin: auto;
+  border-top: 1px dotted;
+}
+
+#markets .open span:nth-child(2){
+  padding-left: 1rem;
+  font-size: 3rem;
 }
 
 #markets .counter {
-  font-size: 2rem;
+  font-size: 2.5rem;
   padding-bottom: 1rem;
+  border-bottom: 1px dotted;
+}
+
+#markets .counter span:nth-child(2) {
+  padding-left: 1rem;
+  font-size: 3rem;
+  letter-spacing: 2px;
 }
 
 #markets .time {
-  padding: 1rem;
+  padding: 2rem 1rem;
   font-size: 10rem;
-  border-top: 1px solid;
 }
+
 
 #markets .info-btn {
   padding: 1rem 0;
@@ -259,8 +281,6 @@ body {
 .modal .info span {
   display: block;
   color: var(--main-color-light);
-  /* why does the variabel not work?*/
-  background: rgba(var(--main-color-dark), .9);
   background: rgba(0,0,0,.95);
 }
 
@@ -382,13 +402,9 @@ body {
 }
 
 #markets .h1 {
-  font-size: 5rem;
+  font-size: 6rem;
   }
-  
-  #markets .open {
-    font-size: 4rem;
-  }
-  
+    
   #markets .time {
   font-size: 10rem;
   }
@@ -414,9 +430,6 @@ body {
   font-size: 8rem;
   }
   
-  #markets .open {
-    font-size: 4rem;
-  }
   
   #markets .time {
   font-size: 20rem;

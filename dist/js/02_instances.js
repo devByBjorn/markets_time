@@ -12,6 +12,9 @@ newYork.setHolidays([
 ])
 newYork.setHalfDays(['Nov 26', 'Dec 24'])
 newYork.openCLoseModal()
+newYork.getCountDown(newYork.open)
+newYork.getCountDown(newYork.close)
+
 
 // STOCKHOLM
 const stockholm = new Market('Europe', 'Stockholm', '09:00', '17:30')
@@ -28,6 +31,8 @@ stockholm.setHolidays([
   'Dec 31'])
 stockholm.setHalfDays(['Apr 9', 'Apr 30', 'May 20', 'Oct 30'])
 stockholm.openCLoseModal()
+stockholm.getCountDown(stockholm.close)
+stockholm.getCountDown(stockholm.open)
 
 
 // // LONDON
@@ -44,6 +49,9 @@ london.setHolidays([
 ])
 london.setHalfDays(['Dec 24', 'Dec 31'])
 london.openCLoseModal()
+london.getCountDown(london.open)
+london.getCountDown(london.close)
+
 
 
 // // FRANKFURT
@@ -59,6 +67,9 @@ frankfurt.setHolidays([
   'Dec 31'
 ])
 frankfurt.openCLoseModal()
+frankfurt.getCountDown(frankfurt.open)
+frankfurt.getCountDown(frankfurt.close)
+
 
 // // HONG KONG
 const hongKong = new MarketWithLunch('Asia', 'Hong_Kong', '09:30', '16:00', '12:00', '13:00')
@@ -80,6 +91,9 @@ hongKong.setHolidays([
 ])
 hongKong.setHalfDays(['Dec 24', 'Dec 31'])
 hongKong.openCLoseModal()
+hongKong.getCountDown(hongKong.close)
+hongKong.getCountDown(hongKong.open)
+
 
 
 // // TOKYO
@@ -106,13 +120,9 @@ tokyo.setHolidays([
   'Dec 31'
 ])
 tokyo.openCLoseModal()
+tokyo.getCountDown(tokyo.close)
+tokyo.getCountDown(tokyo.open)
 
-newYork.getCountdown(newYork.open)
-stockholm.getCountdown(stockholm.open)
-london.getCountdown(london.open)
-frankfurt.getCountdown(frankfurt.open)
-hongKong.getCountdown(hongKong.open)
-tokyo.getCountdown(tokyo.open)
 
 setInterval(() => {
   newYork.statusColor()
