@@ -147,6 +147,7 @@ body {
 /* Main content - Markets*/
 #markets {
   min-width: 90vw;
+  padding-top: 2rem;
   display: grid;
   gap: 5px;
   grid-template-columns: repeat(autofit, minmax(35rem, 1fr));
