@@ -479,6 +479,12 @@ grid-area: grid-six;
   "grid-three grid-four"
   "grid-five grid-six"
   }
+
+  
+  .to-landing {
+    text-align: right;
+    font-size: 2rem;
+  }
 }
 
 /* Big screens*/
@@ -533,6 +539,10 @@ grid-area: grid-six;
     padding: 1rem;
     font-size: 2.5rem;
     border: none;
+  }
+
+  .to-landing {
+    display:none;
   }
 
   #markets {

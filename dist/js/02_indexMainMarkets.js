@@ -138,14 +138,14 @@ infoBtns.forEach((btn) => {
       case 'new-york':
         newYork.setSummary()
         break
+      case 'toronto':
+        toronto.setSummary()
+        break
       case 'london':
         london.setSummary()
         break
       case 'frankfurt':
         frankfurt.setSummary()
-        break
-      case 'toronto':
-        toronto.setSummary()
         break
       case 'hong-kong':
         hongKong.setSummary()
