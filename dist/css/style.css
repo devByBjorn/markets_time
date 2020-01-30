@@ -222,14 +222,43 @@ border-top: 1px solid #0b1e2c;
   top: 0;
   left: 0;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: absolute;
   background-color: var(--main-color-dark);
   width: 100vw;
   height: 100vh;
+  z-index: 997;
+}
+
+.loader-chart {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40rem;
+  height: auto;
+  z-index: 998;
+  background: url(/dist/img/loaderChart.PNG) var(--bg-img-position);
+}
+
+.loader-curtain {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40rem;
+  height: auto;
+  background-color: var(--main-color-dark);
   z-index: 999;
+  animation: slide 1.5s;
+}
+
+@keyframes slide {
+  0% {transform: translateX(0%);}
+  15%{transform: translateY(15%);}
+  33% {transform: translateX(33%);}
+  45% {transform: translateX(45%);}
+  66% {transform: translateX(66%);}
+  80% {transform: translateX(80%);}
+  100% {transform:  translateX(100%);}
 }
 
 /* .loader {
