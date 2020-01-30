@@ -65,7 +65,7 @@ santiago.getCountDown(santiago.open)
 santiago.getCountDown(santiago.close)
 
 // // HONG KONG
-const buenosAires = new MarketWithLunch('Asia', 'Buenos_Aires', '09:30', '16:00', '12:00', '13:00')
+const buenosAires = new MarketWithLunch('America', 'Buenos_Aires', '09:30', '16:00', '12:00', '13:00')
 buenosAires.setHolidays([
   'Jan 1',
   'Jan 24',
@@ -87,7 +87,7 @@ buenosAires.getCountDown(buenosAires.close)
 buenosAires.getCountDown(buenosAires.open)
 
 // // TOKYO
-const saoPaulo = new MarketWithLunch('Asia', 'Sao_Paulo', '09:00', '15:00', '11:30', '12:30')
+const saoPaulo = new MarketWithLunch('America', 'Sao_Paulo', '09:00', '15:00', '11:30', '12:30')
 saoPaulo.setHolidays([
   'Jan 1',
   'Jan 2',
