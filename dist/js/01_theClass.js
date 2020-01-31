@@ -150,7 +150,7 @@ class Market {
             || this.holidays.includes(nextDayHoliday)
             && this.getTime().hoursMinutes > this.close) {
             counter.innerHTML = `<span>Market closed tomorrow</span>`
-          } else if (this.getStatus().isClosed) {
+          } else if (this.getStatus().isClosed && !this.getStatus().isWeekend()) {
             counter.innerHTML = `<span>Opens in</span><span>${hh}:${mm}:${ss}</span>`
           }
           break
