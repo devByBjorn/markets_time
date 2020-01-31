@@ -1,25 +1,29 @@
 'use strict'
 
 //SINGAPORE
-const singapore = new Market('Asia', 'Singapore', '09:30', '16:00')
+const singapore = new MarketWithLunch('Asia', 'Singapore', '09:00', '17:00', '12:00', '13:00')
 singapore.setHolidays([
   'Jan 1',
-  'Jan 20',
-  'Feb 17',
+  'Jan 24',
+  'Jan 27',
   'Apr 10',
+  'May 1',
+  'May 7',
   'May 25',
-  'Jul 3',
-  'Sep 7',
+  'Jul 31',
+  'Aug 10',
+  'Nov 14',
+  'Dec 25',
 ])
-singapore.setHalfDays(['Nov 26', 'Dec 24'])
+
+singapore.setHalfDays(['Dec 24', 'Dec 31'])
 singapore.getCountDown(singapore.open)
 singapore.getCountDown(singapore.close)
 
-//HONG KONG
+// HONG KONG
 const hongKong = new MarketWithLunch('Asia', 'Hong_Kong', '09:30', '16:00', '12:00', '13:00')
 hongKong.setHolidays([
   'Jan 1',
-  'Jan 24',
   'Jan 27',
   'Jan 28',
   'Apr 10',
@@ -33,7 +37,7 @@ hongKong.setHolidays([
   'Oct 26',
   'Dec 25'
 ])
-hongKong.setHalfDays(['Dec 24', 'Dec 31'])
+hongKong.setHalfDays(['Jan 24', 'Dec 24', 'Dec 31'])
 hongKong.getCountDown(hongKong.close)
 hongKong.getCountDown(hongKong.open)
 
@@ -45,18 +49,21 @@ shanghai.setHolidays([
   'Jan 24',
   'Jan 27',
   'Jan 28',
-  'Apr 10',
-  'Apr 13',
-  'Apr 30',
+  'Jan 29',
+  'Jan 30',
+  'Apr 6',
   'May 1',
+  'May 4',
+  'May 5',
   'Jun 25',
-  'Jul 1',
+  'Jun 26',
   'Oct 1',
   'Oct 2',
-  'Oct 26',
-  'Dec 25'
+  'Oct 5',
+  'Oct 6',
+  'Oct 7',
+  'Oct 8',
 ])
-shanghai.setHalfDays(['Dec 24', 'Dec 31'])
 shanghai.getCountDown(shanghai.close)
 shanghai.getCountDown(shanghai.open)
 
@@ -66,7 +73,6 @@ seoul.setHolidays([
   'Jan 1',
   'Jan 24',
   'Jan 27',
-  'Apr 10',
   'Apr 30',
   'May 1',
   'May 5',
@@ -77,11 +83,10 @@ seoul.setHolidays([
   'Dec 25',
   'Dec 31'
 ])
-
 seoul.getCountDown(seoul.open)
 seoul.getCountDown(seoul.close)
 
-//TOKYO
+// // TOKYO
 const tokyo = new MarketWithLunch('Asia', 'Tokyo', '09:00', '15:00', '11:30', '12:30')
 tokyo.setHolidays([
   'Jan 1',
@@ -104,20 +109,18 @@ tokyo.setHolidays([
   'Nov 23',
   'Dec 31'
 ])
-
 tokyo.getCountDown(tokyo.close)
 tokyo.getCountDown(tokyo.open)
 
 
 //SYDNEY
-const sydney = new Market('Australia', 'Sydney', '08:00', '16:30')
+const sydney = new Market('Australia', 'Sydney', '10:00', '16:00')
 sydney.setHolidays([
   'Jan 1',
+  'Jan 27',
   'Apr 10',
   'Apr 13',
-  'May 4',
-  'May 25',
-  'Aug 31',
+  'Jun 8',
   'Dec 25',
   'Dec 28'
 ])

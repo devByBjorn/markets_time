@@ -9,8 +9,10 @@ newYork.setHolidays([
   'May 25',
   'Jul 3',
   'Sep 7',
+  'Nov 26',
+  'Dec 25'
 ])
-newYork.setHalfDays(['Nov 26', 'Dec 24'])
+newYork.setHalfDays(['Nov 27', 'Dec 24'])
 newYork.getCountDown(newYork.open)
 newYork.getCountDown(newYork.close)
 
@@ -37,7 +39,7 @@ london.setHolidays([
   'Jan 1',
   'Apr 10',
   'Apr 13',
-  'May 4',
+  'May 8',
   'May 25',
   'Aug 31',
   'Dec 25',
@@ -59,7 +61,6 @@ frankfurt.setHolidays([
   'Dec 25',
   'Dec 31'
 ])
-
 frankfurt.getCountDown(frankfurt.open)
 frankfurt.getCountDown(frankfurt.close)
 
@@ -67,7 +68,6 @@ frankfurt.getCountDown(frankfurt.close)
 const hongKong = new MarketWithLunch('Asia', 'Hong_Kong', '09:30', '16:00', '12:00', '13:00')
 hongKong.setHolidays([
   'Jan 1',
-  'Jan 24',
   'Jan 27',
   'Jan 28',
   'Apr 10',
@@ -81,7 +81,7 @@ hongKong.setHolidays([
   'Oct 26',
   'Dec 25'
 ])
-hongKong.setHalfDays(['Dec 24', 'Dec 31'])
+hongKong.setHalfDays(['Jan 24', 'Dec 24', 'Dec 31'])
 hongKong.getCountDown(hongKong.close)
 hongKong.getCountDown(hongKong.open)
 
@@ -108,7 +108,6 @@ tokyo.setHolidays([
   'Nov 23',
   'Dec 31'
 ])
-
 tokyo.getCountDown(tokyo.close)
 tokyo.getCountDown(tokyo.open)
 

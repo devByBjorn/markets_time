@@ -57,14 +57,20 @@ class Market {
     return this.halfDays = halfDays
   }
 
-  // get halfday close
+  // get halfday close - make half day close to a constructo argument
+  // worked when there was two special cases but when scaling up -
+  // the sepcial cases piles up
   getHalfdayClose() {
     let halfdayClose
 
     if (this.city === 'London') {
       halfdayClose = '12:30'
-    } else if (this.city === 'Hong_Kong') {
+    } else if (this.city === 'Hong_Kong' || 'Singapore') {
       halfdayClose = '12:00'
+    } else if (this.city === 'Amsterdam' || 'Paris') {
+      halfdayClose = '14:00'
+    } else if (this.city = 'sydney') {
+      halfdayClose = '14.10'
     } else {
       halfdayClose = '13:00'
     }

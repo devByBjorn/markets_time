@@ -1,14 +1,13 @@
 'use strict'
 // EUROPE
 
-
 // LONDON
 const london = new Market('Europe', 'London', '08:00', '16:30')
 london.setHolidays([
   'Jan 1',
   'Apr 10',
   'Apr 13',
-  'May 4',
+  'May 8',
   'May 25',
   'Aug 31',
   'Dec 25',
@@ -69,7 +68,6 @@ frankfurt.setHolidays([
   'Dec 25',
   'Dec 31'
 ])
-
 frankfurt.getCountDown(frankfurt.open)
 frankfurt.getCountDown(frankfurt.close)
 

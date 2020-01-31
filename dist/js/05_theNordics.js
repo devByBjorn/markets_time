@@ -65,7 +65,7 @@ copenhagen.getCountDown(copenhagen.close)
 const stockholm = new Market('Europe', 'Stockholm', '09:00', '17:30')
 stockholm.setHolidays([
   'Jan 1',
-  'Apr 9',
+  'Jan 6',
   'Apr 10',
   'Apr 13',
   'May 1',
@@ -75,7 +75,7 @@ stockholm.setHolidays([
   'Dec 25',
   'Dec 31',
 ])
-stockholm.setHalfDays(['Apr 9', 'Apr 10', 'May 20', 'Oct 30'])
+stockholm.setHalfDays(['Apr 9', 'Apr 30', 'May 20', 'Oct 30'])
 stockholm.getCountDown(stockholm.open)
 stockholm.getCountDown(stockholm.close)
 
