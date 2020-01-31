@@ -227,27 +227,32 @@ border-top: 1px solid #0b1e2c;
   background-color: var(--main-color-dark);
   width: 100vw;
   height: 100vh;
+  z-index: 996;
+}
+
+.loader-chart {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  width: 100rem;
+  height: auto;
   z-index: 997;
 }
 
-/* .loader-chart {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 40rem;
+.loader-chart img {
+  width: 100%;
   height: auto;
-  z-index: 998;
-  background: url(/dist/img/loaderChart.PNG) var(--bg-img-position);
-} */
+  
+}
 
 .loader-curtain {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 40rem;
+  width: 100rem;
   height: auto;
   background-color: var(--main-color-dark);
-  z-index: 999;
+  z-index: 998;
   animation: slide 2s;
 }
 
@@ -301,7 +306,7 @@ border-top: 1px solid #0b1e2c;
   grid-template-columns: repeat(autofit);
   grid-template-areas:
 "grid-one grid-two grid-three"
-"grid-four grid-five grid-six"
+"grid-four grid-five grid-six";
 }
 
 .grid-1 {
@@ -497,7 +502,7 @@ grid-area: grid-six;
   cursor: pointer;
   color: var(--color-closed);
 }
-
+/* 
 #year {
   color: var(--main-color-light);
   text-align: center;
@@ -506,7 +511,7 @@ grid-area: grid-six;
 #year span {
   font-size: var(--heading-font-size);
   font-weight: 900;
-}
+} */
 
 
 /* Media queries and desktop*/
