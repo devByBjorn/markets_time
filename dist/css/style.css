@@ -230,7 +230,7 @@ border-top: 1px solid #0b1e2c;
   z-index: 997;
 }
 
-.loader-chart {
+/* .loader-chart {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -238,7 +238,7 @@ border-top: 1px solid #0b1e2c;
   height: auto;
   z-index: 998;
   background: url(/dist/img/loaderChart.PNG) var(--bg-img-position);
-}
+} */
 
 .loader-curtain {
   position: absolute;
@@ -248,16 +248,14 @@ border-top: 1px solid #0b1e2c;
   height: auto;
   background-color: var(--main-color-dark);
   z-index: 999;
-  animation: slide 1.5s;
+  animation: slide 2s;
 }
 
 @keyframes slide {
   0% {transform: translateX(0%);}
-  15%{transform: translateY(15%);}
-  33% {transform: translateX(33%);}
-  45% {transform: translateX(45%);}
-  66% {transform: translateX(66%);}
-  80% {transform: translateX(80%);}
+
+  50% {transform: translateX(50%);}
+
   100% {transform:  translateX(100%);}
 }
 
