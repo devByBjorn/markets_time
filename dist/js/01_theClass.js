@@ -145,12 +145,16 @@ class Market {
       // but not if next day is weekend or holiday
       switch (countReference) {
         case this.open:
-          if (this.weekend.includes(nextDayWeekend)
+          if (this.getStatus().isWeekend) {
+            counter.innerHTML = `<span>Market closed</span>`
+          }
+          else if (this.weekend.includes(nextDayWeekend)
             && this.getTime().hoursMinutes > this.close
             || this.holidays.includes(nextDayHoliday)
             && this.getTime().hoursMinutes > this.close) {
             counter.innerHTML = `<span>Market closed tomorrow</span>`
-          } else if (this.getStatus().isClosed && !this.getStatus().isWeekend()) {
+          } else if (this.getStatus().isClosed &&
+            !this.getStatus().isWeekend()) {
             counter.innerHTML = `<span>Opens in</span><span>${hh}:${mm}:${ss}</span>`
           }
           break

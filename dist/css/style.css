@@ -53,6 +53,7 @@ a {
   text-align: center;
   color: var(--color-light-dark);
   border: var(--border-thin) var(--color-light-dark);
+  height: 35rem;
 }
 
 .landing-page-wrapper:hover {
@@ -269,7 +270,7 @@ border-top: 1px solid #0b1e2c;
 @keyframes slide {
   0% {transform: translateX(0%);}
 
-  50% {transform: translateX(50%);}
+  /* 50% {transform: translateX(50%);} */
 
   100% {transform:  translateX(100%);}
 }
@@ -289,12 +290,14 @@ border-top: 1px solid #0b1e2c;
 
 /* Main content - Markets*/
 #markets {
-  min-width: 90vw;
+  min-width: 75vw;
   margin: auto;
   padding: 2rem;
   display: grid;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
-  grid-template-columns: repeat(autofit);
+  grid-template-columns: repeat( auto-fit, minmax(35rem, 1fr) );
   grid-template-areas:
 "grid-one grid-two grid-three"
 "grid-four grid-five grid-six";
@@ -439,9 +442,10 @@ grid-area: grid-six;
 .modal .info {
   position: relative;
   background-color: var(--main-color-light);
-  margin: 5% auto;
+  margin: 10% auto;
   padding: 5rem;
-  max-width: 90rem;
+  width: 90rem;
+  max-width: 90vw;
   /* box-shadow: 0px 3px 10px 0px rgba(255,255,255,1); */
 }
 
@@ -494,41 +498,27 @@ grid-area: grid-six;
   cursor: pointer;
   color: var(--color-closed);
 }
-/* 
-#year {
-  color: var(--main-color-light);
-  text-align: center;
-}
 
-#year span {
-  font-size: var(--heading-font-size);
-  font-weight: 900;
-} */
-
-
-/* Media queries and desktop*/
-
+/* Media queries*/
 /* mobile landscape and tablets*/
 @media(max-width: 1024px) {
+
+  /* Landing Page*/
+  .landing-page-wrapper {
+    height: 25rem;
+  }
 
   .landing-page-wrapper a {
     padding: 5rem;
   }
-  
 
-  .to-landing {
-    display:none;
+  #main-nav ul {
+    padding-top: 5rem;
   }
-
   
-#main-nav ul {
-  padding-top: 5rem;
-}
-  
-#nav .hamburger .open-slide {
-  padding-right: 1rem;
-}
-
+  #nav .hamburger .open-slide {
+    padding-right: 1rem;
+  }
 
   #markets {
     grid-template-areas:
@@ -536,7 +526,6 @@ grid-area: grid-six;
   "grid-three grid-four"
   "grid-five grid-six"
   }
-
 
   #buenos-aires-heading span {
     display: block;
@@ -550,24 +539,22 @@ grid-area: grid-six;
     margin-top: 5rem;
   }
   
-#markets .h1 {
-  font-size: 10rem;
+  #markets .h1 {
+    font-size: 10rem;
   }
 
+  #markets .counter,
+  #markets .open {
+    font-size: 4rem;
+  }
 
-#markets .counter,
-#markets .open {
-  font-size: 4rem;
-}
+  #markets .open span:nth-child(2),
+  #markets .counter span:nth-child(2){
+    font-size: 5rem;
+  }
 
-#markets .open span:nth-child(2),
-#markets .counter span:nth-child(2){
-  font-size: 5rem;
-}
-
-  
   #markets .time {
-  font-size: 15rem;
+    font-size: 15rem;
   }
   
   #markets .info-btn {
@@ -586,24 +573,33 @@ grid-area: grid-six;
     padding-top: 1rem;
   }
 
-  #nav .hamburger {
+  #nav .hamburger .region-tag {
     position: absolute;
-    top: 0;
-    left: 1rem;
-    padding: 1rem;
+    top: 1rem;
+    left: 5rem;
+    padding-top: 1.2rem;
     font-size: 3rem;
+  }
+
+  #nav .hamburger .open-slide {
+    top: 1rem;
+    left: 0;
+    padding: .75rem 1.5rem;
+    font-size: 3rem;
+    position: fixed;
+    background: var(--main-color-dark);
+    border-radius: 50%;
   }
   
   #nav .current-time {
     position: absolute;
-    top: 0;
+    top: 1rem;
     right: 1rem;
-    padding-top: 1.5rem;
-    text-align: right;
+    padding-top: 1.2rem;
   }
 
   #nav .color-themes {
-    padding-top: 5rem;
+    padding-top: 2rem;
   }
 
   .color-themes .color {
