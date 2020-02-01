@@ -290,7 +290,6 @@ border-top: 1px solid #0b1e2c;
 
 /* Main content - Markets*/
 #markets {
-  min-width: 75vw;
   margin: auto;
   padding: 2rem;
   display: grid;
