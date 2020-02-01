@@ -360,16 +360,12 @@ grid-area: grid-six;
   white-space: nowrap;
   font-weight: 900;
   text-transform: capitalize;
-}
-
-#hong-kong-heading,
-#tokyo-heading {
   padding-bottom: .5rem;
 }
 
 #markets .open{
   font-size: 2.5rem;
-  padding: 1rem 0;
+  padding: .5rem 0;
   border-top: 1px dotted;
 }
 
@@ -503,6 +499,24 @@ grid-area: grid-six;
 /* mobile landscape and tablets*/
 @media(max-width: 1024px) {
 
+  #nav .hamburger .region-tag {
+    position: absolute;
+    top: 2rem;
+    left: 5rem;
+    padding-top: 1.2rem;
+    font-size: 2rem;
+  }
+
+  #nav .hamburger .open-slide {
+    top: 1rem;
+    left: 0;
+    padding: .75rem 1.5rem;
+    font-size: 3rem;
+    position: fixed;
+    background: var(--main-color-dark);
+    border-radius: 50%;
+  }
+
   /* Landing Page*/
   .landing-page-wrapper {
     height: 25rem;
@@ -520,6 +534,10 @@ grid-area: grid-six;
     padding-right: 1rem;
   }
 
+  #nav .region-tag {
+    font-size: 2rem;
+  }
+
   #markets {
     grid-template-areas:
   "grid-one grid-two"
@@ -527,42 +545,8 @@ grid-area: grid-six;
   "grid-five grid-six"
   }
 
-  #buenos-aires-heading span {
-    display: block;
-  }
-}
-
-/* Big screens*/
-@media(min-width: 1950px){
-
-  .container {
-    margin-top: 5rem;
-  }
-  
   #markets .h1 {
-    font-size: 10rem;
-  }
-
-  #markets .counter,
-  #markets .open {
     font-size: 4rem;
-  }
-
-  #markets .open span:nth-child(2),
-  #markets .counter span:nth-child(2){
-    font-size: 5rem;
-  }
-
-  #markets .time {
-    font-size: 15rem;
-  }
-  
-  #markets .info-btn {
-    font-size: 2rem;
-  }
-  
-  #year span {
-    font-size: 10rem;
   }
 }
 
@@ -578,7 +562,7 @@ grid-area: grid-six;
     top: 1rem;
     left: 5rem;
     padding-top: 1.2rem;
-    font-size: 3rem;
+    font-size: 2rem;
   }
 
   #nav .hamburger .open-slide {
@@ -608,7 +592,6 @@ grid-area: grid-six;
     border: none;
   }
 
-
   #markets {
     grid-template-areas:
   "grid-one"
@@ -619,9 +602,13 @@ grid-area: grid-six;
   "grid-six"
   }
 
+  #markets .h1 {
+    font-size: 4rem;
+  }
+
   #markets .time {
   padding: 2rem;
-  font-size: 10rem;
+  font-size: 8rem;
   }
 
   .modal .info {
@@ -631,6 +618,36 @@ grid-area: grid-six;
   #markets .info-btn {
     font-size: 1.5rem;
     padding: .75rem;
+  }
+}
+
+/* Big screens*/
+@media(min-width: 1950px){
+
+  .container {
+    margin-top: 5rem;
+  }
+  
+  #markets .h1 {
+    font-size: 8rem;
+  }
+
+  #markets .counter,
+  #markets .open {
+    font-size: 4rem;
+  }
+
+  #markets .open span:nth-child(2),
+  #markets .counter span:nth-child(2){
+    font-size: 5rem;
+  }
+
+  #markets .time {
+    font-size: 15rem;
+  }
+  
+  #markets .info-btn {
+    font-size: 2rem;
   }
 }
 
