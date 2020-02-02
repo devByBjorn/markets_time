@@ -367,6 +367,11 @@ border-top: 1px solid var(--color-light-transparent);
   animation: slide 1.5s;
 }
 
+#year {
+  color: var(--main-color-light);
+  font-size: var(--heading-font-size);
+}
+
 @keyframes slide {
   0% {transform: translateX(0%);}
   100% {transform:  translateX(100%);}
