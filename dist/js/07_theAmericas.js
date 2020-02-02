@@ -154,11 +154,11 @@ infoBtns.forEach((btn) => {
       case 'santiago':
         santiago.setSummary()
         break
-      case 'hong-kong':
-        hongKong.setSummary()
+      case 'buenos-aires':
+        buenosAires.setSummary()
         break
-      case 'tokyo':
-        tokyo.setSummary()
+      case 'sao-paulo':
+        saoPaulo.setSummary()
         break
     }
   })

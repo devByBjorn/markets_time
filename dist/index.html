@@ -7,83 +7,105 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <script src="https://kit.fontawesome.com/9f0bfe41d9.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/style.css">
-  <title>Time the Markets</title>
+  <title>Markets in Time</title>
 </head>
 
 <body>
   <!--NAV -->
-  <!-- <nav id="nav" class="inner-nav">
+  <nav id="nav" class="inner-nav">
 
     <div>
       <div class="hamburger">
-        <span class="open-slide" title="Menu of markets" onclick="openNav()">&#9776;</span> -->
-  <!-- <span class="to-landing"><ahref="index.html" title="Link to landingpage">Time the Markets</a></span> -->
-  <!-- </div>
-    </div> -->
+        <span class="open-slide" title="Menu of markets" onclick="openNav()">&#9776;</span>
+        <!-- <span class="to-landing"><ahref="index.html" title="Link to landingpage">Markets in Time</a></span> -->
+      </div>
+    </div>
 
-  <!-- <div id="main-nav" class="sliding-nav">
+    <div id="main-nav" class="sliding-nav">
       <div class="sliding-content">
         <a href="index.html"><i class="fas fa-home"></i></a>
         <a class="close-slide" onclick="closeNav()">&times;</a>
         <ul>
-          <li><a href="index.html">World Markets</a></li> -->
-  <!-- <li><a href="africa.html">Africa</a></li> -->
-  <!-- <li><a href="the-americas.html">Americas</a></li>
+          <li><a href="world.html">World</a></li>
+          <!-- <li><a href="africa.html">Africa</a></li> -->
+          <li><a href="the-americas.html">Americas</a></li>
           <li><a href="asia-oceania.html">Asia/Pacifics</a></li>
           <li><a href="europe.html">Europe</a></li>
-          <li><a href="the-nordics.html">The Nordics</a></li>
+          <li><a href="the-nordics.html">Nordics</a></li>
         </ul>
       </div>
     </div>
 
-    <div class="color-themes">
-      <div class="open-market color">Open</div>
-      <div class="half-day-market color">Half day</div>
-      <div class="closed-market color">Closed</div>
+    <div class="main-heading">
+      <h1 class="h1">Markets in Time</h1>
     </div>
     <div class="current-time"></div>
-  </nav>  -->
+  </nav>
   <!-- NAV END-->
+
+  <div class="landing-container">
+    <div class="landing-descript">
+      <h2>Stock Market Hours</h2>
+    </div>
+
+    <div class="landing-content">
+      <div class="wrapper">
+        <h3>Timestamp</h3>
+        <p>Constant update of market place timestamp, always with timezone and daylight
+          saving taken into account.</p>
+      </div>
+      <div class="wrapper">
+        <h3>Status</h3>
+        <p>Instant and clear market status; opened, closed, trading half day, holiday or market currently closed for
+          lunch.</p>
+      </div>
+      <div class="wrapper">
+        <h3>Info</h3>
+        <p>Stay ahead with info about market hours, coming half day trading and holidays.</p>
+      </div>
+    </div>
+  </div>
+
+
 
   <div class="container">
     <div class="market-container">
-      <!-- <h1 class="site-header">Time your market</h1> -->
-
+      <h3 class="regions-heading h1">Markets by region</h3>
       <!-- MAIN BEGINNING-->
       <main id="markets">
 
         <!-- WORLD-->
         <div class="landing-page-wrapper grid-1">
-          <h1 class="h1"><a href="world.html">world</a></h1>
+          <h3 class="h1"><a href="world.html">world</a></h3>
 
         </div>
 
         <!-- AFRICA-->
         <div class="landing-page-wrapper grid-2">
-          <h1 class="h1">africa</h1>
+          <h3 class="h1">africa</h3>
           <p>(Markets coming soon)</p>
 
         </div>
 
         <!-- THE AMERICAS -->
         <div class="landing-page-wrapper grid-3">
-          <h1 class="h1"><a href="the-americas.html">americas</a></h1>
+          <h3 class="h1"><a href="the-americas.html">americas</a></h3>
 
         </div>
 
         <!-- ASIA & OCEANIA -->
         <div class="landing-page-wrapper grid-4">
-          <h1 class="h1"><a href="asia-oceania.html">asia & <br> oceania</a></h1>
+          <h3 class="h1"><a href="asia-oceania.html">asia & <br> oceania</a></h3>
 
         </div> <!-- EUROPE-->
         <div class="landing-page-wrapper grid-5">
-          <h1 class="h1"><a href="europe.html">europe</a></h1>
+          <h3 class="h1"><a href="europe.html">europe</a></h3>
 
         </div>
 
         <!-- THE NORDICS -->
         <div class="landing-page-wrapper grid-6">
-          <h1 class="h1"><a href="the-nordics.html">nordics</a></h1>
+          <h3 class="h1"><a href="the-nordics.html">nordics</a></h3>
 
         </div>
 
@@ -92,12 +114,10 @@
     </div>
   </div>
 
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
   <script
     src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.25/moment-timezone-with-data-10-year-range.min.js"></script>
-  <script src="js/01_theClass.js"></script>
-  <script src="js/02_indexMainMarkets.js"></script>
-  <script src="js/03_functions.js"></script> -->
+  <script src="js/03_functions.js"></script>
 </body>
 
 </html>

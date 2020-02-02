@@ -174,7 +174,7 @@ infoBtns.forEach((btn) => {
       case 'helsinki':
         helsinki.setSummary()
         break
-      case 'oslos':
+      case 'oslo':
         oslo.setSummary()
       case 'copenhagen':
         copenhagen.setSummary()

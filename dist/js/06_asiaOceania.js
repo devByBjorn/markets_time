@@ -166,7 +166,7 @@ infoBtns.forEach((btn) => {
         tokyo.setSummary()
         break
       case 'sydney':
-        sydeny.setSummary()
+        sydney.setSummary()
         break
     }
   })

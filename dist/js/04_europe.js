@@ -125,6 +125,9 @@ infoBtns.forEach((btn) => {
   btn.addEventListener('click', () => {
     modal.style.display = 'block'
     switch (marketInfo[1]) {
+      case 'london':
+        london.setSummary()
+        break
       case 'paris':
         paris.setSummary()
         break
@@ -134,7 +137,7 @@ infoBtns.forEach((btn) => {
       case 'amsterdam':
         amsterdam.setSummary()
         break
-      case 'zurish':
+      case 'zurich':
         zurich.setSummary()
         break
       case 'frankfurt':
