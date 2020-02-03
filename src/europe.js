@@ -1,5 +1,10 @@
 'use strict'
 // EUROPE
+import Market from './mainClass.js'
+import { currentTime, loader, openNav, closeNav } from './utils.js'
+
+setInterval(currentTime, 1000)
+setInterval(loader, 1500)
 
 // LONDON
 const london = new Market('Europe', 'London', '08:00', '16:30')

@@ -1,6 +1,6 @@
 'use strict'
 
-class Market {
+export class Market {
   constructor(region, city, open, close) {
     this.region = region
     this.city = city
@@ -295,7 +295,7 @@ class Market {
 }
 
 // Subclass for markets closed  during lunch hours ( TOKYO and HONG KONG)
-class MarketWithLunch extends Market {
+export class MarketWithLunch extends Market {
   constructor(region, city, open, close, lunchStart, lunchEnd) {
     super(region, city, open, close)
     this.lunchStart = lunchStart

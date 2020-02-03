@@ -1,5 +1,12 @@
 'use strict'
 
+import Market from './mainClass.js'
+import { currentTime, loader, openNav, closeNav } from './utils.js'
+
+setInterval(currentTime, 1000)
+setInterval(loader, 1500)
+
+
 // MEXICO CITY
 const mexicoCity = new Market('America', 'Mexico_City', '08:30', '15:00')
 mexicoCity.setHolidays([

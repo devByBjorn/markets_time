@@ -1,5 +1,11 @@
 'use strict'
 // THE NORDICS
+import Market from './mainClass.js'
+import { currentTime, loader, openNav, closeNav } from './utils.js'
+
+setInterval(currentTime, 1000)
+setInterval(loader, 1500)
+
 
 //REYKJAVIK
 const reykjavik = new Market('Atlantic', 'Reykjavik', '09:30', '15:30')

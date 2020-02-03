@@ -1,34 +1,24 @@
 // Ticking seconds and 'hide seconds' as textContent when opening page
-(function currentTime() {
+export const currentTime = () => {
   const time = moment().format('HH:mm:ss')
 
   document.querySelector('.current-time').innerHTML = `<span>${time}</<span>`
-  setTimeout(currentTime, 1000)
-}())
-
-// Close modal on darken background
-window.onclick = (e) => {
-  if (e.target.className === 'modal') {
-    e.target.style.display = 'none'
-  }
 }
-const currentYear = (id) => {
 
+
+export const currentYear = (id) => {
   try {
     const copyYear = new Date().getFullYear();
     document.getElementById(id).innerHTML = `<span>@${copyYear}</<span>`;
   } catch (e) {
 
   }
-
 }
 
-currentYear('year')
-
 /* Interval for loader*/
-setInterval(() => {
+export const loader = () => {
   document.querySelector('.loader-container').style.display = 'none'
-}, 1500)
+}
 
 // DOM acces to navbar
 const queryDOM = {
@@ -39,14 +29,14 @@ const queryDOM = {
 }
 
 // Nav when opened
-const openNav = () => {
+export const openNav = () => {
   // queryDOM.closeNav.style.transform = 'rotate(90deg)'
   queryDOM.nav.style.width = '35rem'
   queryDOM.container.style.paddingLeft = '35rem'
 }
 
 // Nav when closed
-const closeNav = () => {
+export const closeNav = () => {
   queryDOM.nav.style.width = '0'
   queryDOM.container.style.paddingLeft = '0rem'
   // queryDOM.closeNav.style.transform = 'rotate(-90deg)'

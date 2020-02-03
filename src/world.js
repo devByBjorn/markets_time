@@ -1,4 +1,10 @@
 'use strict'
+import { Market, MarketWithLunch } from './mainClass.js'
+import { currentTime, loader, openNav, closeNav } from './utils.js'
+
+setInterval(currentTime, 1000)
+setInterval(loader, 1500)
+
 // NEW YORK
 const newYork = new Market('America', 'New_York', '09:30', '16:00')
 newYork.setHolidays([

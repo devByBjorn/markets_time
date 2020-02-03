@@ -1,4 +1,10 @@
 'use strict'
+import { Market, MarketWithLunch } from './mainClass.js'
+import { currentTime, loader, openNav, closeNav } from './utils.js'
+
+setInterval(currentTime, 1000)
+setInterval(loader, 1500)
+
 
 //SINGAPORE
 const singapore = new MarketWithLunch('Asia', 'Singapore', '09:00', '17:00', '12:00', '13:00')
