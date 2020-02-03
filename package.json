@@ -4,7 +4,8 @@
   "description": "A stock market timing tool",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "live-server dist/",
+    "build": "babel src/app.js --out-file=dist/scripts/app.js --presets=env --watch"
   },
   "repository": {
     "type": "git",
