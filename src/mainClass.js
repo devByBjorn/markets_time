@@ -147,8 +147,9 @@ export class Market {
         case this.open:
           if (this.getStatus().isWeekend) {
             counter.innerHTML = `<span>Market closed</span>`
-          }
-          else if (this.weekend.includes(nextDayWeekend)
+          } else if (this.getStatus().isHoliday) {
+            counter.innerHTML = `<span>Market closed</span>`
+          } else if (this.weekend.includes(nextDayWeekend)
             && this.getTime().hoursMinutes > this.close
             || this.holidays.includes(nextDayHoliday)
             && this.getTime().hoursMinutes > this.close) {
