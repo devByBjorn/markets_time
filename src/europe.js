@@ -1,6 +1,6 @@
 'use strict'
 // EUROPE
-import Market from './mainClass.js'
+import { Market } from './mainClass.js'
 import { currentTime, loader, openNav, closeNav } from './utils.js'
 
 setInterval(currentTime, 1000)
