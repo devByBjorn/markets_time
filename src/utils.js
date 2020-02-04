@@ -27,8 +27,8 @@ const queryDOM = {
 
 // Nav when opened
 const openStyle = () => {
-  queryDOM.nav.style.width = '35rem'
-  queryDOM.container.style.paddingLeft = '35rem'
+  queryDOM.nav.style.width = '15rem'
+  queryDOM.container.style.paddingLeft = '15rem'
   // queryDOM.closeNav.style.transform = 'rotate(90deg)'
 }
 
