@@ -6,7 +6,7 @@
   "scripts": {
     "serve": "live-server dist/",
     "build": "webpack --watch",
-    "build-babel": "babel src/app.js --out-file=dist/js/app.js --presets=env --watch"
+    "dev-server": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
@@ -26,7 +26,8 @@
     "live-server": "^1.2.1",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.27",
-    "webpack": "^4.41.5"
+    "webpack": "^4.41.5",
+    "webpack-dev-server": "^3.10.2"
   },
   "devDependencies": {
     "moment-locales-webpack-plugin": "^1.1.2",

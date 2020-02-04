@@ -38,5 +38,9 @@ module.exports = {
       endYear: currentYear + 1,
     }),
   ],
+  devtool: 'cheap-module-eval-source-map',
+  devServer: {
+    contentBase: path.join(__dirname, 'public')
+  },
   mode: 'development'
 }
