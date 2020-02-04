@@ -572,7 +572,7 @@ grid-area: grid-six;
   background-color: var(--main-color-light);
   margin: 5% auto;
   padding: 2.5rem;
-  width: 90rem;
+  width: 45rem;
   max-width: 90vw;
   /* box-shadow: 0px 3px 10px 0px rgba(255,255,255,1); */
 }
