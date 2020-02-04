@@ -1,4 +1,6 @@
 'use strict'
+import moment from 'moment'
+import "moment-timezone"
 
 export class Market {
   constructor(region, city, open, close) {
