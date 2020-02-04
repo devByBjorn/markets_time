@@ -646,6 +646,16 @@ grid-area: grid-six;
   }
 }
 
+@media(max-height: 500px) {
+  #markets .h1 {
+    font-size: 1.5rem;
+  }
+
+  .region-wrapper a {
+    padding: 2.5rem;
+  }
+}
+
 /* Mobile*/
 @media(max-width : 500px){
 
