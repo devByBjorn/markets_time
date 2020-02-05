@@ -3,9 +3,9 @@
 import { Market } from './mainClass.js'
 import { currentTime, loader, currentYear, openNav, closeNav } from './utils.js'
 
-// currentYear()
+currentYear()
 setInterval(currentTime, 1000)
-// setInterval(loader, 1200)
+setInterval(loader, 1200)
 
 
 //REYKJAVIK
@@ -103,13 +103,69 @@ helsinki.setHolidays([
 helsinki.getCountDown(helsinki.open)
 helsinki.getCountDown(helsinki.close)
 
+
+// const riga = new Market('Europe', 'Riga', '09:30', '17:30')
+// riga.setHolidays([
+//   'Jan 1',
+//   'Apr 10',
+//   'Apr 13',
+//   'May 1',
+//   'Dec 25',
+// ])
+// riga.setHalfDays(['Dec 24', 'Dec 31'])
+// riga.getCountDown(riga.open)
+// riga.getCountDown(riga.close)
+
+// const tallinn = new Market('Europe', 'Tallinn', '09:00', '16:20')
+// tallinn.setHolidays([
+//   'Jan 1',
+//   'Apr 9',
+//   'Apr 10',
+//   'Apr 13',
+//   'May 1',
+//   'May 17',
+//   'May 21',
+//   'Jun 1',
+//   'Dec 24',
+//   'Dec 25',
+//   'Dec 26',
+//   'Dec 31'
+// ])
+// tallinn.setHalfDays(['Apr 8'])
+// tallinn.getCountDown(tallinn.open)
+// tallinn.getCountDown(tallinn.close)
+
+// const vilnius = new Market('Europe', 'Vilnius', '09:00', '16:20')
+// vilnius.setHolidays([
+//   'Jan 1',
+//   'Apr 9',
+//   'Apr 10',
+//   'Apr 13',
+//   'May 1',
+//   'May 17',
+//   'May 21',
+//   'Jun 1',
+//   'Dec 24',
+//   'Dec 25',
+//   'Dec 26',
+//   'Dec 31'
+// ])
+// vilnius.setHalfDays(['Apr 8'])
+// vilnius.getCountDown(vilnius.open)
+// vilnius.getCountDown(vilnius.close)
+
+
 setInterval(() => {
   stockholm.statusColor()
   copenhagen.statusColor()
   helsinki.statusColor()
   oslo.statusColor()
   reykjavik.statusColor()
-}, 60000);
+  // tallinn.statusColor()
+  // riga.statusColor()
+  // vilnius.statusColor()
+}, 1000);
+
 
 const infoBtns = document.querySelectorAll('.info-btn')
 infoBtns.forEach((btn) => {
@@ -133,6 +189,15 @@ infoBtns.forEach((btn) => {
       case 'reykjavik':
         reykjavik.setSummary()
         break
+      // case 'tallin':
+      //   tallinn.setSummary()
+      //   break
+      // case 'riga':
+      //   riga.setSummary()
+      //   break
+      // case 'vilnius':
+      //   vilnius.setSummary()
+      //   break
     }
   })
 })
