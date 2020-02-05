@@ -251,12 +251,13 @@ border-top: 1px solid var(--color-stand-out-transparent);
   max-width: 100rem;
   height: auto;
   background-color: var(--main-color-darker);
-  animation: slide 2s;
+  animation: slide 1.8s;
 }
 
 #year {
   color: var(--main-color-light);
   font-size: 3rem;
+  font-weight: 900;
 }
 
 @keyframes slide {
@@ -567,7 +568,7 @@ grid-area: grid-six;
 /* Modal window pop up on info btn click*/
 #markets .modal {
   display: none;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -586,6 +587,7 @@ grid-area: grid-six;
   padding: 2.5rem;
   width: 45rem;
   max-width: 90vw;
+  letter-spacing: 1px;
 }
 
 .modal h3 {
@@ -777,6 +779,9 @@ grid-area: grid-six;
     padding: 5rem;
   }
 
+  .modal .info {
+    margin: 25% auto;
+  }
 }
 
 /* Big screens*/

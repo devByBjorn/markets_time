@@ -5,7 +5,7 @@ import { currentTime, loader, currentYear, openNav, closeNav } from './utils.js'
 
 currentYear()
 setInterval(currentTime, 1000)
-setInterval(loader, 1500)
+setInterval(loader, 1200)
 
 // LONDON
 const london = new Market('Europe', 'London', '08:00', '16:30')

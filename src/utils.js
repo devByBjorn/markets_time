@@ -3,12 +3,14 @@ import moment from 'moment'
 export const currentTime = () => {
   const time = moment().format('HH:mm:ss')
   document.querySelector('.current-time').textContent = time
+
+  setInterval(currentTime, 1000)
 }
 
 export const currentYear = () => {
   try {
     const year = new Date().getFullYear();
-    document.getElementById('year').textContent = `Markets in Time`
+    document.getElementById('year').textContent = `MiT @${year}`
   } catch (e) {
 
   }

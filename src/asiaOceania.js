@@ -4,8 +4,7 @@ import { currentTime, loader, currentYear, openNav, closeNav } from './utils.js'
 
 currentYear()
 setInterval(currentTime, 1000)
-setInterval(loader, 1500)
-
+setInterval(loader, 1200)
 
 //SINGAPORE
 const singapore = new MarketWithLunch('Asia', 'Singapore', '09:00', '17:00', '12:00', '13:00')

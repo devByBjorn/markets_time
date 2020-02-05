@@ -5,8 +5,7 @@ import { currentTime, loader, currentYear, openNav, closeNav } from './utils.js'
 
 currentYear()
 setInterval(currentTime, 1000)
-setInterval(loader, 1500)
-
+setInterval(loader, 1200)
 
 // MEXICO CITY
 const mexicoCity = new Market('America', 'Mexico_City', '08:30', '15:00')
