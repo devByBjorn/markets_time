@@ -1,8 +1,9 @@
 'use strict'
 
 import { Market } from './mainClass.js'
-import { currentTime, loader, openNav, closeNav } from './utils.js'
+import { currentTime, loader, currentYear, openNav, closeNav } from './utils.js'
 
+currentYear()
 setInterval(currentTime, 1000)
 setInterval(loader, 1500)
 

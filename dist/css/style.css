@@ -217,7 +217,7 @@ border-top: 1px solid var(--color-stand-out-transparent);
 }
 
 /* loader*/
-/* .loader-container {
+.loader-container {
   position: absolute;
   top: 0;
   left: 0;
@@ -227,7 +227,7 @@ border-top: 1px solid var(--color-stand-out-transparent);
   background-color: var(--main-color-darker);
   width: 100vw;
   height: 100vh;
-  z-index: 996;
+  z-index: 999;
 }
 
 .loader-chart {
@@ -236,8 +236,7 @@ border-top: 1px solid var(--color-stand-out-transparent);
   bottom: 0;
   max-width: 45rem;
   height: auto;
-  z-index: 997;
-}
+} 
 
 .loader-chart img {
   width: 100%;
@@ -252,19 +251,18 @@ border-top: 1px solid var(--color-stand-out-transparent);
   max-width: 100rem;
   height: auto;
   background-color: var(--main-color-darker);
-  z-index: 998;
   animation: slide 2s;
 }
 
 #year {
   color: var(--main-color-light);
-  font-size: var(--heading-font-size);
+  font-size: 3rem;
 }
 
 @keyframes slide {
   0% {transform: translateX(0%);}
   100% {transform:  translateX(100%);}
-} */
+}
 
 
 /* Landing Page*/
@@ -377,6 +375,7 @@ border-top: 1px solid var(--color-stand-out-transparent);
   border: var(--border-thin) transparent;
   height: 15rem;
   background: var(--color-stand-out);
+  box-shadow: -1px 2px 41px -12px rgba(0,0,0,0.75);
 }
 
 .region-wrapper:nth-child(odd) {
@@ -432,7 +431,9 @@ border-top: 1px solid var(--color-stand-out-transparent);
     right: 0;
     bottom: 0;
     background-color: #fefefedc;
+    box-shadow: inset 8px -64px 105px 25px rgb(255, 255, 255);
 }
+
 
 /* Main content - Markets*/
 #markets {

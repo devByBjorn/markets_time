@@ -2,13 +2,13 @@ import moment from 'moment'
 // Ticking seconds and 'hide seconds' as textContent when opening page
 export const currentTime = () => {
   const time = moment().format('HH:mm:ss')
-  document.querySelector('.current-time').innerHTML = `<span>${time}</<span>`
+  document.querySelector('.current-time').textContent = time
 }
 
-export const currentYear = (id) => {
+export const currentYear = () => {
   try {
-    const copyYear = new Date().getFullYear();
-    document.getElementById(id).innerHTML = `<span>@${copyYear}</<span>`;
+    const year = new Date().getFullYear();
+    document.getElementById('year').textContent = `Markets in Time`
   } catch (e) {
 
   }
