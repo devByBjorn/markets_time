@@ -2,6 +2,8 @@ const path = require('path')
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 const MomentTimezoneDataPlugin = require('moment-timezone-data-webpack-plugin');
 const currentYear = new Date().getFullYear();
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
 
 module.exports = {
   entry: {
@@ -31,6 +33,8 @@ module.exports = {
     ]
   },
   plugins: [
+    // new BundleAnalyzerPlugin(),
+
     // To strip all locales except “en”
     new MomentLocalesPlugin(),
     new MomentTimezoneDataPlugin({
