@@ -3,9 +3,9 @@
 import { Market } from './mainClass.js'
 import { currentTime, loader, currentYear, openNav, closeNav } from './utils.js'
 
-currentYear()
+// currentYear()
 setInterval(currentTime, 1000)
-setInterval(loader, 1200)
+// setInterval(loader, 1200)
 
 // LONDON
 const london = new Market('Europe', 'London', '08:00', '16:30')
@@ -120,7 +120,7 @@ setInterval(() => {
   zurich.statusColor()
   frankfurt.statusColor()
   moscow.statusColor()
-}, 1000);
+}, 60000);
 
 
 const infoBtns = document.querySelectorAll('.info-btn')

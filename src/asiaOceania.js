@@ -2,9 +2,9 @@
 import { Market, MarketWithLunch } from './mainClass.js'
 import { currentTime, loader, currentYear, openNav, closeNav } from './utils.js'
 
-currentYear()
+// currentYear()
 setInterval(currentTime, 1000)
-setInterval(loader, 1200)
+// setInterval(loader, 1200)
 
 //SINGAPORE
 const singapore = new MarketWithLunch('Asia', 'Singapore', '09:00', '17:00', '12:00', '13:00')
@@ -141,7 +141,7 @@ setInterval(() => {
   seoul.statusColor()
   tokyo.statusColor()
   sydney.statusColor()
-}, 1000);
+}, 60000);
 
 
 // This solution creates more line of code, but the solution
