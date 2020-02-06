@@ -700,6 +700,7 @@ grid-area: grid-six;
   }
 
   .inner-nav .hamburger .open-slide {
+    padding-top: .5rem;
     background: var(--main-color-darker);
   }
 
