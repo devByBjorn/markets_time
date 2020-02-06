@@ -2,12 +2,10 @@
 import { Market, MarketWithLunch } from './mainClass.js'
 import { currentTime, loader, currentYear, openNav, closeNav } from './utils.js'
 
-currentYear()
-setInterval(currentTime, 1000)
-setInterval(loader, 1200)
-
+currentTime()
 // NEW YORK
 const newYork = new Market('America', 'New_York', '09:30', '16:00')
+
 newYork.setHolidays([
   'Jan 1',
   'Jan 20',
@@ -20,8 +18,8 @@ newYork.setHolidays([
   'Dec 25'
 ])
 newYork.setHalfDays(['Nov 27', 'Dec 24'])
-newYork.getCountDown(newYork.open)
-newYork.getCountDown(newYork.close)
+// newYork.getCountDown()
+// newYork.getCountDown(newYork.close)
 
 // STOCKHOLM
 const toronto = new Market('America', 'Toronto', '09:30', '16:00')
@@ -37,8 +35,8 @@ toronto.setHolidays([
   'Dec 25',
   'Dec 28'])
 toronto.setHalfDays(['Dec 24'])
-toronto.getCountDown(toronto.close)
-toronto.getCountDown(toronto.open)
+// toronto.getCountDown(toronto.close)
+// toronto.getCountDown(toronto.open)
 
 // // LONDON
 const london = new Market('Europe', 'London', '08:00', '16:30')
@@ -53,8 +51,8 @@ london.setHolidays([
   'Dec 28'
 ])
 london.setHalfDays(['Dec 24', 'Dec 31'])
-london.getCountDown(london.open)
-london.getCountDown(london.close)
+// london.getCountDown(london.open)
+// london.getCountDown(london.close)
 
 // // FRANKFURT
 const frankfurt = new Market('Europe', 'Berlin', '09:00', '17:30')
@@ -68,8 +66,8 @@ frankfurt.setHolidays([
   'Dec 25',
   'Dec 31'
 ])
-frankfurt.getCountDown(frankfurt.open)
-frankfurt.getCountDown(frankfurt.close)
+// frankfurt.getCountDown(frankfurt.open)
+// frankfurt.getCountDown(frankfurt.close)
 
 // // HONG KONG
 const hongKong = new MarketWithLunch('Asia', 'Hong_Kong', '09:30', '16:00', '12:00', '13:00')
@@ -89,8 +87,8 @@ hongKong.setHolidays([
   'Dec 25'
 ])
 hongKong.setHalfDays(['Jan 24', 'Dec 24', 'Dec 31'])
-hongKong.getCountDown(hongKong.close)
-hongKong.getCountDown(hongKong.open)
+// hongKong.getCountDown(hongKong.close)
+// hongKong.getCountDown(hongKong.open)
 
 // // TOKYO
 const tokyo = new MarketWithLunch('Asia', 'Tokyo', '09:00', '15:00', '11:30', '12:30')
@@ -115,18 +113,21 @@ tokyo.setHolidays([
   'Nov 23',
   'Dec 31'
 ])
-tokyo.getCountDown(tokyo.close)
-tokyo.getCountDown(tokyo.open)
+// tokyo.getCountDown(tokyo.close)
+// tokyo.getCountDown(tokyo.open)
 
 
-setInterval(() => {
-  newYork.statusColor()
-  toronto.statusColor()
-  london.statusColor()
-  frankfurt.statusColor()
-  hongKong.statusColor()
-  tokyo.statusColor()
-}, 1000);
+newYork.statusColor()
+toronto.statusColor()
+london.statusColor()
+frankfurt.statusColor()
+hongKong.statusColor()
+tokyo.statusColor()
+
+
+currentYear()
+setTimeout(loader, 1200)
+clearTimeout(loader)
 
 
 // This solution creates more line of code, but the solution

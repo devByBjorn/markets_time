@@ -3,10 +3,7 @@
 import { Market } from './mainClass.js'
 import { currentTime, loader, currentYear, openNav, closeNav } from './utils.js'
 
-currentYear()
-setInterval(currentTime, 1000)
-setInterval(loader, 1200)
-
+currentTime()
 // LONDON
 const london = new Market('Europe', 'London', '08:00', '16:30')
 london.setHolidays([
@@ -20,8 +17,8 @@ london.setHolidays([
   'Dec 28'
 ])
 london.setHalfDays(['Dec 24', 'Dec 31'])
-london.getCountDown(london.open)
-london.getCountDown(london.close)
+// london.getCountDown(london.open)
+// london.getCountDown(london.close)
 
 // PARIS
 const paris = new Market('Europe', 'Paris', '09:00', '17:30')
@@ -33,8 +30,8 @@ paris.setHolidays([
   'Dec 25',
 ])
 paris.setHalfDays(['Dec 24', 'Dec 31'])
-paris.getCountDown(paris.open)
-paris.getCountDown(paris.close)
+// paris.getCountDown(paris.open)
+// paris.getCountDown(paris.close)
 
 // AMSTERDAM
 const amsterdam = new Market('Europe', 'Amsterdam', '09:00', '17:40')
@@ -46,21 +43,8 @@ amsterdam.setHolidays([
   'Dec 25',
 ])
 amsterdam.setHalfDays(['Dec 24', 'Dec 31'])
-amsterdam.getCountDown(amsterdam.open)
-amsterdam.getCountDown(amsterdam.close)
-
-// BRUSSELS
-// const brussels = new Market('Europe', 'Brussels', '09:00', '17:30')
-// brussels.setHolidays([
-//   'Jan 1',
-//   'Apr 10',
-//   'Apr 13',
-//   'May 1',
-//   'Dec 25',
-// ])
-// brussels.setHalfDays(['Dec 24', 'Dec 31'])
-// brussels.getCountDown(brussels.open)
-// brussels.getCountDown(brussels.close)
+// amsterdam.getCountDown(amsterdam.open)
+// amsterdam.getCountDown(amsterdam.close)
 
 // FRANKFURT
 const frankfurt = new Market('Europe', 'Berlin', '09:00', '17:30')
@@ -74,8 +58,8 @@ frankfurt.setHolidays([
   'Dec 25',
   'Dec 31'
 ])
-frankfurt.getCountDown(frankfurt.open)
-frankfurt.getCountDown(frankfurt.close)
+// frankfurt.getCountDown(frankfurt.open)
+// frankfurt.getCountDown(frankfurt.close)
 
 
 // ZURICH
@@ -92,8 +76,8 @@ zurich.setHolidays([
   'Dec 25',
   'Dec 31',
 ])
-zurich.getCountDown(zurich.open)
-zurich.getCountDown(zurich.close)
+// zurich.getCountDown(zurich.open)
+// zurich.getCountDown(zurich.close)
 
 // MOSCOW
 const moscow = new Market('Europe', 'Moscow', '09:30', '19:00')
@@ -109,18 +93,24 @@ moscow.setHolidays([
   'Nov 4',
   'Dec 31',
 ])
-moscow.getCountDown(moscow.open)
-moscow.getCountDown(moscow.close)
+// moscow.getCountDown(moscow.open)
+// moscow.getCountDown(moscow.close)
 
-setInterval(() => {
-  london.statusColor()
-  paris.statusColor()
-  amsterdam.statusColor()
-  // brussels.statusColor()
-  zurich.statusColor()
-  frankfurt.statusColor()
-  moscow.statusColor()
-}, 1000);
+// setInterval(() => {
+london.statusColor()
+paris.statusColor()
+amsterdam.statusColor()
+// brussels.statusColor()
+zurich.statusColor()
+frankfurt.statusColor()
+moscow.statusColor()
+// }, 1000);
+
+currentYear()
+setTimeout(loader, 1200)
+clearTimeout(loader)
+
+
 
 
 const infoBtns = document.querySelectorAll('.info-btn')

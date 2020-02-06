@@ -3,10 +3,7 @@
 import { Market } from './mainClass.js'
 import { currentTime, loader, currentYear, openNav, closeNav } from './utils.js'
 
-currentYear()
-setInterval(currentTime, 1000)
-setInterval(loader, 1200)
-
+currentTime()
 // MEXICO CITY
 const mexicoCity = new Market('America', 'Mexico_City', '08:30', '15:00')
 mexicoCity.setHolidays([
@@ -22,8 +19,8 @@ mexicoCity.setHolidays([
   'Dec 12',
   'Dec 25'
 ])
-mexicoCity.getCountDown(mexicoCity.open)
-mexicoCity.getCountDown(mexicoCity.close)
+// mexicoCity.getCountDown(mexicoCity.open)
+// mexicoCity.getCountDown(mexicoCity.close)
 
 // NEW YORK
 const newYork = new Market('America', 'New_York', '09:30', '16:00')
@@ -39,8 +36,8 @@ newYork.setHolidays([
   'Dec 25'
 ])
 newYork.setHalfDays(['Nov 27', 'Dec 24'])
-newYork.getCountDown(newYork.open)
-newYork.getCountDown(newYork.close)
+// newYork.getCountDown(newYork.open)
+// newYork.getCountDown(newYork.close)
 
 // STOCKHOLM
 const toronto = new Market('America', 'Toronto', '09:30', '16:00')
@@ -56,8 +53,8 @@ toronto.setHolidays([
   'Dec 25',
   'Dec 28'])
 toronto.setHalfDays(['Dec 24'])
-toronto.getCountDown(toronto.close)
-toronto.getCountDown(toronto.open)
+// toronto.getCountDown(toronto.close)
+// toronto.getCountDown(toronto.open)
 
 // SANTIAGO
 const santiago = new Market('America', 'Santiago', '09:30', '17:00')
@@ -74,8 +71,8 @@ santiago.setHolidays([
   'Dec 25',
 ])
 
-santiago.getCountDown(santiago.open)
-santiago.getCountDown(santiago.close)
+// santiago.getCountDown(santiago.open)
+// santiago.getCountDown(santiago.close)
 
 // BUENOS AIRES
 const buenosAires = new Market('America', 'Buenos_Aires', '11:00', '17:00')
@@ -99,8 +96,8 @@ buenosAires.setHolidays([
   'Dec 8',
   'Dec 25'
 ])
-buenosAires.getCountDown(buenosAires.close)
-buenosAires.getCountDown(buenosAires.open)
+// buenosAires.getCountDown(buenosAires.close)
+// buenosAires.getCountDown(buenosAires.open)
 
 // SAO PAULO
 const saoPaulo = new Market('America', 'Sao_Paulo', '10:00', '17:55')
@@ -123,18 +120,22 @@ saoPaulo.setHolidays([
   'Dec 31'
 ])
 
-saoPaulo.getCountDown(saoPaulo.close)
-saoPaulo.getCountDown(saoPaulo.open)
+// saoPaulo.getCountDown(saoPaulo.close)
+// saoPaulo.getCountDown(saoPaulo.open)
 
 
-setInterval(() => {
-  newYork.statusColor()
-  toronto.statusColor()
-  mexicoCity.statusColor()
-  santiago.statusColor()
-  buenosAires.statusColor()
-  saoPaulo.statusColor()
-}, 1000);
+// setInterval(() => {
+newYork.statusColor()
+toronto.statusColor()
+mexicoCity.statusColor()
+santiago.statusColor()
+buenosAires.statusColor()
+saoPaulo.statusColor()
+// }, 1000);
+
+currentYear()
+setTimeout(loader, 1200)
+clearTimeout(loader)
 
 
 // This solution creates more line of code, but the solution

@@ -2,10 +2,7 @@
 import { Market, MarketWithLunch } from './mainClass.js'
 import { currentTime, loader, currentYear, openNav, closeNav } from './utils.js'
 
-currentYear()
-setInterval(currentTime, 1000)
-setInterval(loader, 1200)
-
+currentTime()
 //SINGAPORE
 const singapore = new MarketWithLunch('Asia', 'Singapore', '09:00', '17:00', '12:00', '13:00')
 singapore.setHolidays([
@@ -21,10 +18,9 @@ singapore.setHolidays([
   'Nov 14',
   'Dec 25',
 ])
-
 singapore.setHalfDays(['Dec 24', 'Dec 31'])
-singapore.getCountDown(singapore.open)
-singapore.getCountDown(singapore.close)
+// singapore.getCountDown(singapore.open)
+// singapore.getCountDown(singapore.close)
 
 // HONG KONG
 const hongKong = new MarketWithLunch('Asia', 'Hong_Kong', '09:30', '16:00', '12:00', '13:00')
@@ -44,8 +40,8 @@ hongKong.setHolidays([
   'Dec 25'
 ])
 hongKong.setHalfDays(['Jan 24', 'Dec 24', 'Dec 31'])
-hongKong.getCountDown(hongKong.close)
-hongKong.getCountDown(hongKong.open)
+// hongKong.getCountDown(hongKong.close)
+// hongKong.getCountDown(hongKong.open)
 
 
 // SHANGHAI
@@ -70,8 +66,8 @@ shanghai.setHolidays([
   'Oct 7',
   'Oct 8',
 ])
-shanghai.getCountDown(shanghai.close)
-shanghai.getCountDown(shanghai.open)
+// shanghai.getCountDown(shanghai.close)
+// shanghai.getCountDown(shanghai.open)
 
 //SEOUL
 const seoul = new Market('Asia', 'Seoul', '09:00', '15:30')
@@ -89,8 +85,8 @@ seoul.setHolidays([
   'Dec 25',
   'Dec 31'
 ])
-seoul.getCountDown(seoul.open)
-seoul.getCountDown(seoul.close)
+// seoul.getCountDown(seoul.open)
+// seoul.getCountDown(seoul.close)
 
 // // TOKYO
 const tokyo = new MarketWithLunch('Asia', 'Tokyo', '09:00', '15:00', '11:30', '12:30')
@@ -115,8 +111,8 @@ tokyo.setHolidays([
   'Nov 23',
   'Dec 31'
 ])
-tokyo.getCountDown(tokyo.close)
-tokyo.getCountDown(tokyo.open)
+// tokyo.getCountDown(tokyo.close)
+// tokyo.getCountDown(tokyo.open)
 
 
 //SYDNEY
@@ -131,17 +127,22 @@ sydney.setHolidays([
   'Dec 28'
 ])
 sydney.setHalfDays(['Dec 24', 'Dec 31'])
-sydney.getCountDown(sydney.open)
-sydney.getCountDown(sydney.close)
+// sydney.getCountDown(sydney.open)
+// sydney.getCountDown(sydney.close)
 
-setInterval(() => {
-  singapore.statusColor()
-  hongKong.statusColor()
-  shanghai.statusColor()
-  seoul.statusColor()
-  tokyo.statusColor()
-  sydney.statusColor()
-}, 1000);
+currentYear()
+setTimeout(loader, 1200)
+clearTimeout(loader)
+
+
+// setInterval(() => {
+singapore.statusColor()
+hongKong.statusColor()
+shanghai.statusColor()
+seoul.statusColor()
+tokyo.statusColor()
+sydney.statusColor()
+// }, 1000);
 
 
 // This solution creates more line of code, but the solution

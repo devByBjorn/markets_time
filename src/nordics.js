@@ -3,11 +3,7 @@
 import { Market } from './mainClass.js'
 import { currentTime, loader, currentYear, openNav, closeNav } from './utils.js'
 
-currentYear()
-setInterval(currentTime, 1000)
-setInterval(loader, 1200)
-
-
+currentTime()
 //REYKJAVIK
 const reykjavik = new Market('Atlantic', 'Reykjavik', '09:30', '15:30')
 reykjavik.setHolidays([
@@ -26,8 +22,8 @@ reykjavik.setHolidays([
   'Dec 31',
 ])
 reykjavik.setHalfDays(['Dec 24', 'Dec 31'])
-reykjavik.getCountDown(reykjavik.open)
-reykjavik.getCountDown(reykjavik.close)
+// reykjavik.getCountDown(reykjavik.open)
+// reykjavik.getCountDown(reykjavik.close)
 
 // OSLO
 const oslo = new Market('Europe', 'Oslo', '09:00', '16:20')
@@ -46,8 +42,8 @@ oslo.setHolidays([
   'Dec 31'
 ])
 oslo.setHalfDays(['Apr 8'])
-oslo.getCountDown(oslo.open)
-oslo.getCountDown(oslo.close)
+// oslo.getCountDown(oslo.open)
+// oslo.getCountDown(oslo.close)
 
 // COPENHAGEN
 const copenhagen = new Market('Europe', 'Copenhagen', '09:00', '17:00')
@@ -65,8 +61,8 @@ copenhagen.setHolidays([
   'Dec 25',
   'Dec 31',
 ])
-copenhagen.getCountDown(copenhagen.open)
-copenhagen.getCountDown(copenhagen.close)
+// copenhagen.getCountDown(copenhagen.open)
+// copenhagen.getCountDown(copenhagen.close)
 
 // STOCKHOLM
 const stockholm = new Market('Europe', 'Stockholm', '09:00', '17:30')
@@ -83,8 +79,8 @@ stockholm.setHolidays([
   'Dec 31',
 ])
 stockholm.setHalfDays(['Apr 9', 'Apr 30', 'May 20', 'Oct 30'])
-stockholm.getCountDown(stockholm.open)
-stockholm.getCountDown(stockholm.close)
+// stockholm.getCountDown(stockholm.open)
+// stockholm.getCountDown(stockholm.close)
 
 // HELSINKI
 const helsinki = new Market('Europe', 'Helsinki', '10:00', '18:30')
@@ -100,71 +96,20 @@ helsinki.setHolidays([
   'Dec 25',
   'Dec 31',
 ])
-helsinki.getCountDown(helsinki.open)
-helsinki.getCountDown(helsinki.close)
+// helsinki.getCountDown(helsinki.open)
+// helsinki.getCountDown(helsinki.close)
 
+// setInterval(() => {
+stockholm.statusColor()
+copenhagen.statusColor()
+helsinki.statusColor()
+oslo.statusColor()
+reykjavik.statusColor()
+// }, 1000);
 
-// const riga = new Market('Europe', 'Riga', '09:30', '17:30')
-// riga.setHolidays([
-//   'Jan 1',
-//   'Apr 10',
-//   'Apr 13',
-//   'May 1',
-//   'Dec 25',
-// ])
-// riga.setHalfDays(['Dec 24', 'Dec 31'])
-// riga.getCountDown(riga.open)
-// riga.getCountDown(riga.close)
-
-// const tallinn = new Market('Europe', 'Tallinn', '09:00', '16:20')
-// tallinn.setHolidays([
-//   'Jan 1',
-//   'Apr 9',
-//   'Apr 10',
-//   'Apr 13',
-//   'May 1',
-//   'May 17',
-//   'May 21',
-//   'Jun 1',
-//   'Dec 24',
-//   'Dec 25',
-//   'Dec 26',
-//   'Dec 31'
-// ])
-// tallinn.setHalfDays(['Apr 8'])
-// tallinn.getCountDown(tallinn.open)
-// tallinn.getCountDown(tallinn.close)
-
-// const vilnius = new Market('Europe', 'Vilnius', '09:00', '16:20')
-// vilnius.setHolidays([
-//   'Jan 1',
-//   'Apr 9',
-//   'Apr 10',
-//   'Apr 13',
-//   'May 1',
-//   'May 17',
-//   'May 21',
-//   'Jun 1',
-//   'Dec 24',
-//   'Dec 25',
-//   'Dec 26',
-//   'Dec 31'
-// ])
-// vilnius.setHalfDays(['Apr 8'])
-// vilnius.getCountDown(vilnius.open)
-// vilnius.getCountDown(vilnius.close)
-
-
-setInterval(() => {
-  stockholm.statusColor()
-  copenhagen.statusColor()
-  helsinki.statusColor()
-  oslo.statusColor()
-  reykjavik.statusColor()
-  // tallinn.statusColor()
-  // riga.statusColor()
-  // vilnius.statusColor()
-}, 1000);
+currentYear()
+setTimeout(loader, 1200)
+clearTimeout(loader)
 
 
 const infoBtns = document.querySelectorAll('.info-btn')

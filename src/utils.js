@@ -4,7 +4,7 @@ export const currentTime = () => {
   const time = moment().format('HH:mm:ss')
   document.querySelector('.current-time').textContent = time
 
-  setInterval(currentTime, 1000)
+  setTimeout(currentTime, 1000)
 }
 
 export const currentYear = () => {

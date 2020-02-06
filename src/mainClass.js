@@ -97,7 +97,9 @@ export class Market {
   }
 
   // Countdown to either open or close
-  getCountDown(countReference) {
+  // How get this to work without causing issues for the whole app
+  setCountDown(countReference) {
+
     const countTo = this.getTime().timeNow
 
     if (this.getStatus().isHalfDay && countReference === this.close) {
@@ -120,62 +122,66 @@ export class Market {
       return ('0' + parseInt(num)).substr(-2)
     }
 
-    const tick = () => {
-      const now = this.getTime().timeNow
+    // const tick = () => {
+    const now = this.getTime().timeNow
 
-      if (now > countTo) {
-        countTo.set(countTo.add(1, 'day'));
-      }
-
-      const remain = ((countTo - now) / 1000);
-      const hh = pad((remain / 60 / 60) % 60);
-      const mm = pad((remain / 60) % 60);
-      const ss = pad(remain % 60);
-
-
-      // Tried breaking the code below out to a getCountdown() and -
-      // turning the above code into setCountDown(). Getting alot of -
-      // issues with setInterval though, no matter where in the code -
-      // I place the interval seconds are not running smoothly. 
-      const counter = document.getElementById(`${this.id}-counter`)
-      const nextDay = this.getTime().timeNow.add(1, 'day')
-      const nextDayWeekend = nextDay.format('ddd')
-      const nextDayHoliday = nextDay.format('MMM D')
-
-      // In case of opened - count down to close
-      // In case of closed - count down to next open -
-      // but not if next day is weekend or holiday
-      switch (countReference) {
-        case this.open:
-          if (this.getStatus().isWeekend) {
-            counter.innerHTML = `<span>Market closed</span>`
-          } else if (this.getStatus().isHoliday) {
-            counter.innerHTML = `<span>Market closed</span>`
-          } else if (this.weekend.includes(nextDayWeekend)
-            && this.getTime().hoursMinutes > this.close
-            || this.holidays.includes(nextDayHoliday)
-            && this.getTime().hoursMinutes > this.close) {
-            counter.innerHTML = `<span>Market closed tomorrow</span>`
-          } else if (this.getStatus().isClosed &&
-            !this.getStatus().isWeekend) {
-            counter.innerHTML = `<span>Opens in</span><span>${hh}:${mm}:${ss}</span>`
-          }
-          break
-        case this.close:
-          if (this.getStatus().isClosed
-            || this.getStatus().isHoliday
-            || this.getStatus().isWeekend) {
-            return
-          } else {
-            counter.innerHTML = `<span>Closes in</span><span>${hh}:${mm}:${ss}</span>`
-          }
-          break
-      }
+    if (now > countTo) {
+      countTo.set(countTo.add(1, 'day'));
     }
-    setInterval(tick, 1000)
+
+    const remain = ((countTo - now) / 1000);
+    const hh = pad((remain / 60 / 60) % 60);
+    const mm = pad((remain / 60) % 60);
+    const ss = pad(remain % 60);
+
+    // return hh mm ss
+    return {
+      hh: hh,
+      mm: mm,
+      ss: ss
+    }
+    // }
+
+    // return tick()
   }
 
+  // Have the statements read before setInterval or setTimeout runs the tick
+  // alot of arguments getting read every second otherwise. 
+  // How to solve? 
+  getCountDown() {
+    const counter = document.getElementById(`${this.id}-counter`)
+    const nextDay = this.getTime().timeNow.add(1, 'day')
+    const nextDayWeekend = nextDay.format('ddd')
+    const nextDayHoliday = nextDay.format('MMM D')
 
+    if (this.getStatus().isWeekend) {
+      counter.innerHTML = `<span>Market closed</span>`
+    } else if (this.getStatus().isHoliday) {
+      counter.innerHTML = `<span>Market closed</span>`
+    } else if (this.weekend.includes(nextDayWeekend)
+      && this.getTime().hoursMinutes > this.close
+      || this.holidays.includes(nextDayHoliday)
+      && this.getTime().hoursMinutes > this.close) {
+      counter.innerHTML = `<span>Market closed tomorrow</span>`
+    } else if (this.getStatus().isClosed &&
+      !this.getStatus().isWeekend) {
+      counter.innerHTML = `<span>Opens in</span>
+      <span>${this.setCountDown(this.open).hh}
+      ${this.setCountDown(this.open).mm}
+      ${this.setCountDown(this.open).hh}</span>`
+      //`<span>Opens in</span><span>${hh}:${mm}:${ss}</span>`
+    }
+
+    if (this.getStatus().isClosed
+      || this.getStatus().isHoliday
+      || this.getStatus().isWeekend) {
+      return
+    } else {
+      counter.innerHTML = `<span>Opens in</span><span>${this.setCountDown(this.close)}</span>`
+      //`<span>Closes in</span><span>${hh}:${mm}:${ss}</span>`
+    }
+
+  }
 
   getColorTheme(toAdd, toRemove, toRemoveTwo) {
     const marketWrapper = document.getElementById(`${this.id}-wrapper`)
@@ -197,44 +203,50 @@ export class Market {
   // Manipulating market wrappers DOM, content and color, 
   //depending on market status(closed,open,halfday,holiday)
   statusColor() {
-    // The main clock for each market
-    this.setinnerHTML(`${this.id}-clock`, this.getTime().hoursMinutes)
-    this.setinnerHTML(`${this.id}-open`,
-      `<span>Trading</span><span>${this.open}-${this.close}</span>`)
 
-    // Weekend content and color theme
-    if (this.getStatus().isWeekend) {
-      this.getColorTheme('closedForTrading', 'halfDayTrading', 'openForTrading')
-      this.setinnerHTML(`${this.id}-open`, `Weekend`)
+    const self = this
+    let timerId = setTimeout(function status() {
+      // The main clock for each market
+      self.setinnerHTML(`${self.id}-clock`, self.getTime().hoursMinutes)
+      self.setinnerHTML(`${self.id}-open`,
+        `<span>Trading</span><span>${self.open}-${self.close}</span>`)
 
-      // Closed hours content and color theme 
-    } else if (this.getStatus().isHoliday) {
-      this.getColorTheme('closedForTrading', 'halfDayTrading', 'openForTrading')
-      this.setinnerHTML(`${this.id}-open`, `Holiday`)
-    }
+      // Weekend content and color theme
+      if (self.getStatus().isWeekend) {
+        self.getColorTheme('closedForTrading', 'halfDayTrading', 'openForTrading')
+        self.setinnerHTML(`${self.id}-open`, `Weekend`)
 
-    else if (this.getStatus().isClosed) {
-      this.getColorTheme('closedForTrading', 'halfDayTrading', 'openForTrading')
-
-      // Half day content and color theme
-    } else if (this.getStatus().isHalfDay) {
-      this.getColorTheme('closedForTrading', 'halfDayTrading', 'openForTrading')
-      this.setinnerHTML(`${this.id}-open`,
-        `<span>Trading</span><span>${this.open}-${this.getHalfdayClose()}</span>`)
-
-      // color theme on half day trading open
-      if (this.getTime().hoursMinutes < this.getHalfdayClose()) {
-        this.getColorTheme('halfDayTrading', 'openForTrading', 'closedForTrading')
-
-        // color theme on half day trading close
-      } else if (this.getTime().hoursMinutes > this.getHalfdayClose()) {
-        this.getColorTheme('closedForTrading', 'halfDayTrading', 'openForTrading')
+        // Closed hours content and color theme 
+      } else if (self.getStatus().isHoliday) {
+        self.getColorTheme('closedForTrading', 'halfDayTrading', 'openForTrading')
+        self.setinnerHTML(`${self.id}-open`, `Holiday`)
       }
 
-      // Opening Hours content and color theme
-    } else {
-      this.getColorTheme('openForTrading', 'halfDayTrading', 'closedForTrading')
-    }
+      else if (self.getStatus().isClosed) {
+        self.getColorTheme('closedForTrading', 'halfDayTrading', 'openForTrading')
+
+        // Half day content and color theme
+      } else if (self.getStatus().isHalfDay) {
+        self.getColorTheme('closedForTrading', 'halfDayTrading', 'openForTrading')
+        self.setinnerHTML(`${self.id}-open`,
+          `<span>Trading</span><span>${self.open}-${self.getHalfdayClose()}</span>`)
+
+        // color theme on half day trading open
+        if (self.getTime().hoursMinutes < self.getHalfdayClose()) {
+          self.getColorTheme('halfDayTrading', 'openForTrading', 'closedForTrading')
+
+          // color theme on half day trading close
+        } else if (self.getTime().hoursMinutes > self.getHalfdayClose()) {
+          self.getColorTheme('closedForTrading', 'halfDayTrading', 'openForTrading')
+        }
+
+        // Opening Hours content and color theme
+      } else {
+        self.getColorTheme('openForTrading', 'halfDayTrading', 'closedForTrading')
+      }
+      timerId = setTimeout(status, 1000)
+    })
+
   }
 
   setSummary() {
