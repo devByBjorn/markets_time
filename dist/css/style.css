@@ -434,7 +434,7 @@ border-top: 1px solid var(--color-stand-out-transparent);
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #fefefedc;
+    background-color: #fefefeea;
     box-shadow: inset 8px -64px 105px 25px rgb(255, 255, 255);
 }
 
@@ -760,8 +760,8 @@ grid-area: grid-six;
     margin: 0rem 0 0rem 0;
   }
 
-  .first-page-container {
-    background: var(--main-color-light);
+  .regions-heading {
+    padding-top: 4rem;
   }
 
   #markets {
