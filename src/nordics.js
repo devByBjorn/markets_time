@@ -107,7 +107,7 @@ oslo.statusColor()
 reykjavik.statusColor()
 // }, 1000);
 
-currentYear()
+// currentYear()
 setTimeout(loader, 1200)
 clearTimeout(loader)
 

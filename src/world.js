@@ -125,7 +125,7 @@ hongKong.statusColor()
 tokyo.statusColor()
 
 
-currentYear()
+// currentYear()
 setTimeout(loader, 1200)
 clearTimeout(loader)
 
