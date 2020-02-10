@@ -158,6 +158,11 @@
 /* Media queries*/
 /* mobile landscape and tablets*/
 @media(max-width: 1024px) {
+
+  .background {
+    background: url(../img/world-dotted-90.jpg) center;
+  }
+
   .region-wrapper a {
     padding: 2.5rem;
   }
@@ -202,3 +207,9 @@
   }
 }
 
+/* Big screens*/
+@media(min-width: 1950px){
+  .background {
+    background: url(../img/world-dotted-90.jpg) no-repeat center center/cover;
+  }
+}

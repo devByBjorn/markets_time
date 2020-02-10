@@ -106,7 +106,7 @@ frankfurt.statusColor()
 moscow.statusColor()
 // }, 1000);
 
-// currentYear()
+currentYear()
 setTimeout(loader, 1200)
 clearTimeout(loader)
 

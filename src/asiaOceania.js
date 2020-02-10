@@ -130,7 +130,7 @@ sydney.setHalfDays(['Dec 24', 'Dec 31'])
 // sydney.getCountDown(sydney.open)
 // sydney.getCountDown(sydney.close)
 
-// currentYear()
+currentYear()
 setTimeout(loader, 1200)
 clearTimeout(loader)
 

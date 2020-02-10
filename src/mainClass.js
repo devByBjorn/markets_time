@@ -299,14 +299,6 @@ export class Market {
     container.appendChild(halfDays)
     container.appendChild(closeBtn)
   }
-
-  // Create iteration in functions script instead
-  // openCLoseModal() {
-  //   document.getElementById(`${this.id}-btn`).addEventListener('click', () => {
-  //     this.setSummary()
-  //     document.getElementById(`${this.id}-modal`).style.display = 'block'
-  //   })
-  // }
 }
 
 // Subclass for markets closed  during lunch hours ( TOKYO and HONG KONG)
