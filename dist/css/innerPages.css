@@ -1,0 +1,387 @@
+
+@import url('utilAndVariables.css');
+@import url('nav.css');
+
+/* loader*/
+.loader-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-color-darker);
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+}
+
+.loader-chart {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  max-width: 45rem;
+  height: auto;
+} 
+
+.loader-chart img {
+  width: 100%;
+  height: auto;
+}
+
+.loader-curtain {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  max-width: 100rem;
+  height: auto;
+  background-color: var(--main-color-darker);
+  animation: slide 1.8s;
+}
+
+#year {
+  color: var(--main-color-light);
+  font-size: 3rem;
+  font-weight: 900;
+}
+
+@keyframes slide {
+  0% {transform: translateX(0%);}
+  100% {transform:  translateX(100%);}
+}
+
+/* Main container */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 95vh;
+  transition: padding ease-in .2s;
+  background: var(--main-color-darker); 
+  margin: 0 auto;
+}
+
+/* Main content - Markets*/
+#markets {
+  margin: auto;
+  padding: 1rem;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  /* grid-template-columns: repeat( auto-fit, minmax(35rem, 1fr) ); */
+  grid-template-areas:
+"grid-one grid-two grid-three"
+"grid-four grid-five grid-six";
+}
+
+.grid-1 {
+grid-area: grid-one;
+}
+
+.grid-2 {
+grid-area: grid-two;
+}
+
+.grid-3 {
+grid-area: grid-three;
+}
+
+.grid-4 {
+grid-area: grid-four;
+}
+
+.grid-5 {
+grid-area: grid-five;
+}
+
+.grid-6 {
+grid-area: grid-six;
+}
+
+#markets .wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Color themes based on trading hours*/
+.openForTrading {
+  background: var(--color-open);
+  color: var(--main-color-light);
+  border: var(--main-color-light) var(--border-thin)
+}
+
+.closedForTrading {
+  background: var(--color-closed);
+  color: var(--main-color-darker);
+  border: var(--color-stand-out-transparent) var(--border-thin)
+}
+
+.halfDayTrading {
+  background: var(--color-half-day);
+  color: var(--main-color-light);
+  border: var(--main-color-light) var(--border-thin);
+}
+
+
+/* General style inside market wrappers*/
+#markets .h1 {
+  font-size: 2rem;
+  white-space: nowrap;
+  font-weight: 900;
+  text-transform: capitalize;
+}
+
+#markets .open{
+  font-size: 1.2rem;
+  padding: .5rem 0;
+  border-top: 1px dotted;
+}
+
+#markets .open span:nth-child(2),
+#markets .counter span:nth-child(2){
+  padding-left: .25rem;
+}
+
+#markets .counter {
+  font-size: 1.2rem;
+  padding-bottom: .25rem;
+  border-bottom: 1px dotted;
+}
+
+#markets .counter span:nth-child(2) {
+  padding-left: .5rem;
+  letter-spacing: 1px;
+}
+
+#markets .time {
+  padding: .5rem;
+  font-size: 4rem;
+}
+
+#markets .info-btn {
+  padding: .25rem 0;
+  font-weight: 400;
+  font-size: 1rem;
+  background-color: transparent;
+  transition: all .5s;
+}
+
+.info-btn:hover {
+  cursor: pointer;
+  padding-bottom: .5rem;
+  box-shadow: 1px 5px 5px;
+}
+
+.openMarketBtn {
+  background: transparent;
+  border: var(--main-color-light) var(--border-thin);
+  color: var(--main-color-light);
+  box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.4);
+}
+
+.closedMarketBtn {
+  border: var(--main-color-dark) var(--border-thin);
+  color: var(--main-color-dark);
+  box-shadow: 2px 2px 5px rgba(0,0,0,.4);
+}
+
+
+/* Modal window pop up on info btn click*/
+#markets .modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  z-index: 1;
+  background-color: var(--main-color-dark);
+  background-color: rgba(0,0,0,.4);
+}
+
+/* Info square when modal is open*/
+/* relative for close button to be absolute inside info box*/
+.modal .info {
+  position: relative;
+  background-color: var(--main-color-light);
+  margin: 15% auto;
+  padding: 2.5rem;
+  width: 45rem;
+  max-width: 90vw;
+  letter-spacing: 1px;
+}
+
+.modal h3 {
+  font-size: var(--sub-heading-size);
+  font-weight: 900;
+  color: var(--main-color-dark)
+}
+
+.modal .info span {
+  display: block;
+  color: var(--main-color-light);
+  background: rgba(0,0,0,.95);
+}
+
+/* No trading - Half day*/
+.modal .info span:nth-child(odd) {
+  font-weight: bold;
+  padding: 1rem 0 .25rem 0;
+  border-bottom: none;
+}
+
+/* Date specifics*/
+.modal .info span:nth-child(even) {
+  padding: .25rem 1rem .25rem 1rem;
+  line-height: 1;
+}
+
+.modal .info p {
+  padding: .5rem;
+  font-size: 1rem;
+}
+
+.modal .info p span:nth-child(even) {
+  padding-bottom: 1rem;
+  border-top: none;
+}
+
+.modal .close {
+  position: absolute;
+  top: 0;
+  right: .5rem;
+  color: var(--main-color-dark);
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.modal .close:hover,
+.modal .close:focus {
+  cursor: pointer;
+  color: var(--color-closed);
+}
+
+
+/* Media queries*/
+/* mobile landscape and tablets*/
+@media(max-width: 1024px) {
+  
+  #main-nav ul {
+    padding-top: 2rem;
+  }
+
+  #markets {
+    padding: 1rem 2rem;
+  }
+
+  .region-wrapper a {
+    padding: 2.5rem;
+  }
+}
+
+@media(max-height: 500px) {
+  #markets .h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Mobile*/
+@media(max-width : 500px){
+
+ #nav {
+   padding: .5rem 1rem;
+   font-size: 1rem;
+ }
+
+ #nav .region-tag {
+   display: none;
+ }
+  .color-themes .color {
+    padding: .5rem;
+    border: none;
+  }
+
+  .landing-content {
+    flex-direction: column;
+  }
+
+  .landing-content .wrapper {
+    flex: 1;
+    padding: 4rem .5rem;
+    text-align: center;
+    border: none;
+    border-top: var(--border-thin) var(--color-stand-out-transparent);
+    z-index: 1;
+  }
+
+  .landing-content .wrapper:first-child{
+    border-top: none;
+  }
+
+  #markets {
+    grid-template-areas:
+  "grid-one"
+  "grid-two"
+  "grid-three"
+  "grid-four"
+  "grid-five" 
+  "grid-six";
+  }
+
+  #markets .wrapper {
+    padding: 1rem 3rem;
+  }
+
+  #regions {
+    flex-direction: column;
+  }
+
+  .region-wrapper {
+    width: 100%;
+    /* border-top: var(--border-thin) var(--color-stand-out-transparent); */
+  }
+
+  .region-wrapper:first-child {
+    border-top: none;
+  }
+
+  .region-wrapper a {
+    padding: 5rem;
+  }
+
+  .modal .info {
+    margin: 25% auto;
+  }
+
+
+}
+
+/* Big screens*/
+@media(min-width: 1950px){
+
+
+  #markets .h1 {
+    font-size: 3rem;
+  }
+
+  #markets .counter,
+  #markets .open {
+    font-size: 2;
+  }
+
+  #markets .time {
+    font-size: 5rem;
+  }
+  
+  #markets .info-btn {
+    font-size: 1rem;
+  }
+}
+

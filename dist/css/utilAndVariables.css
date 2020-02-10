@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  overflow-x: hidden;
+  letter-spacing: -1px;
+  background: var(--main-color-darker);
+}
+
+:root {
+  --main-color-light: #f7f7f8;
+  --main-color-dark: rgb(27, 26, 26);
+  --main-color-darker: #0c0c0c;
+  
+  --color-stand-out : #207a95;
+  --color-stand-out-light: #4ac9f0;
+  --color-stand-out-transparent: #207a9571;
+  
+  --color-open: rgb(36, 167, 82);
+  --color-closed: rgb(195, 61, 59);
+  --color-half-day: rgb(235, 160, 62);
+ 
+  --bg-img-position: no-repeat center center/cover;
+  --border-thin: 1px solid;
+
+  font-size: calc(12px + 0.8vw);
+}
+
+.gradient-text {
+  background: -webkit-linear-gradient(#4ac9f0, #207a95);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
