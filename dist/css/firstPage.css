@@ -101,23 +101,20 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  border: var(--border-thin) transparent;
+  border-top: 3px solid transparent;
   transition: all .3s ease;
 }
 
 .region-wrapper:nth-child(odd) {
   background: var(--main-color-darker);
 }
+
 .region-wrapper:nth-child(even) {
   background: var(--main-color-dark);
 }
 
-.region-wrapper:first-child {
-  border-top: none;
-} 
-
 .region-wrapper:hover {
-  border: var(--border-thin) var(--color-stand-out-light);
+  border-top: 3px solid var(--color-stand-out-light);
 }
 
 .region-wrapper a {
@@ -211,6 +208,10 @@
     width: 100%;
     font-size: 1.5rem;
   }
+
+  .region-wrapper:first-child {
+    border-top: none;
+  } 
 
   .region-wrapper a {
     padding: 5rem;
