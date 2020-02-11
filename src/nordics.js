@@ -6,6 +6,7 @@ import { currentTime } from './components/currentTime'
 import currentYear from './components/currentYear'
 import removeLoader from './components/loader'
 
+currentYear()
 currentTime()
 //REYKJAVIK
 const reykjavik = new Market('Atlantic', 'Reykjavik', '09:30', '15:30')
@@ -110,8 +111,6 @@ oslo.statusColor()
 reykjavik.statusColor()
 // }, 1000);
 
-currentYear()
-
 const infoBtns = document.querySelectorAll('.info-btn')
 infoBtns.forEach((btn) => {
   const marketInfo = [...btn.classList]
@@ -134,15 +133,6 @@ infoBtns.forEach((btn) => {
       case 'reykjavik':
         reykjavik.setSummary()
         break
-      // case 'tallin':
-      //   tallinn.setSummary()
-      //   break
-      // case 'riga':
-      //   riga.setSummary()
-      //   break
-      // case 'vilnius':
-      //   vilnius.setSummary()
-      //   break
     }
   })
 })

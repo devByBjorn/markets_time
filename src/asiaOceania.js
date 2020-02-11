@@ -5,6 +5,7 @@ import { currentTime } from './components/currentTime'
 import currentYear from './components/currentYear'
 import removeLoader from './components/loader'
 
+currentYear()
 currentTime()
 //SINGAPORE
 const singapore = new MarketWithLunch('Asia', 'Singapore', '09:00', '17:00', '12:00', '13:00')
@@ -132,9 +133,6 @@ sydney.setHolidays([
 sydney.setHalfDays(['Dec 24', 'Dec 31'])
 // sydney.getCountDown(sydney.open)
 // sydney.getCountDown(sydney.close)
-
-currentYear()
-
 
 
 // setInterval(() => {

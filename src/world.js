@@ -8,7 +8,6 @@ import removeLoader from './components/loader'
 currentYear()
 currentTime()
 
-
 // NEW YORK
 const newYork = new Market('America', 'New_York', '09:30', '16:00')
 

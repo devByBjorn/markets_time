@@ -6,6 +6,7 @@ import { currentTime } from './components/currentTime'
 import currentYear from './components/currentYear'
 import removeLoader from './components/loader'
 
+currentYear()
 currentTime()
 // LONDON
 const london = new Market('Europe', 'London', '08:00', '16:30')
@@ -108,10 +109,6 @@ zurich.statusColor()
 frankfurt.statusColor()
 moscow.statusColor()
 // }, 1000);
-
-currentYear()
-
-
 
 
 const infoBtns = document.querySelectorAll('.info-btn')

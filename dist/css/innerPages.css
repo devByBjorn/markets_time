@@ -270,7 +270,7 @@ grid-area: grid-six;
 
 
 /* Media queries*/
-/* mobile landscape and tablets*/
+/* tablets landscape*/
 @media(max-width: 1024px) {
   
   #main-nav ul {
@@ -297,6 +297,16 @@ grid-area: grid-six;
 
   .modal .info {
     margin: 0 auto;
+  }
+}
+
+/* Tablets portrait - mobile landscape*/ 
+@media(max-width : 850px) {
+  #markets {
+    grid-template-areas:
+    "grid-one grid-two"
+    "grid-three grid-four"
+    "grid-five grid-six" 
   }
 }
 
@@ -353,7 +363,6 @@ grid-area: grid-six;
 
   .region-wrapper {
     width: 100%;
-    /* border-top: var(--border-thin) var(--color-stand-out-transparent); */
   }
 
   .region-wrapper:first-child {
