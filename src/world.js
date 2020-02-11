@@ -1,6 +1,8 @@
 'use strict'
 import { Market, MarketWithLunch } from './mainClass.js'
-import { currentTime, loader, currentYear, openNav, closeNav } from './utils.js'
+import { loader, currentYear } from './utils.js'
+import { closeNav, openNav } from './components/toggleSideNav'
+import { currentTime } from './components/currentTime'
 
 currentTime()
 // NEW YORK

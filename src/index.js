@@ -1,4 +1,5 @@
-import { currentTime, openNav, closeNav } from './utils.js'
+import { currentTime } from './components/currentTime'
+import { closeNav, openNav } from './components/toggleSideNav'
 
 (function () {
   currentTime()
