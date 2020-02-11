@@ -1,0 +1,4 @@
+.select-container {
+  background: var(--main-color-darker);
+  color: var(--main-color-light);
+}
