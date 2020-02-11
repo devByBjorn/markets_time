@@ -1,12 +1,12 @@
 'use strict'
 
 import { Market } from './mainClass.js'
-import { loader } from './utils.js'
 import { closeNav, openNav } from './components/toggleSideNav'
 import currentTime from './components/currentTime'
 import currentYear from './components/currentYear'
+import removeLoader from './components/loader'
 
-
+currentYear()
 currentTime()
 // MEXICO CITY
 const mexicoCity = new Market('America', 'Mexico_City', '08:30', '15:00')
@@ -136,10 +136,6 @@ santiago.statusColor()
 buenosAires.statusColor()
 saoPaulo.statusColor()
 // }, 1000);
-
-currentYear()
-setTimeout(loader, 1200)
-clearTimeout(loader)
 
 
 // This solution creates more line of code, but the solution

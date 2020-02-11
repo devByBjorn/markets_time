@@ -1,10 +1,10 @@
 'use strict'
 // EUROPE
 import { Market } from './mainClass.js'
-import { loader } from './utils.js'
 import { closeNav, openNav } from './components/toggleSideNav'
 import { currentTime } from './components/currentTime'
 import currentYear from './components/currentYear'
+import removeLoader from './components/loader'
 
 currentTime()
 // LONDON
@@ -110,8 +110,6 @@ moscow.statusColor()
 // }, 1000);
 
 currentYear()
-setTimeout(loader, 1200)
-clearTimeout(loader)
 
 
 

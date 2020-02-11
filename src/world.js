@@ -1,10 +1,14 @@
 'use strict'
 import { Market, MarketWithLunch } from './mainClass.js'
-import { loader, currentYear } from './utils.js'
 import { closeNav, openNav } from './components/toggleSideNav'
-import { currentTime } from './components/currentTime'
+import currentTime from './components/currentTime'
+import currentYear from './components/currentYear'
+import removeLoader from './components/loader'
 
+currentYear()
 currentTime()
+
+
 // NEW YORK
 const newYork = new Market('America', 'New_York', '09:30', '16:00')
 
@@ -125,11 +129,6 @@ london.statusColor()
 frankfurt.statusColor()
 hongKong.statusColor()
 tokyo.statusColor()
-
-
-currentYear()
-setTimeout(loader, 1200)
-clearTimeout(loader)
 
 
 // This solution creates more line of code, but the solution
