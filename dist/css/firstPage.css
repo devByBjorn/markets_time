@@ -1,5 +1,10 @@
 @import url('utilAndVariables.css');
 @import url('nav.css');
+
+body {
+  animation: fadeIn .5s;
+}
+
 /* Landing Page*/
 .background {
   background: url(../img/world-dotted-90.jpg);

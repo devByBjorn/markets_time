@@ -3,7 +3,6 @@ import { Market } from './mainClass.js'
 import { closeNav, openNav } from './components/toggleSideNav'
 import { currentTime } from './components/currentTime'
 import currentYear from './components/currentYear'
-import removeLoader from './components/loader'
 
 currentYear()
 currentTime()
@@ -87,6 +86,7 @@ document.getElementById('market-select').addEventListener('change', (e) => {
 
 
 const infoBtns = document.querySelectorAll('.info-btn')
+
 infoBtns.forEach((btn) => {
   const marketInfo = [...btn.classList]
   console.log('hello')
