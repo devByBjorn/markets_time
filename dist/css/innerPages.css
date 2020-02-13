@@ -16,6 +16,7 @@ body {
   transition: padding ease-in .2s;
   background: var(--main-color-darker); 
   margin: 0 auto;
+  /* animation: fadeIn 1.5s; */
 }
 
 /* Main content - Markets*/
@@ -65,6 +66,7 @@ grid-area: grid-six;
   justify-content: center;
   text-align: center;
   padding: 1rem;
+  animation: fadeIn 1.5s;
 }
 
 /* Color themes based on trading hours*/
