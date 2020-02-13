@@ -5,6 +5,6 @@ const fadeIn = setTimeout(() => {
   headings.forEach((heading) => {
     heading.classList.remove('transparent')
   })
-}, 100);
+}, 500);
 
 export default fadeIn
