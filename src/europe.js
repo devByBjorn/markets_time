@@ -1,6 +1,6 @@
 'use strict'
 // EUROPE
-import { fadeIn, removeOverFlow } from './components/animation'
+import removeOverFlow from './components/animation'
 import { closeNav, openNav } from './components/toggleSideNav'
 import { currentTime } from './components/currentTime'
 import currentYear from './components/currentYear'
