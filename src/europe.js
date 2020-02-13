@@ -33,6 +33,7 @@ infoBtns.forEach((btn) => {
 
   btn.addEventListener('click', () => {
     modal.style.display = 'block'
+
     switch (marketInfo[1]) {
       case 'london':
         london.setSummary()

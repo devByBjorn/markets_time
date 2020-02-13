@@ -290,7 +290,7 @@ export class Market {
     halfDayHours.innerHTML = `<span>Half day trading hours</span><span>${this.halfDays}</span>`
     weekend.innerHTML = `<span>Weekend</span><span>${this.weekend.join(' | ')}</<span>`
     halfDays.innerHTML = `<span>Half day trading</span><span>${halfdayContent.replace(/,/g, ' | ')}</span>`
-    holidays.innerHTML = `<span>Holidays</span><span>${holidaysContent.replace(/,/g, ' | ')}</span>`
+    holidays.innerHTML = `<span>Holidays</span><span>${holidaysContent.replace(/,/g, ' - ')}</span>`
 
     container.appendChild(header)
     container.appendChild(openingHours)
