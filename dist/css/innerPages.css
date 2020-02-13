@@ -101,6 +101,7 @@ animation: fadeIn 3.5s;
   white-space: nowrap;
   font-weight: 900;
   text-transform: capitalize;
+  animation: fadeIn 3s;
 }
 
 #markets .open{
@@ -135,6 +136,7 @@ animation: fadeIn 3.5s;
   font-weight: 400;
   font-size: .8rem;
   background-color: transparent;
+  animation: fadeIn 3s;
   transition: all .5s;
 }
 
