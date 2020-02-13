@@ -10,6 +10,12 @@ import santiago from './markets/am_santiago'
 import buenosAires from './markets/am_buenosAires'
 import saoPaulo from './markets/am_saoPaolo'
 
+addEventListener('load', () => {
+  const markets = document.getElementById('#markets')
+
+  markets.style.animationName = 'fadeIn'
+})
+
 currentYear()
 currentTime()
 

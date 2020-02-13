@@ -1,3 +1,4 @@
+import fadeInd from './components/animation'
 import elDOM from './components/cityWrapper'
 import { Market } from './mainClass.js'
 import { closeNav, openNav } from './components/toggleSideNav'

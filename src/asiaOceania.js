@@ -1,4 +1,5 @@
 'use strict'
+import fadeInd from './components/animation'
 import { closeNav, openNav } from './components/toggleSideNav'
 import { currentTime } from './components/currentTime'
 import currentYear from './components/currentYear'
