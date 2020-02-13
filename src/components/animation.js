@@ -1,10 +1,14 @@
 
 const fadeIn = setTimeout(() => {
-  const headings = document.querySelectorAll('.h1')
+  const container = document.querySelector('.container')
 
-  headings.forEach((heading) => {
-    heading.classList.remove('transparent')
-  })
-}, 800);
+  container.style.paddingTop = '0'
+}, 550);
 
-export default fadeIn
+const removeOverFlow = setTimeout(() => {
+  const body = document.querySelector('body')
+
+  body.style.overflowY = 'auto'
+}, 1000)
+
+export { fadeIn, removeOverFlow }

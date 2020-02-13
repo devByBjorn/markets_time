@@ -4,19 +4,21 @@
 
 body {
   background: var(--main-color-darker);
+  overflow-y: hidden;
 }
+
 
 /* Main container */
 .container {
+  padding-top: 1000%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 95vh;
+  min-height: 85vh;
   transition: padding ease-in .2s;
   background: var(--main-color-darker); 
   margin: 0 auto;
-  /* animation: fadeIn 1.5s; */
 }
 
 /* Main content - Markets*/
@@ -32,8 +34,6 @@ body {
   grid-template-areas:
 "grid-one grid-two grid-three"
 "grid-four grid-five grid-six";
-
-  animation: fadeIn 1.5s;
 }
 
 .grid-1 {
@@ -101,7 +101,6 @@ animation: fadeIn 3.5s;
   white-space: nowrap;
   font-weight: 900;
   text-transform: capitalize;
-  animation: fadeIn 3s;
 }
 
 #markets .open{
@@ -136,7 +135,6 @@ animation: fadeIn 3.5s;
   font-weight: 400;
   font-size: .8rem;
   background-color: transparent;
-  animation: fadeIn 3s;
   transition: all .5s;
 }
 
@@ -278,6 +276,10 @@ animation: fadeIn 3.5s;
 
 /* Mobile*/
 @media(max-width : 500px){
+
+  body {
+    overflow-x: hidden;
+  }
 
  #nav {
    padding: .5rem 1rem;
