@@ -1,4 +1,5 @@
 'use strict'
+import fadeInd from './components/animation'
 import { closeNav, openNav } from './components/toggleSideNav'
 import currentTime from './components/currentTime'
 import currentYear from './components/currentYear'
@@ -10,11 +11,6 @@ import santiago from './markets/am_santiago'
 import buenosAires from './markets/am_buenosAires'
 import saoPaulo from './markets/am_saoPaolo'
 
-addEventListener('load', () => {
-  const markets = document.getElementById('#markets')
-
-  markets.style.animationName = 'fadeIn'
-})
 
 currentYear()
 currentTime()
