@@ -38,27 +38,34 @@ body {
 
 .grid-1 {
 grid-area: grid-one;
+animation: fadeIn 1s;
 }
 
 .grid-2 {
 grid-area: grid-two;
+animation: fadeIn 1.5s;
 }
 
 .grid-3 {
 grid-area: grid-three;
+animation: fadeIn 2s;
 }
 
 .grid-4 {
 grid-area: grid-four;
+animation: fadeIn 2.5s;
 }
 
 .grid-5 {
 grid-area: grid-five;
+animation: fadeIn 3s;
 }
 
 .grid-6 {
 grid-area: grid-six;
+animation: fadeIn 3.5s;
 }
+
 
 #markets .wrapper {
   display: flex;
@@ -129,7 +136,6 @@ grid-area: grid-six;
   font-size: .8rem;
   background-color: transparent;
   transition: all .5s;
-  border: none;
 }
 
 .info-btn:hover {
