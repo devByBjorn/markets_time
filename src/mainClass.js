@@ -118,31 +118,28 @@ export class Market {
       })
     }
 
-    const pad = (num) => {
+    function pad(num) {
       return ('0' + parseInt(num)).substr(-2)
     }
 
-    // const tick = () => {
-    const now = this.getTime().timeNow
+    function tick() {
+      const now = this.getTime().timeNow
 
-    if (now > countTo) {
-      countTo.set(countTo.add(1, 'day'));
+      if (now > countTo) {
+        countTo.set(countTo.add(1, 'day'));
+      }
+
+      const remain = ((countTo - now) / 1000);
+      const hh = pad((remain / 60 / 60) % 60);
+      const mm = pad((remain / 60) % 60);
+      const ss = pad(remain % 60);
+
+      // return hh mm ss
+      return `${hh}:${mm}:${ss}`
+
     }
 
-    const remain = ((countTo - now) / 1000);
-    const hh = pad((remain / 60 / 60) % 60);
-    const mm = pad((remain / 60) % 60);
-    const ss = pad(remain % 60);
-
-    // return hh mm ss
-    return {
-      hh: hh,
-      mm: mm,
-      ss: ss
-    }
-    // }
-
-    // return tick()
+    return tick
   }
 
   // Have the statements read before setInterval or setTimeout runs the tick
@@ -180,7 +177,6 @@ export class Market {
       counter.innerHTML = `<span>Opens in</span><span>${this.setCountDown(this.close)}</span>`
       //`<span>Closes in</span><span>${hh}:${mm}:${ss}</span>`
     }
-
   }
 
   getColorTheme(toAdd, toRemove, toRemoveTwo) {
@@ -203,7 +199,6 @@ export class Market {
   // Manipulating market wrappers DOM, content and color, 
   //depending on market status(closed,open,halfday,holiday)
   statusColor() {
-
     const self = this
     let timerId = setTimeout(function status() {
       // The main clock for each market

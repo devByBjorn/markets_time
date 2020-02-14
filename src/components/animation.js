@@ -4,4 +4,5 @@ const removeOverFlow = setTimeout(() => {
   body.style.overflowY = 'auto'
 }, 1800)
 
-export default removeOverFlow
+
+export { removeOverFlow }

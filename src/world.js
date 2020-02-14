@@ -1,5 +1,5 @@
 'use strict'
-import removeOverFlow from './components/animation'
+import { removeOverFlow } from './components/animation'
 import { closeNav, openNav } from './components/toggleSideNav'
 import currentTime from './components/currentTime'
 import currentYear from './components/currentYear'
@@ -14,6 +14,7 @@ import tokyo from './markets/asOc_tokyo'
 currentYear()
 currentTime()
 
+
 newYork.statusColor()
 toronto.statusColor()
 london.statusColor()
@@ -21,13 +22,15 @@ frankfurt.statusColor()
 hongKong.statusColor()
 tokyo.statusColor()
 
+
+// INFO BTN - TRIGGER MODALS
 const infoBtns = document.querySelectorAll('.info-btn')
 infoBtns.forEach((btn) => {
   const marketInfo = [...btn.classList]
   const modal = btn.nextElementSibling
 
   btn.addEventListener('click', () => {
-    modal.style.display = 'block'
+    modal.style.display = 'flex'
     switch (marketInfo[1]) {
       case 'new-york':
         newYork.setSummary()

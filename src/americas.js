@@ -29,7 +29,7 @@ infoBtns.forEach((btn) => {
   const modal = btn.nextElementSibling
 
   btn.addEventListener('click', () => {
-    modal.style.display = 'block'
+    modal.style.display = 'flex'
     switch (marketInfo[1]) {
       case 'new-york':
         newYork.setSummary()
