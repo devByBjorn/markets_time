@@ -66,6 +66,7 @@ animation: floatUp 1.6s;
 }
 
 #markets .wrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -128,32 +129,42 @@ animation: floatUp 1.6s;
   font-size: 4rem;
 }
 
-
 #markets .info-btn {
-  padding: .25rem 0;
-  font-weight: 400;
+  position: absolute;
+  bottom: .25rem;
+  right: .25rem;
+  padding: .2rem .5rem;
   font-size: .8rem;
-  background-color: transparent;
-  transition: all .5s;
+  text-align: center;
+  border-radius: 50%;
+  transition: all .3s ease-in-out;
 }
 
 .info-btn:hover {
   cursor: pointer;
-  padding-bottom: .5rem;
-  box-shadow: 1px 5px 5px;
 }
 
 .openMarketBtn {
-  background: transparent;
-  border: var(--main-color-light) var(--border-thin);
+  color: rgb(240, 240, 240);
+  background:rgb(40, 184, 90);
+}
+
+.openMarketBtn:hover {
   color: var(--main-color-light);
-  box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.4);
+  background:rgb(55, 223, 113);
 }
 
 .closedMarketBtn {
-  border: var(--main-color-dark) var(--border-thin);
-  color: var(--main-color-dark);
-  box-shadow: 2px 2px 5px rgba(0,0,0,.4);
+  color: rgba(12, 12, 12, .7);
+  color: rgb(1, 13, 26);
+  border: 1px solid transparent;
+  background: rgb(202, 69, 66);
+}
+
+
+.closedMarketBtn:hover {
+  color: var(--main-color-darker);
+  background: rgb(230, 85, 83);
 }
 
 /* Modal window pop up on info btn click*/
