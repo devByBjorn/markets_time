@@ -140,6 +140,10 @@ animation: floatUp 1.6s;
   transition: all .3s ease-in-out;
 }
 
+a {
+  color: var(--main-color-darker);
+}
+
 .info-btn:hover {
   cursor: pointer;
 }
