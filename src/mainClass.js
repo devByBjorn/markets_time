@@ -201,8 +201,6 @@ export class Market {
   statusColor() {
     const self = this
     let timerId = setTimeout(function status() {
-
-      self.setinnerHTML(`${self.id}-heading`, self.city.replace('Berlin', 'Frankfurt').replace('_', ' '))
       // The main clock for each market
       self.setinnerHTML(`${self.id}-clock`, self.getTime().hoursMinutes)
       self.setinnerHTML(`${self.id}-open`,

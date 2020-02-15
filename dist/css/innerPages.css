@@ -74,6 +74,10 @@ animation: floatUp 1.6s;
   padding: 1rem;
 }
 
+.inital-border {
+  border: 1px dotted var(--main-color-dark);
+}
+
 /* Color themes based on trading hours*/
 .openForTrading {
   background: var(--color-open);
@@ -140,6 +144,8 @@ animation: floatUp 1.6s;
   transition: all .3s ease-in-out;
 }
 
+
+/* For hiding i tags on inital load*/
 a {
   color: var(--main-color-darker);
 }
