@@ -207,6 +207,7 @@ a {
   padding: 2.5rem;
   width: 45rem;
   max-width: 90vw;
+
   letter-spacing: 1px;
 }
 
@@ -331,8 +332,17 @@ a {
     grid-area: grid-six;
     animation: fadeIn 1.6s;
     }
+}
 
+@media(max-height : 500px) {
+  #markets .modal {
+    overflow-y: auto;
+  }
 
+  .modal .close {
+    position: absolute;
+    top: 7rem;
+  }
 }
 
 /* Mobile*/
