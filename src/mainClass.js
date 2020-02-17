@@ -204,7 +204,7 @@ export class Market {
       // The main clock for each market
       self.setinnerHTML(`${self.id}-clock`, self.getTime().hoursMinutes)
       self.setinnerHTML(`${self.id}-open`,
-        `<span>Trading</span><span>${self.open}-${self.close}</span>`)
+        `<span>${self.open}-${self.close}</span>`)
 
       // Weekend content and color theme
       if (self.getStatus().isWeekend) {
