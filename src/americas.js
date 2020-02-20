@@ -1,5 +1,5 @@
 'use strict'
-import removeOverFlow from './components/animation'
+import { removeOverFlow, addKeyFrame } from './components/animations'
 import { closeNav, openNav } from './components/toggleSideNav'
 import currentTime from './components/currentTime'
 import currentYear from './components/currentYear'

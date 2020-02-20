@@ -1,7 +1,7 @@
 import { Market } from '../mainClass.js'
 
 // STOCKHOLM
-const stockholm = new Market('Europe', 'Stockholm', '09:00', '17:30')
+const stockholm = new Market('Europe', 'Stockholm', '09:00', '15:35')
 stockholm.setHolidays([
   'Jan 1',
   'Jan 6',

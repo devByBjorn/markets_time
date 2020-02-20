@@ -1,6 +1,7 @@
 'use strict'
 import moment from 'moment'
 import "moment-timezone"
+import { removeOverFlow, addKeyFrame } from './components/animations'
 
 export class Market {
   constructor(region, city, open, close) {
@@ -15,7 +16,6 @@ export class Market {
 
   // manipulate city to fit HTML id
   get id() {
-
     let cityID = this.city
 
     if (cityID === 'Berlin') {
@@ -30,18 +30,14 @@ export class Market {
   // manipulate city to pass moment.tz() argument specifics 
   getTime() {
 
-    let cityMomentFit = this.city
-
-    if (cityMomentFit === 'Frankfurt') {
-      cityMomentFit = 'Berlin'
-    } else if (cityMomentFit.includes('-')) {
-      cityMomentFit = cityMomentFit.replace('-', '_')
+    let city = this.city
+    if (city === 'Frankfurt') {
+      city = 'Berlin'
+    } else if (city.includes('-')) {
+      city = city.replace('-', '_')
     }
 
-    // moment.tz needs to be invoked to update every minute
-    // if placed inside the constructor it seems like it can't 
-    // be used to get updated time every minute
-    const time = moment.tz(`${this.region}/${cityMomentFit.replace(' ', '_')}`)
+    const time = moment.tz(`${this.region}/${city.replace(' ', '_')}`)
 
     return {
       timeNow: time,
@@ -65,16 +61,21 @@ export class Market {
   getHalfdayClose() {
     let halfdayClose
 
-    if (this.city === 'London') {
-      halfdayClose = '12:30'
-    } else if (this.city === 'Hong_Kong' || 'Singapore') {
-      halfdayClose = '12:00'
-    } else if (this.city === 'Amsterdam' || 'Paris') {
-      halfdayClose = '14:00'
-    } else if (this.city = 'sydney') {
-      halfdayClose = '14.10'
-    } else {
-      halfdayClose = '13:00'
+    switch (this.city) {
+      case 'London':
+        return halfdayClose = '12:30'
+      case 'Amsterdam':
+        return halfdayClose = '14:00'
+      case 'Paris':
+        return halfdayClose = '14:00'
+      case 'Hong_Kong':
+        return halfdayClose = '12:00'
+      case 'Singapore':
+        return halfdayClose = '12:00'
+      case 'Sydney':
+        return halfdayClose = '14:10'
+      default:
+        halfdayClose = '13:00'
     }
 
     return halfdayClose
@@ -82,12 +83,13 @@ export class Market {
 
   // open/close status for markets
   getStatus() {
+    const { weekend, holidays, halfDays, open, close } = this
+
     return {
-      isClosed: this.getTime().hoursMinutes < this.open
-        || this.getTime().hoursMinutes >= this.close,
-      isWeekend: this.weekend.includes(this.getTime().dayOfWeek),
-      isHoliday: this.holidays.includes(this.getTime().yearDayMonth),
-      isHalfDay: this.halfDays.includes(this.getTime().yearDayMonth)
+      isClosed: this.getTime().hoursMinutes < open || this.getTime().hoursMinutes >= close,
+      isWeekend: weekend.includes(this.getTime().dayOfWeek),
+      isHoliday: holidays.includes(this.getTime().yearDayMonth),
+      isHalfDay: halfDays.includes(this.getTime().yearDayMonth)
     }
   }
 
@@ -96,202 +98,109 @@ export class Market {
     document.getElementById(`${id}`).innerHTML = content
   }
 
-  // Countdown to either open or close
-  // How get this to work without causing issues for the whole app
-  setCountDown(countReference) {
-
-    const countTo = this.getTime().timeNow
-
-    if (this.getStatus().isHalfDay && countReference === this.close) {
-      countTo.set({
-        'hour': this.getHalfdayClose().slice(0, 2),
-        'minutes': this.getHalfdayClose().slice(3, 5),
-        'seconds': 0,
-        'millisends': 0
-      })
-    } else {
-      countTo.set({
-        'hour': countReference.slice(0, 2),
-        'minutes': countReference.slice(3, 5),
-        'seconds': 0,
-        'millisends': 0
-      })
-    }
-
-    function pad(num) {
-      return ('0' + parseInt(num)).substr(-2)
-    }
-
-    function tick() {
-      const now = this.getTime().timeNow
-
-      if (now > countTo) {
-        countTo.set(countTo.add(1, 'day'));
-      }
-
-      const remain = ((countTo - now) / 1000);
-      const hh = pad((remain / 60 / 60) % 60);
-      const mm = pad((remain / 60) % 60);
-      const ss = pad(remain % 60);
-
-      // return hh mm ss
-      return `${hh}:${mm}:${ss}`
-
-    }
-
-    return tick
-  }
-
-  // Have the statements read before setInterval or setTimeout runs the tick
-  // alot of arguments getting read every second otherwise. 
-  // How to solve? 
-  getCountDown() {
-    const counter = document.getElementById(`${this.id}-counter`)
-    const nextDay = this.getTime().timeNow.add(1, 'day')
-    const nextDayWeekend = nextDay.format('ddd')
-    const nextDayHoliday = nextDay.format('MMM D')
-
-    if (this.getStatus().isWeekend) {
-      counter.innerHTML = `<span>Market closed</span>`
-    } else if (this.getStatus().isHoliday) {
-      counter.innerHTML = `<span>Market closed</span>`
-    } else if (this.weekend.includes(nextDayWeekend)
-      && this.getTime().hoursMinutes > this.close
-      || this.holidays.includes(nextDayHoliday)
-      && this.getTime().hoursMinutes > this.close) {
-      counter.innerHTML = `<span>Market closed tomorrow</span>`
-    } else if (this.getStatus().isClosed &&
-      !this.getStatus().isWeekend) {
-      counter.innerHTML = `<span>Opens in</span>
-      <span>${this.setCountDown(this.open).hh}
-      ${this.setCountDown(this.open).mm}
-      ${this.setCountDown(this.open).hh}</span>`
-      //`<span>Opens in</span><span>${hh}:${mm}:${ss}</span>`
-    }
-
-    if (this.getStatus().isClosed
-      || this.getStatus().isHoliday
-      || this.getStatus().isWeekend) {
-      return
-    } else {
-      counter.innerHTML = `<span>Opens in</span><span>${this.setCountDown(this.close)}</span>`
-      //`<span>Closes in</span><span>${hh}:${mm}:${ss}</span>`
-    }
-  }
-
-  getColorTheme(toAdd, toRemove, toRemoveTwo) {
-    const marketWrapper = document.getElementById(`${this.id}-wrapper`)
-    const infoBtn = document.getElementById(`${this.id}-btn`)
+  getColorTheme(toAdd, toRemove, toRemoveTwo, id) {
+    const marketWrapper = document.getElementById(`${id}-wrapper`)
+    const infoBtn = document.getElementById(`${id}-btn`)
 
     marketWrapper.classList.add(toAdd)
     marketWrapper.classList.remove(toRemove)
     marketWrapper.classList.remove(toRemoveTwo)
 
-    if (toAdd === 'closedForTrading') {
-      infoBtn.classList.remove('openMarketBtn')
-      infoBtn.classList.add('closedMarketBtn')
-    } else {
-      infoBtn.classList.remove('closedMarketBtn')
-      infoBtn.classList.add('openMarketBtn')
+    switch (toAdd) {
+      case 'closedForTrading':
+        infoBtn.classList.remove('openMarketBtn')
+        infoBtn.classList.add('closedMarketBtn')
+        break
+      case 'openForTrading':
+        infoBtn.classList.remove('closedMarketBtn')
+        infoBtn.classList.add('openMarketBtn')
+        break
+      case 'halfDayTrading':
+        infoBtn.classList.remove('openMarketBtn')
+        infoBtn.classList.remove('closedMarketBtn')
+        infoBtn.classList.add('halfDayMarketBtn')
     }
   }
 
   // Manipulating market wrappers DOM, content and color, 
   //depending on market status(closed,open,halfday,holiday)
   statusColor() {
-    const self = this
+    let self = this
+    const { id, open, close, setinnerHTML, getColorTheme } = self
+
     let timerId = setTimeout(function status() {
       // The main clock for each market
-      self.setinnerHTML(`${self.id}-clock`, self.getTime().hoursMinutes)
-      self.setinnerHTML(`${self.id}-open`,
-        `<span>${self.open}-${self.close}</span>`)
+      setinnerHTML(`${id}-clock`, self.getTime().hoursMinutes)
+      setinnerHTML(`${id}-open`, `<span>${open}-${close}</span>`)
 
-      // Weekend content and color theme
       if (self.getStatus().isWeekend) {
-        self.getColorTheme('closedForTrading', 'halfDayTrading', 'openForTrading')
-        self.setinnerHTML(`${self.id}-open`, `Weekend`)
-
-        // Closed hours content and color theme 
+        getColorTheme('closedForTrading', 'halfDayTrading', 'openForTrading', id)
+        setinnerHTML(`${id}-open`, `Weekend`)
       } else if (self.getStatus().isHoliday) {
-        self.getColorTheme('closedForTrading', 'halfDayTrading', 'openForTrading')
-        self.setinnerHTML(`${self.id}-open`, `Holiday`)
-      }
-
-      else if (self.getStatus().isClosed) {
-        self.getColorTheme('closedForTrading', 'halfDayTrading', 'openForTrading')
-
-        // Half day content and color theme
+        getColorTheme('closedForTrading', 'halfDayTrading', 'openForTrading', id)
+        setinnerHTML(`${id}-open`, `Holiday`)
+      } else if (!self.getStatus().isHalfDay && self.getStatus().isClosed) {
+        getColorTheme('closedForTrading', 'halfDayTrading', 'openForTrading', id)
       } else if (self.getStatus().isHalfDay) {
-        self.getColorTheme('closedForTrading', 'halfDayTrading', 'openForTrading')
-        self.setinnerHTML(`${self.id}-open`,
-          `<span>Trading</span><span>${self.open}-${self.getHalfdayClose()}</span>`)
-
-        // color theme on half day trading open
-        if (self.getTime().hoursMinutes < self.getHalfdayClose()) {
-          self.getColorTheme('halfDayTrading', 'openForTrading', 'closedForTrading')
-
-          // color theme on half day trading close
-        } else if (self.getTime().hoursMinutes > self.getHalfdayClose()) {
-          self.getColorTheme('closedForTrading', 'halfDayTrading', 'openForTrading')
+        setinnerHTML(`${id}-open`, `<span>${open}-${self.getHalfdayClose()}</span>`)
+        if (self.getTime().hoursMinutes > open && self.getTime().hoursMinutes < self.getHalfdayClose()) {
+          getColorTheme('halfDayTrading', 'openForTrading', 'closedForTrading', id)
+        } else if (self.getTime().hoursMinutes > self.getHalfdayClose() || self.getTime().hoursMinutes < open) {
+          getColorTheme('closedForTrading', 'halfDayTrading', 'openForTrading', id)
         }
-
-        // Opening Hours content and color theme
       } else {
-        self.getColorTheme('openForTrading', 'halfDayTrading', 'closedForTrading')
+        getColorTheme('openForTrading', 'halfDayTrading', 'closedForTrading', id)
       }
       timerId = setTimeout(status, 1000)
     })
 
   }
-
+  // Summury DOM inside of modal
   setSummary() {
-    // Summury DOM inside of modal
-    const modal = document.getElementById(`${this.id}-modal`)
-    const container = document.getElementById(`${this.id}-info`)
+    const { id, open, close, lunchStart, lunchEnd, holidays, halfDays, weekend } = this
 
+    const modal = document.getElementById(`${id}-modal`)
+    const container = document.getElementById(`${id}-info`)
     const header = document.createElement('h3')
     const openingHours = document.createElement('p')
     const halfDayHours = document.createElement('p')
-    const weekend = document.createElement('p')
-    const halfDays = document.createElement('p')
-    const holidays = document.createElement('p')
+    const weekendDays = document.createElement('p')
+    const halfDayDays = document.createElement('p')
+    const holidayDays = document.createElement('p')
 
     const closeBtn = document.createElement('div')
     closeBtn.innerHTML = '&times;'
-    closeBtn.setAttribute('id', `${this.id}-close`)
+    closeBtn.setAttribute('id', `${id}-close`)
     closeBtn.setAttribute('class', 'close')
     closeBtn.addEventListener('click', () => {
       modal.style.display = 'none'
     })
 
-    // Make sure modal info does not duplicate html structure on every open
     container.innerHTML = ''
 
     // Make sure lunch hour trading is taken into account - 
     // can this be modified in the subclass? 
-    if (this.lunchStart && this.lunchEnd) {
-      openingHours.innerHTML = `<span>Trading hours</span><span>${this.open}-${this.lunchStart}
-                                | ${this.lunchEnd}-${this.close}</<span>`
+    if (lunchStart && lunchEnd) {
+      openingHours.innerHTML = `<span>Trading hours</span><span>${open}-${lunchStart}
+                                | ${lunchEnd}-${close}</<span>`
     } else {
-      openingHours.innerHTML = `<span>Trading hours</span><span>${this.open}-${this.close}</<span>`
+      openingHours.innerHTML = `<span>Trading hours</span><span>${open}-${close}</<span>`
     }
 
-
     //  HTML and Content for MODAL
-    const holidaysContent = this.holidays.toString()
-    const halfdayContent = this.halfDays.toString()
-
-    header.textContent = `${this.id.replace('-', ' ').toUpperCase()}`
-    halfDayHours.innerHTML = `<span>Half day trading hours</span><span>${this.halfDays}</span>`
-    weekend.innerHTML = `<span>Weekend</span><span>${this.weekend.join(' | ')}</<span>`
-    halfDays.innerHTML = `<span>Half day trading</span><span>${halfdayContent.replace(/,/g, ' | ')}</span>`
-    holidays.innerHTML = `<span>Holidays</span><span>${holidaysContent.replace(/,/g, ' | ')}</span>`
+    const holidaysContent = holidays.toString()
+    const halfdayContent = halfDays.toString()
+    header.textContent = `${id.replace('-', ' ').toUpperCase()}`
+    halfDayHours.innerHTML = `<span>Half day trading hours</span><span>${halfDays}</span>`
+    weekendDays.innerHTML = `<span>Weekend</span><span>${weekend.join(' | ')}</<span>`
+    halfDayDays.innerHTML = `<span>Half day trading</span><span>${halfdayContent.replace(/,/g, ' | ')}</span>`
+    holidayDays.innerHTML = `<span>Holidays</span><span>${holidaysContent.replace(/,/g, ' | ')}</span>`
 
     container.appendChild(header)
     container.appendChild(openingHours)
-    container.appendChild(weekend)
-    container.appendChild(holidays)
-    container.appendChild(halfDays)
+    container.appendChild(weekendDays)
+    container.appendChild(holidayDays)
+    container.appendChild(halfDayDays)
     container.appendChild(closeBtn)
   }
 }
@@ -305,14 +214,15 @@ export class MarketWithLunch extends Market {
   }
 
   closedLunch() {
-    setInterval(() => {
+    let self = this
+    const { setinnerHTML, getColorTheme, lunchStart, lunchEnd } = self
 
-      const lunchHour = this.getTime().hoursMinutes > this.lunchStart && this.getTime().hoursMinutes < this.lunchEnd
+    setInterval(() => {
+      const lunchHour = self.getTime().hoursMinutes > lunchStart && self.getTime().hoursMinutes < lunchEnd
 
       if (lunchHour) {
-        this.setBackgroundColor(`${this.id}-wrapper`, this.colors.red)
-        this.setColor(`${this.id}-wrapper`, this.colors.black)
-        this.setinnerHTML(`${this.id}-open`, `Lunch: ${this.lunchStart} - ${this.lunchEnd}`)
+        getColorTheme('closedForTrading', 'halfDayTrading', 'openForTrading', id)
+        setinnerHTML(`${id}-open`, `Lunch: ${lunchStart} - ${lunchEnd}`)
       }
 
     }, 1000)

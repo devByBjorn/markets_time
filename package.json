@@ -4,7 +4,6 @@
   "description": "A stock market timing tool",
   "main": "index.js",
   "scripts": {
-    "serve": "live-server dist/",
     "build": "webpack --watch",
     "dev-server": "webpack-dev-server"
   },

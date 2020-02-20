@@ -1,6 +1,7 @@
 
 @import url('utilAndVariables.css');
 @import url('nav.css');
+@import url('keyFrames.css');
 
 body {
   background: var(--main-color-darker);
@@ -23,7 +24,7 @@ body {
 #markets {
   margin: auto;
   padding: 1rem;
-  
+  margin-top: 5rem;
   display: grid;
   justify-content: center;
   align-items: center;
@@ -177,6 +178,16 @@ a {
 .closedMarketBtn:hover {
   color: var(--main-color-darker);
   background: rgb(230, 85, 83);
+}
+
+.halfDayMarketBtn {
+  color: rgb(240, 240, 240);
+  background: rgb(241, 176, 91);
+}
+
+.halfDayMarketBtn:hover {
+  color: var(--main-color-light);
+  background: rgb(250, 191, 113);
 }
 
 #markets .fa-info-circle {
@@ -350,23 +361,6 @@ a {
 
   body {
     overflow-x: hidden;
-  }
-
- #nav {
-   padding: .5rem 1rem;
-   font-size: 1rem;
- }
-
- #nav .region-tag {
-   display: none;
- }
-
- #nav .current-time {
-   font-size: 1.2rem;
- }
-  .color-themes .color {
-    padding: .5rem;
-    border: none;
   }
 
   .landing-content {

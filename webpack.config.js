@@ -13,7 +13,6 @@ module.exports = {
     asiaOceania: './src/asiaOceania.js',
     europe: './src/europe.js',
     nordics: './src/nordics.js',
-    myMarkets: './src/myMarkets.js'
   },
   output: {
     filename: '[name].js',

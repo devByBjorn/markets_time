@@ -1,6 +1,7 @@
 /* Header */
 #nav {
   display: flex;
+  z-index: 999;
   width: 100vw;
   align-items: center;
   padding: 0 1.5rem;
@@ -21,7 +22,6 @@
   color: var(--color-stand-out);
   border-bottom: var(--border-thin) var(--color-stand-out-transparent);
 }
-
 
 #nav div {
   flex: 1;
@@ -170,4 +170,28 @@ border-top: 1px solid var(--color-stand-out-transparent);
   color: var(--color-closed);
   border-right: none;
   border-right: var(--color-stand-out-transparent) var(--border-thin)
+}
+
+/* Mobile*/
+@media(max-width : 500px){
+
+ #nav {
+  position: fixed;
+  padding: .5rem 1rem;
+  font-size: 1rem;
+ }
+
+ #nav .region-tag {
+   display: none;
+ }
+
+ #nav .current-time {
+   font-size: 1.2rem;
+ }
+
+ .color-themes .color {
+  padding: .5rem;
+  border: none;
+}
+
 }
