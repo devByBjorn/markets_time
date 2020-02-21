@@ -24,7 +24,6 @@ body {
 #markets {
   margin: auto;
   padding: 1rem;
-  margin-top: 5rem;
   display: grid;
   justify-content: center;
   align-items: center;
@@ -381,6 +380,7 @@ a {
   }
 
   #markets {
+    margin-top: 5rem;
     grid-template-areas:
   "grid-one"
   "grid-two"
