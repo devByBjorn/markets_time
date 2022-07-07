@@ -23,7 +23,7 @@
     "babel-cli": "^6.26.0",
     "babel-loader": "^8.0.6",
     "live-server": "^1.2.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "moment-timezone": "^0.5.27",
     "webpack": "^4.41.5",
     "webpack-dev-server": "^3.10.2"
